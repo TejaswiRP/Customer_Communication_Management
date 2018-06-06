@@ -1,7 +1,7 @@
 ﻿<div class="course-page content" id="PageContent" ng-controller="PageContentCtrl" style="width: 100%; height: 100%; overflow-y: hidden; overflow-x:hidden" ng-switch="gamifiedPage()">
     <!--to change the page animation changr the class name---- slide,slider,flip,slide-pop--->
 	<div ng-switch-when="false">
-		<div ng-cloak class="ng-cloak page-holder" ui-view="page-container"  style="width: 100%; height: 100%; overflow-y: hidden; overflow-x: hidden"  ng-swipe-right="(isPrevButtonDisabled || deskTop)?return: gotoPreviousPage()" ng-swipe-left="isNextButtonDisabled || deskTop?return: gotoNextPage()"></div>
+		<div ng-cloak class="ng-cloak page-holder" ui-view="page-container"  style="width: 100%; height: 100%; overflow-y: hidden; overflow-x: hidden" ></div>
 	</div>
 	<div ng-switch-when="true">
 		<div ng-cloak class="ng-cloak page-holder-assessment">
