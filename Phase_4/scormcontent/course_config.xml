@@ -2,7 +2,7 @@
 <root>
 	<CourseBrandType>0</CourseBrandType>
 	<CourseBrandNameImg>../course_images/interface/logo.png</CourseBrandNameImg>
-	<CourseName>FrameWork Library</CourseName>
+	<CourseName>Customer Communication Management</CourseName>
 	<UIControllers>
 		<Next>1</Next>
 		<Back>1</Back>
