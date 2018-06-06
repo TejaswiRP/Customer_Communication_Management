@@ -1,0 +1,157 @@
+<style>
+.page_bg_2{
+     background: url('../course_images/pages/m01/t02/p01/bg_img_PC.jpg') center center;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 1;
+    position:relative;
+    border: solid 1px #ececec;
+}
+
+
+.main-container{
+	overflow: hidden;
+}
+
+.panel-custom{
+    background-color: transparent !important;
+    border-radius: transparent !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    text-align: center;
+}
+.hr-custom{
+    border-bottom: 1px solid;
+    border-style: dashed;
+    width: 85%;
+}
+.hr-custom2{
+    border-bottom: 1px solid;
+    border-style: dashed;
+    position: relative;
+    top: 42%;
+    width: 60%;
+}
+.para-custom{
+    margin-top: 8%;
+    margin-bottom: 2%;
+}
+.div-custom{
+    /*font-size: 22px;
+    font-weight: bold;*/
+    margin: 3% 0% 0% 0%;
+    /*border: 1px solid;*/
+    /*height: 80px;*/
+    /*border-radius: 10px;
+    padding: 3%;*/
+    /*box-shadow: 5px 10px #7d9c9c52;*/
+    /*color: white !important;
+    border-color: #78b4a2;*/
+}
+.main-div{
+    position: relative;
+    left: 5%;
+    top: 35%;
+}
+.span-custom{
+    position: absolute;
+    top: 15%;
+    left: 33%;
+}
+.span-custom h3{
+    color: white !important;
+    font-weight: bold;
+}
+@media (max-width: 768px) and (orientation:portrait){
+    /*tab potrait*/
+    .page_bg_2{
+          background: url('../course_images/pages/m01/t02/p01/bg_img_tab_portrait.jpg') center center;
+    }
+    
+    .panel-custom{
+        height: 100%;
+    }
+    .main-div {
+        left: 23%;
+        top: 28%;
+    }
+}
+@media (max-width: 375px) and (orientation:portrait){
+    /*phone potrait*/
+    .page_bg_2{
+         background: url('../course_images/pages/m01/t02/p01/bg_img_ph_portrait.jpg') center center;
+    }
+    .panel-custom{
+        height: 100%;
+        top: -2%;
+    }
+    .main-div {
+        left: 12%;
+        top: 38%;
+    }
+}
+@media (max-width: 667px) and (orientation:landscape){
+    /*phone landscape*/
+    .page_bg_2{
+         background: url('../course_images/pages/m01/t02/p01/bg_img_ph_landscape.jpg') center center;
+    }
+    
+}
+</style>
+<div class='main-container animated fadeIn _1'>
+	<div class="page_bg_2">  
+		<div class="panel panel-custom">
+            <div class="panel-body">
+               <h3>CUSTOMER COMMUNICATION MANAGEMENT</h3>
+              <p>
+                  When communicating with others, we often focus on what we should say. However, effective communicationis less about talking and more about listening
+              </p>
+              <span>
+                  <p class="para-custom">
+                      YOUR LEARNING
+                  </p>
+              </span>
+              <br>
+              <hr class="hr-custom">
+            </div>
+        </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 main-div">
+              <div class="row">
+                    <div class="col-xs-10 col-sm-10 col-md-6 col-lg-6 div-custom">
+                        <img class="img-responsive" src="../course_images/pages/m01/t02/p01/btn_01.png" style="cursor: pointer;">
+                        <span class="span-custom">
+                            <h3>Videos</h3>
+                        </span>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 col-md-6 col-lg-6 div-custom">
+                        <img class="img-responsive" src="../course_images/pages/m01/t02/p01/btn_02.png" style="cursor: pointer;">
+                        <span class="span-custom">
+                            <h3>Scenarios</h3>
+                        </span>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class="col-xs-10 col-sm-10 col-md-6 col-lg-6 div-custom">
+                        <img class="img-responsive" src="../course_images/pages/m01/t02/p01/btn_03.png" style="cursor: pointer;">
+                        <span class="span-custom">
+                            <h3>Activity</h3>
+                        </span>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 col-md-6 col-lg-6 div-custom">
+                        <img class="img-responsive" src="../course_images/pages/m01/t02/p01/btn_04.png" style="cursor: pointer;">
+                        <span class="span-custom">
+                            <h3>Resources</h3>
+                        </span>
+                    </div>
+              </div>
+          </div>
+          <hr class="hr-custom2">
+    </div>
+</div>
