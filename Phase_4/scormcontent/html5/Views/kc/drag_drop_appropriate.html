@@ -1,0 +1,354 @@
+﻿<style>
+	.ost {
+		padding-left: 13%;
+		padding-top: 1px;
+	}
+    #question-text li .scenario{
+        padding-left: 0;
+    }
+    .wideBox {
+        clear: both;
+        text-align: center;
+        margin: 70px;
+        padding: 10px;
+        background: #ebedf2;
+        border: 1px solid #333;
+    }
+
+	.wideBox h1 {
+		font-weight: bold;
+		margin: 20px;
+		color: #666;
+		font-size: 1.5em;
+	}
+
+    #droppable-container {
+        margin: 20px auto 0 auto;
+    }
+
+    #draggable-container {
+        margin: 20px auto;
+    }	
+
+	.droppable-item {
+		width: 222px;
+		height: 231px;
+		float: left;
+		padding-bottom: 0;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		border-radius: 10px;
+		background: #2364a0;
+		box-shadow: inset 0 0 21px #000000;
+	}
+
+    .btn-submit, .btn-reset {
+        border-radius: 15px;
+        background: #0072aa;
+        width: 140px;
+        color: #fff;
+    }
+
+    .feedback-panel {
+		background: rgba(126,126,126,0.7);
+		position: absolute;
+		left: 0px;
+		bottom: 45px;
+		width: 100%;
+		color: #fff;
+		padding: 10px;
+		height:65px;
+		text-align:center;
+	}
+	.drag-items {
+		/* width: 238px; */
+		border-radius: 10px;
+		margin: 0px 0 0 16px;
+		float: left;
+		/* padding: 15px 10px 25px 10px; */
+	}
+
+	.dropAreas {
+		float: right;
+		margin-top: 82px;
+		margin-right: 110px;
+	}
+	.draggable-item:before {
+		content: url(../course_images/pages/m01/t02/p03/shape.png);
+		font-size: 24px;
+		left: -15px;
+		position: relative;
+		top: 12px;
+		display: inherit;
+	}
+	.droped:before{
+		display:none !important;
+	}
+	.draggable-item {
+		-moz-border-radius: 10px;
+		padding: 12px;
+		margin-top: 2px;
+		background: rgb(25, 104, 176);
+		position: absolute;
+		width: 279px;
+		padding-top: 52px;
+		font-size: 14px;
+		padding-left: 30px;
+		height: 175px;
+		cursor: pointer;
+		font-weight: bold;
+	}
+	#question-text {
+		position: relative;
+		float: left;
+		width: 325px;
+		height: 89px;
+		background: rgb(25, 104, 176, 0.2);
+		padding: 1px 20px;
+		margin-top: 81px;
+		margin-left: 44px;
+	}
+	/*#question-text:before{
+		content: url(../course_images/pages/m01/t02/p01/drag.png);
+		left: 115px;
+		position: relative;
+		top: 2px;
+	}*/
+	.padding-left{
+		padding-left:0px;
+	}
+	.head-do{
+		width: 219px;
+		color: #ffffff;
+		position: absolute;
+		padding: 6px 15px;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+	
+	.draggable-item.ui-draggable-dragging {
+		
+		width: 219px !important;
+		height:auto !important;
+		background-color: rgba(0, 0, 0, 0);
+	}
+	.ui-draggable-disabled{
+		background:transparent;
+		padding-top: 0px;
+		border-radius:0px;
+		margin:0px;
+		cursor:default !important;
+	}
+
+	.red-border.ui-draggable-disabled{
+		border-bottom: 1px solid red;
+	}
+	.green-border.ui-draggable-disabled{
+		border-bottom: 1px solid green;
+	}
+	[disabled]{
+		opacity:0.5;
+	}
+	.hideThis{
+		background:transparent !important;
+		border:0px !important; 
+	}
+	.hideThis:before{
+		content:none !important;
+	}
+	.popup{
+		position: absolute;
+		top: 73px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		color: red;
+		background: rgba(76,76,76,0.6);
+	}
+	.close{
+		position: absolute;
+		right: 15px;
+		top: 18px;
+		opacity:1;
+	}
+	.pop-content{
+		width: 75%;
+		margin: 0 auto;
+		background: #dcf4ff;
+		min-height: 300px;
+		margin-top: 106px;
+		position:relative;
+		z-index: 99;
+	}
+	.pop-content h3{
+		padding: 20px;
+		margin: 0px;
+		color: #fff;
+		background: #005c85;
+	}
+	.steps-3 {
+		color: #0075b0;
+		padding: 20px;
+	}
+	.step{
+		width: 33%;
+		float: left;
+		padding-right: 10px;
+		border-right: 1px dashed #005c85;
+		padding-left: 15px;
+		min-height: 190px;
+	}
+	.step-3{
+		border-right:0px;
+	}
+	.doButton {
+		margin-top: 5px;
+		background: #2bac46;
+		padding: 5px 35px;
+		border-radius: 6px;
+		border-bottom:1px solid #fff;
+		border-right:1px solid #fff;
+      }
+	 .blink-btn{
+		margin-top: 5px;
+		background: #2bac46;
+		padding: 5px 35px;
+		border-radius: 6px;
+		border-bottom:1px solid #fff;
+		border-right:1px solid #fff;
+        animation:myfirst 1s;
+		-moz-animation:myfirst 1s infinite;
+		-webkit-animation:myfirst 1s infinite; 		
+	 }
+
+	.rightMark{
+		position: relative !important;
+		left: 30px;
+		top: -2px;
+		content: "\f00c";
+		font-family: FontAwesome;
+		color: white;
+		font-size: 14px;
+		display: block;
+	}
+	.wrongtMark{
+		position: relative !important;
+		left: 30px;
+		top: -2px;
+		content: "\f00d";
+		font-family: FontAwesome;
+		color: white;
+		font-size: 14px;
+		display: block;
+	}
+	#btn {
+		background: #65cdf4;
+		padding: 10px 22px 9px 22px;
+		border: 0px;
+		border-radius: 5px;
+		position: absolute;
+		top: 273px;
+		left: 87px;
+	}
+	#btn1 {
+		background: #65cdf4;
+		padding: 10px 22px 9px 22px;
+		border: 0px;
+		border-radius: 5px;
+		position: absolute;
+		top: 278px;
+		left: 766px;
+		z-index: 9999;
+	}
+	.head-dont {
+		width: 219px;
+		padding: 0px 15px;
+		margin-left: 305px;
+		margin-top: -22px;
+		color: #ffffff;
+		position: absolute;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+	.head-do {
+		width: 219px;
+		color: #ffffff;
+		position: absolute;
+		top: 55px;
+		left: 431px;
+		padding: 6px 15px;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+	.feedBackHolder {
+		background: #fff;
+		color: #000;
+		width: 853px;
+		height: 71px;
+		position: absolute;
+		top: 268px;
+		left: 62px;
+		padding: 12px;
+	}
+	.instruction-text {
+		top: 24px;
+		position: relative;
+	}
+    @-moz-keyframes myfirst {
+		0%   {background:#2bac46;}
+		50%  {background:#17772b;}
+		100%   {background:#2bac46;}
+    }
+
+	@-webkit-keyframes myfirst{
+		0%   {background:#2bac46;}
+		50%  {background:#17772b;}
+		100%   {background:#2bac46;}
+    }
+	.content-area{
+		overflow: hidden;
+		float: left;
+		height: 330px;
+	}
+	.disableThis{
+		opacity:0.5;
+		cursor:default;
+		pointer-events:none;
+	}
+	.try-ag{
+	    background: #65cdf4;
+		padding: 10px 22px 9px 22px;
+		border: 0px;
+		border-radius: 5px;
+		position: absolute;
+		left: 205px;
+		top: 273px;
+	}
+</style>
+<div id="content" class="content-area">    
+    <div class="col-xs-12 padding-left">
+        <div id="question-text" ng-class="{hideThis: feedbackToggle}">
+			<p ng-repeat="item in question" class="containDrags {{cls1}}"  id="card{{item.id}}" data-target={{item.do}} data-number={{item.id}} ng-mousedown="$event.stopPropagation();" ontouchmove="event.stopPropagation()" ontouchstart="event.stopPropagation()" ontouchend="event.stopPropagation()"><span class="iconHolder"></span>{{item.dragText}}</p>
+        </div>
+		<div class="dropAreas">
+			<p class='head-do'><b>Appropriate</b></p>
+			<div class="drog-area-do drag-items" id="true">
+				<div  class="droppable-item" id="{{id1}}">
+				</div>
+			</div>
+			<p class='head-dont'><b>Inappropriate</b></p>
+			<div class="drog-area-dont drag-items" id="false">
+				<div  class="droppable-item" id="{{id2}}">
+				</div>
+			</div>
+			
+		</div>
+		
+		<button id="btn" name="submit" ng-click="checkAnswer()" disabled>SUBMIT</button>
+		<button id="btnReset" class='try-ag' name="submit" ng-click="reset()" ng-class="{'disableThis':disableReset}">RESET</button>
+		<button id="btn1" name="tryagin" ng-show="tryBtnToggle" ng-click="tryAgain()">TRY AGAIN</button>
+		<div class="feedBackHolder" ng-show="feedbackToggle">
+			<p>{{feedbackText}} </p>
+		</div>
+    </div>
+</div>

@@ -1,0 +1,353 @@
+<style>
+.page_bg {
+	background: url('../course_images/roleselecton/roleselecton_bg.jpg');
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	margin-top: -73px;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-repeat: repeat-x;
+	background-position: top right;
+}
+
+
+.brand-strip{
+	z-index: 1;
+    position: relative;
+}
+
+
+.course-header{
+	position: relative;
+	top: 0;
+	width: 100%;
+	padding: 10px 15px 10px 10px;
+	height: 58px;
+	background-color: #fff;
+	border:none;
+	z-index: 1;
+}
+
+
+
+
+.disabled{
+	pointer-events: none;
+    cursor: default;
+    opacity: 0.3;
+    color: #3d4142 !important;
+}
+
+.light{
+	width:316px;
+	height:421px;
+	background: url('../course_images/roleselecton/light.png');
+	background-repeat:no-repeat;
+	position: absolute;
+	right: 170px;
+    top: -160px;
+}
+
+.monitorBox{
+	width: 560px;
+    height: 250px;
+    position: absolute;
+    right: 90px;
+    bottom: 50px;
+	overflow: hidden;
+}
+
+.monitorTable{
+	width:731px;
+	height:300px;
+	background: url('../course_images/roleselecton/monitorTable.png');
+	background-repeat:no-repeat;
+	position: absolute;
+	right:30px;
+	bottom:-250px;
+}
+
+
+
+.bgMain{
+	overflow: hidden !important;
+    height: 100%;
+    position: relative;
+}
+
+
+.language-select-panel{
+	float:left;
+	width:100%;
+	padding-top: 20px;
+	padding-left:40px;
+}
+.language-select-panel select{
+	border: 1px solid #a1a1a1;
+	color: #000000;
+	width: 215px;
+	padding: 5px 10px;
+ }
+ 
+.language-select-panel button{
+	    border: 0px;
+    font-size: 26px;
+    color: #fff;
+    font-weight: bold;
+	cursor: pointer;
+
+}
+
+.language-select-panel button:hover{
+	background-color: #138e36;
+}
+
+.language-select-panel .btnColor2:hover{
+	background-color: #6b6969;
+}
+
+.monitor_01{
+    width: 284px;
+    height: 225px;
+	background: url('../course_images/roleselecton/monitor_01.png');
+	background-repeat:no-repeat;
+	position: absolute;
+	left: 0px;
+	bottom:0px;
+	color:#FFF !important;
+	background-size: 100%;
+}
+
+.monitor_02{
+    width: 204px;
+    height: 164px;
+	background: url('../course_images/roleselecton/monitor_02.png');
+	background-repeat:no-repeat;
+	position: absolute;
+	right:0px;
+	bottom:0px;
+	background-size: 100%;
+}
+
+.btnColor1 {
+    width: 264px;
+    height: 176px;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: #1dab46;
+}
+
+.btnColor2 {
+    width: 190px;
+    height: 126px;
+    margin-top: 7px;
+    margin-left: 7px;
+    background-color: #7f7f7f;
+}
+
+.modal-footer .btn + .btn{
+	 margin-bottom: 10 !important;
+}
+
+/*=====[ Callout ]======*/
+
+.charImg_01{
+	width: 357px;
+    height: 530px;
+    background: url(../course_images/pages/m01/page_common/vera_img_02.png);
+    background-repeat: no-repeat;
+    margin-left: 0px;
+	position: relative;
+    background-position: 10px 89px;
+    background-size: 100%;
+	top: 121px;
+    left: -57px;
+}
+
+.bubblePop{
+	width: 420px;
+    height: 140px;
+    margin: auto;
+    top: 50px;
+    left: 295px;
+    position: absolute;
+}
+
+.bubbleBox1 .bubble{
+	bottom: 0px;
+    border-radius: 30px;
+    background-color: #dcf4ff;
+    border: 3px solid #1f4e79;
+    position: absolute;
+    z-index: -1;
+}
+
+.arrow{
+	width: 51px;
+    height: 217px;
+    background: url(../course_images/pages/m01/page_common/calloutArrowImg.png);
+    background-repeat: no-repeat;
+	position: absolute;
+    margin-left: 70px;
+    bottom: -121px;
+    -ms-transform: rotate(64deg);
+    -webkit-transform: rotate(64deg);
+    transform: rotate(64deg);
+    z-index: -1;
+}
+
+.speachBubbleText{
+    display: inline-block;
+    color: #000;
+}
+
+.speachBubbleBG{
+    width: 100%;
+    font-size: 14px;
+    text-align: left;
+    padding: 20px 20px 10px 20px;
+    bottom: 0px;
+    border-radius: 30px;
+    background-color: #dcf4ff;
+    z-index: 1;
+}
+
+.disabled{
+	pointer-events:none;
+	cursor:default;
+	opacity:0.5;
+}
+
+@media (max-width:994px){
+	.page_bg{
+		background-size: cover;
+	}
+	button.btnColor2 {
+		font-size: 20px;
+	}
+}	
+</style>
+<div class="bgMain">
+<div class="course-header">
+	<div ng-style="{'height':CourseConfig.HeaderHeight+'px'}" class="course-brand">
+		<span class="pull-right" ><img ng-src="{{CourseConfig.LogoPath}}"></span>
+		<span class="course-name"></span>
+	</div>
+</div>
+<div class="brand-strip">
+	<img class="img-responsive" src="../course_images/interface/header_patch.png">
+</div>
+<div class="page_bg animated fadeIn">
+	
+	<div class="light animated slideInDown _1"></div>
+	<div class="monitorTable animated fadeInBoxRight _3"></div>
+	
+	<div class="charImg_01 animated fadeInBoxLeft _2" data-animate="true" data-animation-start="0.5" data-animate-type="fadeInBoxLeft" style="display: block;">
+		<div class="bubblePop animated fadeInBoxRight _5" data-animate="true" data-animation-start="0.5" data-animate-type="fadeInBoxRight" style="display: block;">
+			<div class="speachBubble1">
+				<div class="bubbleBox1">
+					<div class="bubble">
+						<div class="arrow"></div>
+						<div class="speachBubbleBG">
+							<span class="speachBubbleText" tabindex="0">
+								<p>Welcome to this <b>Cyber Security Awareness For Everyone (CyberSAFE)</b> eLearning experience.</p>
+								<p>Select the <b>Standard Version</b> to start the programme.</p>
+								<p>Please select the <b>Accessible Version</b> if you have a visual impairment or use a JAWS Reader on your computer. Please note that bookmark features will not work when you select this version.</p>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="monitorBox">
+		<div class="language-select-panel">
+			<div class="monitor_01 animated fadeInBoxDown _6">
+				<button class="btnColor1 waves-effect waves-light startBtn" ng-click="isOnline?startcourse():return;" tabindex="0"><div class="animated zoomIn _7">STANDARD VERSION</div></button>
+			</div>
+			<div class="monitor_02 animated fadeInBoxDown _8">
+				<button class="btnColor2" ng-click="startComplianceCourse()" ng-disabled="!deskTop" ng-class="{'disabled':!deskTop}" tabindex="0"><div class="animated zoomIn _9">ACCESSIBLE VERSION</div></button>
+			</div>
+		</div>
+    </div>
+	
+	
+</div>
+
+
+</div>
+<div class="modal fade" id="course_popup" data-backdrop="static">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">{{languageSelectContent.BookMarkPopup.bookMark}}</h4>						
+			</div>
+			<div class="modal-body">
+				<p>{{languageSelectContent.BookMarkPopup.bookMarkQues}}</p>
+			</div>
+			<div ng-switch="selectedLang">
+				<div class="modal-footer" ng-switch-when="ab">
+					<button type="button" class="btn btn-default btn_no" data-dismiss="modal" ng-click="dontResumeCourse()" tabindex="0">{{languageSelectContent.BookMarkPopup.bNo}}</button>
+					<button type="button" class="btn btn-default btn_yes" data-dismiss="modal" ng-click="resumeCourse()" tabindex="0">{{languageSelectContent.BookMarkPopup.bYes}}</button>
+				</div>
+				<div class="modal-footer" ng-switch-default>
+					<button type="button" class="btn btn-default btn_yes" data-dismiss="modal" ng-click="resumeCourse()" tabindex="0">{{languageSelectContent.BookMarkPopup.bYes}}</button>
+					<button type="button" class="btn btn-default btn_no" data-dismiss="modal" ng-click="dontResumeCourse()" tabindex="0">{{languageSelectContent.BookMarkPopup.bNo}}</button>
+				</div>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script>
+;(function($, window, document, undefined) {
+
+  'use strict';
+
+  var $ripple = $('.js-ripple');
+
+  $ripple.on('click.ui.ripple', function(e) {
+
+    var $this = $(this);
+    var $offset = $this.parent().offset();
+    var $circle = $this.find('.c-ripple__circle');
+
+    var x = e.pageX - $offset.left;
+    var y = e.pageY - $offset.top;
+
+    $circle.css({
+      top: y + 'px',
+      left: x + 'px'
+    });
+
+    $this.addClass('is-active');
+
+  });
+
+  $ripple.on('animationend webkitAnimationEnd oanimationend MSAnimationEnd', function(e) {
+  	$(this).removeClass('is-active');
+  });
+	var timer = 5;
+	setTimeout(function(){
+		$(".startBtn").removeClass("disabled");
+	},timer*1000);
+})(jQuery, window, document);
+</script>
+<script>
+var a = localStorage.getItem("roleselect");
+if(a != "refreshed"){
+	document.title = "Cyber Security Awareness For Everyone (CyberSAFE) - New Joiner";
+	location.reload();
+	preventMailFunction();
+	var a = true;
+	localStorage.setItem("roleselect", "refreshed");
+	//setTimeout(function(){
+	//	$(".intro-content").fadeIn();
+	//},2000);
+}
+</script>

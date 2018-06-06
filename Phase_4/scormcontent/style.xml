@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+	<style>
+		<className>page-heading</className>
+		<classStyle>
+			<color>#005aaa</color>
+			<fontSize>20px</fontSize>
+			<backgroundColor>transparent</backgroundColor>
+		</classStyle>
+	</style>
+	<style>
+		<className>instructionText</className>
+		<classStyle>
+			<backgroundColor>transparent</backgroundColor>
+			<color>#55b744</color>
+			<fontSize>16px</fontSize>
+			<fontWeight>bold</fontWeight>
+		</classStyle>
+	</style>
+	<style>
+		<className>popUp</className>
+		<classStyle>
+			<color>#005aaa</color>
+			<backgroundColor>rgba(255, 255, 255,0.9)</backgroundColor>
+			<animation>bounceIn</animation>
+			<fontSize>15px</fontSize>
+		</classStyle>
+	</style>
+</root>

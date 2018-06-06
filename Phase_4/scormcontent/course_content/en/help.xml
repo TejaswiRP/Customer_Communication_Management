@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+	<helpHeading>Help</helpHeading>
+	<paragraph_text>This screen describes how to use various buttons available to you throughout the module. With this information, you will know where you are in the module and how to get help.</paragraph_text>
+	<menu_help>Menu: Allows for navigation to a specific section within the course</menu_help>
+	<resource_help>Resources: Reveals additional reference material</resource_help>
+	<help_help>Help: Familiarises you with screen elements</help_help>
+	<previous_help>Previous: Allows for navigation to the previous screen</previous_help>
+	<page_number>Page Counter: Displays the current screen number and the number of screens remaining in the course</page_number>
+	<next_help>Next: Allows for navigation to the next screen</next_help>
+	<Topic_help>Topic Title: Displays the name of the topic</Topic_help>
+	<Course_help>Course Title: Displays the name of the course</Course_help>
+	<Exit_help>Exit: Allows you to exit the course</Exit_help>
+	<return_text>RETURN</return_text>
+</root>

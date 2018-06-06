@@ -1,0 +1,95 @@
+﻿<html>
+<head>
+    <title>FrameWork Library</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Eid">
+     <link href="Vendor/Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Vendor/Bootstrap/css/bootstrap-select.css" rel="stylesheet" />
+    <link href="Vendor/mCustomScrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
+    <link href="Vendor/Angular/angular-carousel.min.css" rel="stylesheet" />
+    <link href="Vendor/Font-Awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="Vendor/Carousel/angular-carousel.css" rel="stylesheet" />
+    <link href="Styles/animate.css" rel="stylesheet" />
+    <link href="Vendor/Stagger/stagger.css" rel="stylesheet" />
+    <link href="Styles/framework.css" rel="stylesheet" />
+    <link href="Vendor/Accordian/v-accordian.css" rel="stylesheet">
+    <link href="Vendor/Accordian/h-accordian.css" rel="stylesheet"/>
+    <link href="Styles/ripple.css" rel="stylesheet">
+</head>
+<body>
+	<div class="body body_{{selectedLang}}" id="body" ng-app="Framework">
+		<div ng-switch="isPreLoading">
+			<div class="pre-loader" ng-switch-when="true">
+				<div class="course-name-splsh-pg">				
+					<p>Loading</p> 
+					<p>FrameWork Library</p>
+					<p>Please Wait ...</p>
+					<p ng-if="percentLoaded" ng-bind="percentLoaded+'%'"></p>				
+				</div>
+				<div id="circularG">
+					<div id="circularG_1" class="circularG"></div>
+					<div id="circularG_2" class="circularG"></div>
+					<div id="circularG_3" class="circularG"></div>
+					<div id="circularG_4" class="circularG"></div>
+					<div id="circularG_5" class="circularG"></div>
+					<div id="circularG_6" class="circularG"></div>
+					<div id="circularG_7" class="circularG"></div>
+					<div id="circularG_8" class="circularG"></div>
+				</div>
+			</div>
+			<div id="preloadericon"></div>
+			<div ng-switch-when="false" ng-switch="isPreLoadSuccessful">
+				<div ui-view></div>
+				<audio id="course-audio"></audio>
+			</div>
+		</div>
+		<div class="modal fade" id="course_popup" data-backdrop="static">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Resume</h4>
+					</div>
+					<div class="modal-body">
+						<p>Do you want to resume from where you previously left off?</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="resumeCourse()">Yes</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="dontResumeCourse()">No</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <script src="Vendor/JQuery/jquery-1.11.2.min.js"></script>
+    <script src="Vendor/JQuery/jquery-ui.js"></script>
+    <script src="Vendor/Bootstrap/js/bootstrap.js"></script>
+    <script src="Vendor/Bootstrap/js/bootstrap-select.js"></script>
+    <script src="Vendor/Angular/angular.min.js"></script>
+    <script src="Vendor/Angular/angular-ui-bootstrap.js"></script>
+    <script src="Vendor/Angular/angular-bootstrap-select.js"></script>
+    <script src="Vendor/Angular/angular-resource.js"></script>
+    <script src="Vendor/Angular/angular-ui-router.js"></script>
+    <script src="Vendor/Angular/angular-animate.js"></script>
+    <script src="Vendor/Angular/angular-touch.min.js"></script>
+    <script src="Vendor/Angular/angular-resource.js"></script>
+    <script src="Vendor/Angular/angular-swipe.min.js"></script>
+    <script src="Vendor/mCustomScrollbar/jquery.mCustomScrollbar.min.js"></script>
+    <script src="Vendor/Accordian/v-accordian.js"></script>
+    <script src="Vendor/Carousel/angular-carousel.js"></script>
+    <script src="Vendor/Angular/angular-sanitize.min.js"></script>
+    <script src="Vendor/Accordian/h-accordian.js"></script>
+	<script src="Vendor/XMLToJSON/xml2json.js"></script>	
+	<script src="Vendor/ripple/ripple.js"></script>	
+    <script src="Scripts/app.js"></script>
+    <script src="Scripts/Services/framework_services.js"></script>
+    <script src="Scripts/Controllers/framework_controller.js"></script>
+    <script src="Scripts/Controllers/page_controller.js"></script>
+    <script src="Scripts/Directives/framework_directive.js"></script>
+    <script src="Scripts/Directives/page_directive.js"></script>
+    <script src="Scripts/init/preloader.js"></script>
+    <script src="Scripts/Factories/framework_factory.js"></script>
+    <script src="Scripts/init/init.js"></script>
+</body>
+</html>

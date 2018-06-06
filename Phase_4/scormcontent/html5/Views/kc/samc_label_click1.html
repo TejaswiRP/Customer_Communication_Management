@@ -1,0 +1,215 @@
+<style>
+.feedback-panel {
+	background: #0078ad;
+    color: #FFF;
+    margin-top: 16px;
+    margin-left: 142px;
+    padding: 10px;
+    border-radius: 7px;
+    width: 441px;
+    font-size: 17px;
+}
+
+.feedback {
+	margin-bottom:0px;
+}
+.col-xs-7.page-text.kc-option-container ul{
+	padding-left:0px;
+}
+.kc-option-container ul {
+	padding: 10px 10px 10px 20px;
+}
+.instructionText{
+	color:#fff;
+}
+.kc-option-radio {
+   margin-bottom: 3px;
+    position: relative;
+	float: left;
+    width: 100%;
+}
+.kc-option-label-radio {
+    border-radius: 6px;
+    font-weight: normal;
+    padding: 13px 0px 10px 10px;
+    display: block;
+    cursor: pointer;
+    float: left;
+  background: url(../course_images/interface/circle.png) no-repeat;
+    /*width: 465px;*/
+    display: block;
+    background-color: #ebebeb;
+    color: #000;
+    background-position: 10px 12px;
+    min-height: 47px;
+    margin-left: 40px;
+
+}
+
+.quiz-area-samc .option-selected-radio{
+    color: #000;
+    background: url(../course_images/interface/circle_checkbox.png) no-repeat;
+	background-position: 13px 9px;
+    background-color: #96ffb3;
+}
+.quiz-area-samc .correct-checkbox-radio{
+	background: url(../course_images/interface/circle__correct_checkbox.png) no-repeat !important;
+    background-position: 13px 9px !important;
+    background-color: #96ffb3 !important;
+	border-radius: 6px;
+	
+}
+.quiz-area-samc .in-correct-checkbox-radio{
+	background: url(../course_images/interface/circle__incorrect_checkbox.png) no-repeat !important;
+	background-position: 13px 9px !important;
+    background-color: #96ffb3 !important;
+	border-radius: 6px;
+}
+.quiz-area-samc .btn-submit {
+    cursor: pointer;
+    float: left;
+	color: #fff;
+    background: url(../course_images/common_bg/vertical_line.png) repeat-x;
+	background-size: cover;
+    border-color: #4cae4c;
+    margin-top: 5px ;
+    margin-left: 2px;
+    height: 38px;
+    border-radius: 7px;
+    width: 132px;
+	font-weight: bold;
+}
+.page-heading{
+	margin-top: 0px;
+}
+.back_button{
+	position: absolute;
+	top:10px;
+	left: 10px;
+	cursor: pointer;
+}
+.kc-option-radio input{
+	opacity: 0;
+    width: 0;
+    margin: 0;
+    height: 0;
+    padding: 0;
+	float: left;
+}
+.quiz-area-samc .option-container{
+	margin-left: 226px;
+}
+.btn-fdbk-container{
+    margin-left: 236px;
+}
+.quiz-area-samc {
+    background: #005c85;
+    padding: 20px 0px 0px 20px;
+    width: 100%;
+    border-radius: 5px;
+    height: 285px;
+	margin-top:0px;
+}
+.Feedback-holder {
+    background: #ebebeb;
+    color: #000;
+    padding: 10px;
+
+	}
+.trnsBg{
+    height: 100%;
+    padding: 0px;
+}
+.feedback ul{
+  padding-left:25px;
+}
+.feedback ul li{
+	list-style: disc;
+}
+.q-txt{
+    padding: 10px 14px 0px 10px;
+	font-size:16px;
+}
+
+.nextBtn  {
+    background: url(../course_images/interface/next_arrow.png) no-repeat;
+	margin-right: 10px;
+}
+.previousBtn{
+    background: url(../course_images/interface/prev_arrow.png) no-repeat;
+}
+
+.buttonWraper{
+	bottom: 5px;
+    float: right;
+    position: absolute;
+    right: 0px;
+}
+
+.buttonWraper a{
+	color: #FFF !important;
+}
+
+.nxtBckBtn{
+    cursor: pointer;
+    border-color: #4cae4c;
+    border-radius: 0px;
+    width: 39px !important;
+    height: 29px !important;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    margin-top: 0px !important;
+    display: inline-block;
+}
+
+.number{
+	display: inline;
+    margin: 0px;
+    bottom: 10px;
+    position: relative;
+	right: 1px;
+}
+.disabeld {
+	pointer-events: none;
+    opacity: 0.8;
+}
+
+</style>
+<div class='q-txt' ng-bind-html="questionText" ></div>
+<div class="quiz-area-samc col-xs-12">
+    <div class="questionHolder col-sm-7">
+		<!-- <p class="question-text" ng-bind-html="questionText"></p> -->
+		<p class="instructionText" ng-bind-html="instructionText"></p>
+	    <ul id="options">
+            <li ng-repeat="option in options" class="kc-option-radio">
+                <label class="kc-option-label-radio">
+                    <input type="radio" name="answer" value="{{option.id}}" correct="{{option.isCorrect}}" ng-disabled="disableInput" ng-click="onOptionSelected($event)">
+                    <span class="option-text" ng-bind-html="option.text"></span>
+                </label>
+            </li>
+			<button ng-click="checkAnswer()" class="btn btn-submit" ng-disabled="disableButton" ng-bind-html="buttonText"></button>
+        </ul>
+	</div>
+	<div class="option-label col-sm-5 "  ng-style="{'background-image': 'url(' + pageBG + ')'}">
+		 <div class="fdbk-container" ng-show="feedbackToggle">
+			<div class="trnsBg">
+			 <div class="Feedback-holder" >
+				<div class="feedback-body" >
+					<p ng-if="!feedback.paragraph" bind-html-compile="feedback" class="feedback"></p>
+					<div  ng-repeat="item in feedback.paragraph"> 
+						<p  bind-html-compile="item" ng-show="feedbackCounter==($index+1)" class="feedback"></p>
+					</div>
+				</div>
+				<div class="buttonWraper" ng-if="feedback.paragraph">
+					<p class="inst-text"><span >Select the arrows to navigate.</span></p>
+					<a  class="nxtBckBtn previousBtn" ng-class="{'disabeld':feedbackCounter==1}" ng-click="feedBackNavigation('prev')"></a>
+					<p class="number">{{feedbackCounter}}/{{feedback.paragraph.length}}</p>
+					<a  class="nxtBckBtn nextBtn"  ng-class="{'disabeld':feedbackCounter==feedback.paragraph.length}" ng-click="feedBackNavigation('next')"></a>
+					
+				</div>
+			 </div>
+			 </div>
+		</div>
+	</div>
+</div>

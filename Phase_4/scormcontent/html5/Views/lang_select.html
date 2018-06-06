@@ -1,0 +1,279 @@
+﻿<style>
+.modal-backdrop.in{
+	z-index: 99;
+}
+.page_bg {
+    background: url(../course_images/langselection/bg_image.jpg);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: repeat-x;
+    background-position: top right;
+    padding-left: 30px;
+    margin-top: -58px;
+}
+
+.course-heading {
+	position: relative;
+	bottom: -5px;
+	width: 100%;
+	background-color: #fff;
+	opacity: 0.9;
+	height: 80px;
+	padding-top: 15px;
+	z-index: 1;
+}
+
+.lang-selection-row {
+	color: #fff;
+	font-size: 14px;
+	height: 60px;
+	margin: 5px;
+}
+
+.lang-selection-row span {
+	display: inline-block;
+}
+
+.btn-holder {
+	position: relative;
+	bottom: 15px;
+}
+
+.row-4 {
+	border: none;
+}
+
+.row-1{
+	height:15px;
+}
+
+.btn-arrow:before{
+	border-top: 1px dashed #000;
+}
+.course-heading-text{
+	position: absolute;
+	padding-left: 50px;
+	z-index: 2;
+	top: 20px;
+}
+ .start-btn {
+	width: 100%;
+	border-radius: 30px;
+	background-color: #fff;
+	border: none;
+	color: #535353;
+	height: 40px;
+	font-size: 16px;
+
+}
+
+.proceed-img{
+	position: absolute;
+	right: 35px;
+	top:14px;
+}
+.modal-header{
+	text-align: center;
+	border-bottom: none;
+	padding: 15px 15px 15px 15px;
+}
+.modal-dialog{
+	margin-top: 17%;
+}
+
+.modal-body{
+	text-align: center;
+	border-bottom: none;
+	padding: 5px 30px 5px 30px;
+}
+
+.modal-footer{
+	text-align: center;
+	border-top: none;
+	padding: 10px 15px 25px 15px;
+}
+
+.modal-content{
+	width: 60%;
+	margin: auto;
+}
+.text{
+	color:#333 !important;
+}
+.btn_yes, .btn_no{
+    background: #49B868;
+    color: #fff;
+    width: 35%;
+    padding: 1px 10px;
+}
+.btn_yes:hover {
+	background-color: #49B868 !important;
+	color: #fff;
+}
+
+.btn_no:hover {
+	background-color: #49B868 !important;
+	color: #fff;
+}
+
+.z-depth-1, .btn, .btn-floating {
+    box-shadow: none;
+}
+
+.z-depth-1-half, .btn:hover, .btn-floating:hover {
+    box-shadow: none;
+}
+
+
+.modal-footer .btn + .btn{
+	margin-left: 15px;
+	margin:0px;
+}
+.course-header{
+	position: relative;
+	top: 0;
+	width: 100%;
+	padding: 10px 15px 10px 10px;
+	height: 58px;
+	background-color: transparent;
+	border:none;
+}
+
+
+.course-intro-content{
+	color: #0075b0;
+	font-size: 14px;
+	width: 83%;
+	padding-top: 20px;
+}
+
+
+.language-select-panel{
+	float:left;
+	width:100%;
+	padding-left:40px;
+	margin-top: 10px;
+	z-index: 0;
+    position: relative;
+}
+
+select{
+	border: 1px solid #a1a1a1;
+	color: #000000;
+	width: 215px;
+	padding: 7px 10px;
+}
+
+#startBtn{
+	padding: 10px 30px;
+    border: 0px;
+    background-color: #005aaa;
+    color: #fff;
+    font-weight: bold;
+    margin-top: -3px;
+    margin-left: 15px;	
+	border-radius: 5px;
+}
+
+.alert-box{
+    position: absolute;
+    width: 340px;
+    font-size: 13px;
+    color: #fff;
+    background: #00aef2;
+    padding: 10px;
+    bottom: 30px;
+    left: 30px;
+    /* border: 1px solid #0078ad; */
+    border-radius: 5px;
+}
+.alert-box p{
+	margin-bottom:0px;
+}
+
+
+.copyright {
+	position: absolute;
+	bottom: 25px;
+	left: 10px;
+	color: black;
+	text-align: center;
+	width: 100%;
+	font-family: arial;
+	font-size: 12px;
+}
+
+
+.intro-content{
+	float: left;
+    width: 80%;
+    padding: 109px 40px 0px;
+	position: relative;
+    z-index: 0;
+}
+.course-title-lang{
+    font-size: 28px;
+    color: #005bab;
+    font-weight: bold;
+    width: 513px;
+    padding-top: 200px;
+}
+
+.instruction{
+    color: #282828;
+    margin-top: 20px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    border-top: #282828 solid 1px;
+    width: 440px;
+    padding-top: 20px;
+}
+
+.video-box{
+	position: absolute;
+    width: 100%;
+    right: 0;
+    top: -14px;
+    z-index: -1;
+	overflow: hidden;
+}
+.video-box video{
+	width:100.5%;
+	pointer-events:none;
+}
+.disabled{
+	pointer-events:none;
+	cursor:default;
+	opacity:0.5;
+}
+.body_ar .alert-box{
+	direction:rtl;
+}
+
+
+</style>
+<div class="course-header">
+	<div ng-style="{'height':CourseConfig.HeaderHeight+'px'}" class="course-brand">
+		<span class="pull-right" ><img ng-src="{{CourseConfig.LogoPath}}" alt=""></span>
+		<span class="course-name"></span>
+	</div>
+</div>
+<div class="page_bg body_{{selectedLang}}">
+		<p class="course-title-lang animated fadeIn _1" bind-html-compile="languageSelectContent.brandName" tabindex="0"></p>
+		<div class="instruction animated fadeIn _3" bind-html-compile="languageSelectContent.selectInstruct" tabindex="0"></div>
+		<select class='animated fadeIn _5' ng-change="selectedLanguage()" ng-model="selectedLang" tabindex="0">
+			<option value="en">English</option>
+			<option value="sc" disabled>中文 (Simplified Chinese)</option>
+			<option value="ar" disabled>العربية (Arabic)</option>
+		</select>
+		<button class="waves-effect waves-light animated fadeIn _6" ng-click="isOnline?startcourse():return;" id="startBtn" tabindex="0">{{languageSelectContent.PROCEED}}</button>
+	<!-- <div class="video-box">
+		<img src="../course_images/langselection/language_bg.jpg" alt="Line Manger Responsibilities" style="width:100%"/>
+	</div> -->
+	<div class="alert-box animated fadeIn _8" bind-html-compile="languageSelectContent.resolutionInstruct" tabindex="0"></div>
+</div>

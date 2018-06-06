@@ -1,0 +1,89 @@
+<style>
+	.course_title{
+		padding-top: 15px;
+		padding-left: 30px;
+		font-size: 20px;
+		color: #005bab;
+		float: left;
+		font-weight: bold;
+	}
+	
+    .show {
+        display: block;
+    }
+
+    .hide {
+        display: none;
+    }
+	.btn-confirm{
+		background-color: #49B868;
+		color: #fff;
+		width: 75px;
+		height: 26px;
+		border: 1px solid #000;
+		font-size: 16px !important;
+	}
+	.btn_container{
+		padding: 10px 0px;
+	}
+	.course_title_container {
+		background-color: #fff;
+		width: 100%;
+		float: left;
+		border-top: #ccc solid 1px;
+		box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+	}
+	.right-logo{
+	    float: right;
+		padding: 8px 15px 10px 10px;
+	}
+	.tp-ttle{
+		font-weight:normal;
+	}
+	.search-box-container{
+    float: left;
+    display: inline-block;
+    padding: 5px;
+	width:100%;
+	margin-left:460px;
+}
+.sb-menu{
+	float:  right;
+		display: inline;
+		padding:  0px 8px 8px;
+		cursor:  pointer;
+		margin-top:-25px;
+}
+.search-box-container > label{
+		color:#000 !important;
+		font-weight:bolder;
+		font-size:14px;
+		
+}
+.search-box-container input[type="number"]{
+	width:55px !important;
+	height:20px !important;
+	border: 1px solid #000;
+}
+.search-box-container > button{
+    height: 20px !important;
+    width:35px !important;
+}
+</style>
+<div class="course-header">
+	<div class="course-tit">
+		<span class="course_title">{{footer.course_title}} <span class='h-dvdr'>|</span> <span class="tp-ttle">{{topicTitle}}</span></span>
+	</div>
+    <div ng-style="{'height':CourseConfig.HeaderHeight+'px'}" class="course-brand">       
+		<span class="right-logo" ><img ng-src="{{CourseConfig.LogoPath}}"></span>
+    </div>
+	<div class="course_title_container">
+	<!-- <span class="course-name" class="animated fadeIn _0">{{CourseContent.pageHeading}}</span>	 -->
+		<div id="openWindow" class="search-box-container col-sm-10 col-md-10">
+				<label for="tpcNumber" class="label_01">Topic Number: <input type="number" id="tpcNumber" ng-model="tpcNumber" min="1" max="18"/></label>
+				<label for="pageNumber" class="label_01">Page Number: <input type="number" id="pageNumber" ng-model="pageNumber" min="1" max="50"/></label>
+				<button ng-click="GoToPages(tpcNumber,pageNumber,true)" ng-disabled="!tpcNumber || !pageNumber">Go</button>
+		</div>	
+	<span class="sb-menu col-sm-2 col-md-2" ng-click="menu=!menu"><u>Sub Menu</u></span>
+    </div>
+</div>

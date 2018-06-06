@@ -1,0 +1,79 @@
+<style>
+.visual-menu{
+	margin-right: -13px;
+	height: 390px;
+}
+.visual-menu-topics{
+    float: left;
+    width: 24%;
+    background: #005bab;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: #fff;
+    height: 45px;
+    margin-right: 10px;
+}
+.status-bar,.course-name{
+    display: none;
+}
+.label{
+	color:#000;
+}
+.headerBar{
+position:relative;
+display:  inline-block;
+float:  left;
+width:  100%;
+height: 110px;
+}
+.main-content{
+	position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 60px;
+    line-height: 25px;
+    font-style: italic;
+    float: left;
+    text-indent: 25px;
+    border:1px dotted #e6e6e6;
+}
+
+</style>
+<div class="page-bg">
+	<div class="headerBar"></div>
+	<div class="main-content">
+		<div class="content-leading">{{VisualMenuContent.lead_in}}</div>
+		<div class="instruction-text">{{VisualMenuContent.instruction_text}}</div>
+	</div>
+	<div class="visual-menu">
+		<div class="course-name">{{VisualMenuContent.topic}}</div>
+		<div ng-repeat="menuItem in CourseMenu.module.topics" class="visual-menu-topics" ng-class="getTopicStatus(0,$index)"ng-click="loadScreen(0,$index,0,'vmenu')">
+			<div class="visual-menu-item {{'topic'+($index+1)}}" ng-class="getTopicStatus(0,$index)=='completed'?'completed-bg':getVisualMenuStatus(0,$index)">
+				<div class="visualMenu_btnText topicName{{$index+1}}"><span class='prg-sts'></span><span class='tp-name'>{{pad($index+1)+ ' -- '}}{{menuItem.name}}</span></div>
+				<!-- <div class="status-track {{animateTopics($index,'topicnumbers')}}"><span></span></div> -->
+				<!-- <img ng-src="{{getProgressImage($index)}}" ng-click="loadScreen(0,$index,0,'vmenu')"/> -->
+				<!-- <div class='pulse' ng-if="highlightTopic==$index"></div> -->
+			</div>
+		</div>
+		<button class='course-resume frmwk-btn' ng-click="resumeCourseMenu()" ng-show="{{showResumeBtn}}">{{VisualMenuContent.Resume}}</button>
+
+	</div>
+	<div class="status-bar">
+		<div class="statusBox">
+			<p class="st-complete">
+				<span class="sts not-started-trk"></span>
+				<span class="not-started-txt">{{VisualMenuContent.status.notStarted}}</span>
+			</p>
+			<p class="st-complete-uns">
+				<span class="sts in-progres-trk"></span>
+				<span class="in-progress-txt">{{VisualMenuContent.status.progress}}</span>
+			</p>
+			<p class="st-progress">
+				<span class="sts completed-trk"></span>
+				<span class="completed-txt">{{VisualMenuContent.status.completed}}</span>
+			</p>
+		</div>
+	</div>
+</div>

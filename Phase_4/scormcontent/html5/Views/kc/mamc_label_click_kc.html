@@ -1,0 +1,174 @@
+<style>
+
+.trnsBg{
+	background: rgba(0,0,0,0.5);
+    width: 450px;
+    height: 100%;
+    position: absolute;
+    padding: 0px;
+}
+
+.feedback-panel {
+    background: #ebebeb;
+    color: #0172aa;
+    padding: 10px;
+	position: absolute;
+    width: auto;
+	height: auto;
+    bottom: 0px;
+}
+.feedback {
+	margin-bottom: 0px;
+    padding: 10px;
+    padding-top: 16px;
+}
+.feedback-bullet{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+}
+.bullet-points{
+	list-style:disc;
+	padding-bottom: 10px;
+}
+.col-xs-7.page-text.kc-option-container ul{
+	padding-left:0px;
+}
+
+.quiz-area {
+	padding: 0;
+}
+
+.kc-option-container ul {
+	padding: 10px 10px 10px 20px;
+}
+
+.kc-option {
+    margin-bottom: 3px;
+    position: relative;
+    float: left;
+    padding: 1px;
+}
+
+.kc-option-label {
+	border-radius: 5px;
+    font-weight: normal;
+    padding: 10px 10px;
+    display: block;
+    cursor: pointer;
+    float: left;
+	background: url(../course_images/interface/checkbox.png) no-repeat;
+	width: 420px;
+    display: block;
+    background-color: #ebebeb;
+	color: #000;
+    background-position: 8px 8px;
+}
+
+.option-selected{
+    color: #000;
+    background: url(../course_images/interface/checkbox_selected.png) no-repeat;
+	background-position: 8px 8px;
+    background-color: #96ffb3;
+	
+}
+.correct-checkbox{
+	background: url(../course_images/interface/correct_mark.png) no-repeat !important;
+    background-position: 8px 8px !important;
+    background-color: #96ffb3 !important;
+	border-radius: 6px;
+	
+}
+
+.in-correct-checkbox{
+	background: url(../course_images/interface/incorrect_mark.png) no-repeat !important;
+	background-position: 8px 8px !important;
+    background-color: #96ffb3 !important;
+	border-radius: 6px;
+}
+
+.btn-fdbk-container{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-submit {
+    cursor: pointer;
+    float: left;
+    color: #fff;
+    background: url(../course_images/common_bg/vertical_line.png) repeat-x;
+    border-color: #4cae4c;
+    /* margin-top: 16px; */
+    /* margin-left: -14px; */
+    height: 38px;
+    border-radius: 7px;
+    width: 132px;
+    /* display: flex; */
+    /* margin: 0 auto; */
+    left: 37%;
+    /* justify-content: center; */
+    font-weight: bold;
+}
+
+.back_button{
+	position: absolute;
+	top:10px;
+	left: 10px;
+	cursor: pointer;
+}
+.kc-option input{
+	opacity: 0;
+	margin: 0px;
+	padding: 0px;
+	height: 0px;
+	width: 0px;
+}
+.option-text{
+    float: left;
+    display: block;
+	padding-left:28px;
+}
+.option-img{
+	float: left;
+    display: block;
+    width: 100%;
+}
+#options {
+    padding: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    margin-top: 16px;
+    margin: 0;
+}
+.instructionText{
+	color:#fff;
+}
+.page-heading {
+    color: #000000;
+    font-family: Arial;
+}
+.opt-cntn{
+	padding: 0;
+    margin-right: 5px;
+}
+</style>
+<div class="quiz-area col-xs-12">
+    <div class="col-xs-12 option-container">
+        <ul id="options">
+            <li ng-repeat="option in options" class="kc-option col-sm-3">
+				<div class="opt-cntn">
+					<img class="option-img" ng-src="{{option.image}}" ng-click="onOptionSelected($index,true)"/>
+					<label class="kc-option-label">
+						<input type="checkbox" name="answer" value="{{option.id}}" correct="{{option.isCorrect}}" ng-disabled="disableInput" ng-click="onOptionSelected($index)"/>
+						<span class="option-text" ng-bind-html="option.text"></span>
+					</label>
+				</div>
+            </li>
+        </ul>
+    </div>
+	<div class="col-xs-7 btn-fdbk-container">
+		<button ng-click="checkAnswer()" class="btn btn-submit" ng-disabled="disableButton" ng-bind-html="buttonText"></button>
+	</div>
+</div>

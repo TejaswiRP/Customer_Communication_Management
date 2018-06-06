@@ -1,0 +1,270 @@
+<style>
+	.course-footer {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		background: #005aaa;
+		z-index: 1030;
+		float: left;
+		height: 40px;
+	}
+	
+	.go-next-instruction{
+		position: absolute;
+		bottom: 52px;
+		color: #fff;
+		background: rgb(0, 173, 239);
+		padding: 6px 15px 5px 15px;
+		border-radius: 5px;
+		right: 6px;
+		display:none;
+	}
+	
+	.triangle{
+		width: 0;
+		height: 0;
+		border-left: 6px solid transparent;
+		border-right: 6px solid transparent;
+		border-top: 18px solid rgb(0, 173, 239);
+		position: absolute;
+	}
+	
+	.highlightNext{
+		position: absolute;
+		bottom: -12px;
+		right: 10px;
+		animation:highLight 1s ease-in infinite;
+	}
+
+	.show {
+        display: block;
+    }
+
+    .hide {
+        display: none;
+    }
+	.btn-confirm{
+		background-color: #49B868;
+		color: #fff;
+		width: 75px;
+		height: 26px;
+		border: none;
+	}
+	#myModal .modal-footer{
+		border:0px;
+	}
+	.btn_container{
+		padding: 20px 0px;
+	}
+
+	#exit{
+	    margin-right: 20px;
+	}
+
+    .page-nav-btn{
+        cursor: pointer;
+    }
+	
+	@keyframes nextarrow {
+		0%,100% {
+			left: 1px;
+		}
+		50% {
+			left:-2px;
+		}
+	}
+
+    .mask-left{
+        left: 0;
+        position: absolute;
+        height: 30px;
+        width: 125px;
+        z-index: 99;
+        top:0;
+    }
+
+    .mask-right{
+        right: 0;
+        position: absolute;
+        height: 30px;
+        width: 125px;
+        z-index: 99;
+        top:0;
+        cursor:default;
+    }
+    .mask-right span{
+        opacity:0.6;
+    }
+    .prev{
+        float: left;
+    }
+    .copy-right{
+        font-size: 11px;
+		padding-left:0px;
+    }
+    .btnDisabled{
+        opacity: 0.5;
+    }	
+    @media all and (min-width: 620px) and (max-width: 973px) {
+        .copy-right{
+            width: 14%;
+            font-size: 10px;
+        }
+		.well{
+			font-size: 14px;
+		}
+    }
+	@media all and (max-width: 445px) {
+        .ui-control{
+            width: 41%;
+        }
+		.menu-btn{
+			top: 10px;
+		}
+		.menu-btn+span{
+		display:none;
+		}
+		.resource-btn+span{
+			display:none;
+		}
+		.resource-btn{
+			display:none;
+		}
+		.next span{
+			display:none;
+		}
+		.prev span{
+			display:none;
+		}
+		.page-nav-btn {
+			cursor: pointer;
+			top: 4px;
+		}
+		
+    }
+	.exit-btn{
+		cursor: pointer;
+	}
+	.exit-btn:hover{
+		text-shadow: 0 0 10px #fff;
+	}
+	.exit-btn:hover img{
+		box-shadow: 0px 1px 54px #fff;
+	}
+	
+	.resource-btn{
+		/*cursor: default;
+		opacity: 0.5;*/
+	}
+	.resource-btn:hover{
+		text-shadow: none;
+	}
+	.audio-btn{
+		width: 46px;
+		display: inline-block;
+	}
+	@media all and (max-width: 767px) {
+		.resource-btn+span{
+			display:none;
+		}
+		
+		.adio-dvdr,.help,.sound-dvdr,.audio-btn,.resource-btn{
+			display:none;
+		}
+    }
+	@media all and (max-width: 820px) {
+		.audio-btn,.adio-dvdr{
+			display:none;
+		}
+		
+	}
+	@media all and (max-width: 600px) {
+		.ui-control,.page-control-right{
+			font-size:10px;
+		}
+	}
+	@media all and (max-width:475px){
+		.ui-control{
+			padding: 12px 0px;
+		}
+		.menu-btn,.divider{
+			display:none;
+		}		
+	}
+	.disablePlay{
+		opacity:0.2;
+		pointer-events:none;
+		cursor:default;
+	}
+	.disablePlay:hover{
+		text-shadow: none;
+	}
+	.controlsUi{
+		color:#fff;
+	}
+	.transcript-box{
+		position: absolute;
+		bottom: 92px;
+		background: #333;
+		color: #fff;
+		width: 100%;
+		left: 0px;
+		right: 0px;
+		padding: 10px;
+	}
+	.transcript-box li{
+		list-style:disc;
+	}
+	.close-btn{
+		position:absolute;
+		top:10px;
+		right:10px;
+		cursor:pointer;
+	}
+</style>
+<div class="course-footer">
+	<!-- <div class="container-fluid"> -->
+		<div class="transcript-box" ng-show="transcript" ng-if="CourseContent.transcript">
+			<div bind-html-compile="CourseContent.transcript"></div>
+			<img src="../course_images/pages/m01/t01/p09/feedback_close.png" class='close-btn' ng-click="transcript=false"></span>
+		</div>
+		<!-- <div class="controlsUi">
+			<span class="help-btn help" ng-click=""><i class="fa fa-reply" aria-hidden="true"></i> REPLAY</span>
+		    <span class="divider adio-dvdr" style="margin-left: 6px;"><img src="../course_images/interface/bottom_divider_line.png"></span>
+			<span class="help-btn play-btn" ng-class="{disablePlay:!CourseContent.transcript}" ng-click="transcript?transcript=false:transcript=true;">CC</span>
+		</div> -->
+	<!-- </div> -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4  col-sm-8 col-lg-8 ui-control ">
+                <div class="well page-control-center">
+                    <span  style="position: relative;bottom: 7px;">
+						<span class="exit-btn hidden-xs" ng-click="closeWindow();"><img style="margin-top: -4px;" src="../course_images/interface/course_exit_btn.png"/><!-- <i class="fa fa-sign-out" aria-hidden="true" style="font-size: 18px;"> --></i> EXIT</span>
+						<span class="divider hidden-xs"><img src="../course_images/interface/bottom_divider_line.png"></span>
+                        <span class="menu-btn" ng-click="CourseConfig.VisualMenu?loadVisualMenu():menu=!menu"><i class="fa fa-list"></i> MENU</span>
+                        <span class="divider"><img src="../course_images/interface/bottom_divider_line.png"></span>
+                        <span class="resource-btn" ng-click="loadResources()"><i class="fa fa-file-text-o"></i> RESOURCES</span>
+                        <span class="divider"><img src="../course_images/interface/bottom_divider_line.png"></span>
+                        <span class="help-btn" ng-click="loadHelp()"><i class="fa fa-question"></i> HELP</span>
+						<span class="divider sound-dvdr"><img src="../course_images/interface/bottom_divider_line.png"></span>
+                        <span class="help-btn audio-btn" ng-class="{disablePlay:isAudio==false}" ng-click="toggleSound()"><i ng-class="isSoundon?'fa fa-volume-up':'fa fa-volume-down'"></i> {{isSoundon?"ON":"OFF"}}</span>
+						<span class="divider adio-dvdr"><img src="../course_images/interface/bottom_divider_line.png"></span>
+                        <span class="help-btn play-btn" ng-class="{disablePlay:isAudio==false}" ng-click="togglePlay()"><i ng-class="isPaused?'fa fa-play':'fa fa-pause'"></i> {{isPaused?"PLAY":"PAUSE"}}</span>
+						<span class="divider adio-dvdr"><img src="../course_images/interface/bottom_divider_line.png"></span>
+                        <span class="help-btn play-btn" ng-class="{disablePlay:isAudio==false}" ng-click="reloadAudio()"><i class="fa fa-reply" aria-hidden="true" style="margin-right: 10px;"></i>Replay</span>
+                        <span class="transcript-btn" ng-class="{disablePlay:isAudio==false}" ng-click="toggleTranscript()"><i class="fa fa-reply" aria-hidden="true" style="margin-right: 10px;"></i>Replay</span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-xs-7 col-sm-4 col-lg-4 pull-right">
+               <div class="well page-control-right text-center">
+                    <span class="mask-left" ng-show="isPrevButtonDisabled">&nbsp;</span>
+                    <span class="page-nav-btn prev" ng-click="gotoPreviousPage()" ng-class="{btnDisabled:isPrevButtonDisabled}"><i class="fa fa-arrow-left"></i>  <span>PREVIOUS</span></span>
+                    <span style="opacity: 0.5">{{currentPageNumber >= 10?(currentPageNumber):("0"+(currentPageNumber))}} of {{totalPages >= 10?totalPages:"0"+totalPages}}</span>
+                    <span class="mask-right" ng-show="isNextButtonDisabled">&nbsp;</span>
+                    <span class="pull-right page-nav-btn next" ng-click="gotoNextPage()" ng-class="{btnDisabled:isNextButtonDisabled}"><span>NEXT</span>  <i class="fa fa-arrow-right"></i></span>
+                </div>
+            </div>			
+		</div>  
+    </div>
+</div>

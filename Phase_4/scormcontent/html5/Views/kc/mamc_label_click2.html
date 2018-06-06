@@ -1,0 +1,173 @@
+<style>
+.feedback-panel {
+	background: #0078ad;
+    color: #FFF;
+    margin-top: 16px;
+    margin-left: 142px;
+    padding: 10px;
+    border-radius: 7px;
+    width: 441px;
+    font-size: 17px;
+}
+.feedback {
+	margin-bottom:0px;
+}
+.col-xs-7.page-text.kc-option-container ul{
+	padding-left:0px;
+}
+
+.kc-option-container ul {
+	padding: 10px 10px 10px 20px;
+}
+
+.kc-option-check {
+    margin-bottom: 3px;
+    position: relative;
+    float: Left;
+    margin-left: -44px;
+    padding-left: 3px;
+    text-indent: -1px;
+    width: 482px;
+}
+.kc-option-label-1 {
+	border-radius: 6px;
+    font-weight: normal;
+    padding: 13px 0px 10px 10px;
+    display: block;
+    cursor: pointer;
+    float: left;
+    background: url(../course_images/interface/checkbox.png) no-repeat;
+    width: 590px;
+    display: block;
+    background-color: #ebebeb;
+    color: #000;
+    background-position: 10px 12px;
+    min-height: 47px;
+	margin-left:40px;
+}
+.quiz-area-mamc2 .option-selected-check{
+    color: #000;
+    background: url(../course_images/interface/checkbox_selected.png) no-repeat;
+	 background-position: 10px 12px;
+    background-color: #96ffb3;
+	
+}
+.quiz-area-mamc2 .correct-checkbox{
+	background: url(../course_images/interface/correct_mark.png) no-repeat !important;
+   background-position: 10px 12px !important;
+    background-color: #96ffb3 !important;
+	border-radius: 6px;
+	
+}
+.quiz-area-mamc2 .in-correct-checkbox{
+	background: url(../course_images/interface/incorrect_mark.png) no-repeat !important;
+	background-position: 10px 12px!important;
+    background-color: #96ffb3 !important;
+	border-radius: 6px;
+}
+
+.btn-submit {
+    color: #fff;
+    cursor: pointer;
+    float: left;
+    background: url(../course_images/common_bg/vertical_line.png) repeat-x;
+    border-color: #4cae4c;
+    margin-top: 16px;
+	margin-left:-3px;
+    height: 38px;
+    border-radius: 7px;
+    width: 132px;
+	font-weight: bold;
+}
+
+.back_button{
+	position: absolute;
+	top:10px;
+	left: 10px;
+	cursor: pointer;
+}
+.kc-option-check input{
+	opacity:0;
+	width:0px;
+	height:0px;
+}
+.option-container{
+	margin-left: 226px;
+}
+.btn-fdbk-container{
+    margin-left: 236px;
+}
+.option-text{
+    float: left;
+    display: block;
+    width: 95%;
+	padding-left:35px;
+}
+.instructionText{
+	color:#fff;
+}
+button{
+display:inline-block;
+}
+.nextBtn{
+	margin-left:10px !important;
+}
+.quiz-area-mamc2{
+    background: #005c85;
+    padding: 10px;
+    float: left;
+    height: 322px;
+    color: #fff;
+    padding: 18px;
+    width: 98%;
+    margin-left: 1%;
+	border-radius: 5px;
+}
+.Feedback-holder{
+	background: #ebebeb;
+    color: #000;
+    padding: 10px;
+    position: absolute;
+    width: auto;
+    height: 100%;
+    bottom: 0px;
+}
+.trnsBg{
+	background: rgba(0,0,0,0.5);
+    width: 363px;
+    height: 100%;
+    position: absolute;
+    padding: 0px;
+}
+.q-txt{
+    padding-left: 10px;
+}
+
+</style>
+<div class='q-txt' ng-bind-html="questionText" ></div>
+<div class="quiz-area-mamc2">
+    <div class="col-sm-7 questionHolder">
+		<p class="instructionText" ng-bind-html="instructionText"></p>
+		 <ul id="optionscheck">
+            <li ng-repeat="option in options" class="kc-option-check">
+                <label class="kc-option-label-1">
+                    <input type="checkbox" name="canswer" value="{{option.id}}"  id="chk_{{option.id}}" correct="{{option.isCorrect}}" ng-disabled="disableInput" ng-click="onOptionSelected($event)"/>
+                    <span class="option-text" ng-bind-html="option.text"></span>
+                </label>
+            </li>
+        </ul>
+		<button ng-click="checkAnswer()" class="btn btn-submit" ng-disabled="disableButton" ng-bind-html="buttonText"></button>
+	</div>
+	<div class="col-sm-5 option-label"  ng-style="{'background-image': 'url(' + pageBG + ')'}">		
+		 <div class="fdbk-container" ng-show="feedbackToggle">
+		 <div class="trnsBg">
+			 <div class="Feedback-holder" >
+				<div class="feedback-body"><p ng-bind-html="feedback" class="feedback"></p></div>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+
+

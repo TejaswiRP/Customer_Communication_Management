@@ -1,0 +1,116 @@
+<style>
+.locationMainBox {
+    background: #fff;
+    border-radius: 2px;
+    color: #000;
+    position: absolute;
+    top: -288px;
+    width: 809px;
+    min-height: 221px;
+    left: 108px;
+    padding: 0px;
+    z-index: 9999;
+}
+.locationMainBox li:nth-child(1) {
+    padding-top: 20px;
+}
+.locationMainBox li:nth-child(2) {
+    padding-top: 20px;
+}
+.locationMainBox li:nth-child(3) {
+    padding-top: 20px;
+    width: 271px;
+}
+.popup {
+    padding: 18px;
+    padding-top: 2px;
+    min-height: 260px;
+}
+.locationBox {
+    float: left;
+    padding: 0px;
+    width: 100%;
+    margin: 0px;
+}
+
+.tabs {
+    display: inline-block;
+    float: left;
+    width: 269px;
+    padding: 0;
+    background: #65cdf4;
+    min-height: 60px;
+    border-radius: 1px;
+    padding: 15px;
+    padding-right: 10px;
+    margin: 0px;
+    cursor: pointer;
+    color: #fff;
+    position: relative;
+}
+@media (min-width:1025px) { /* hi-res laptops and desktops */
+	.tabs:hover{
+		background: #0088ce;
+	}
+}
+.tabs:nth-child(2) {
+ 
+}
+.btn1 {
+    cursor: pointer;
+    background: url(../course_images/pages/m01/t02/p03/2.png) no-repeat;
+    width: 42px;
+    height: 42px;
+    position: absolute;
+   top: -53px;
+    right: -14px;
+}
+.btn-primary:hover {
+    background-color: #65cdf4 !important;
+	background: url(../course_images/pages/m01/t02/p03/2.png) no-repeat;
+}
+.visited{
+	background-color:#0088ce;
+}
+.visited:before{
+    content: url(../course_images/pages/m01/t02/p03/pointer.png);
+    position: absolute;
+    top: -14px;
+    left: 44%;
+}
+.tabs:after {
+    content: url(../course_images/pages/m01/t02/p03/division.png);
+    position: absolute;
+    left: 269px;
+    top: 6px;
+    z-index: 999999;
+}
+.popup img{
+    margin-top: 15px;
+}
+.tab3:after{
+	content:'';
+}
+.locationBox .i-text{
+    position: absolute;
+    bottom: 114px;
+    left: 351px;
+    width: 355px;
+}
+
+.selected{
+    background-image: url(../course_images/visualmenu/tick.png);
+    background-repeat: no-repeat;
+    background-position: 245px 6px;
+    background-size: 16px;
+}
+</style>
+<div class="col-sm-12 btn-container locationMainBox">
+	<button class='btn btn1 btn-primary' ng-click="openPopup('gonext')"></button>
+	<div class="popup" ng-show="popupToggle"><p bind-html-compile="Buttontext"></p></div>
+	<ul class="locationBox">
+		<li class="tabs tab{{$index+1}}" ng-repeat="item in content.btn_click_learn" ng-click="loadcontent($event,item)" ng-class="{'visited':item.id==id}">
+			{{item.button}}
+		</li>
+	</ul>
+</div>

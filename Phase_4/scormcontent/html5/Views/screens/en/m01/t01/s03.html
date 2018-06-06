@@ -1,0 +1,470 @@
+<style>
+.page_bg_2{
+    background: url('../course_images/pages/m01/t01/p03/bg_img_PC.jpg') center center;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 1;
+    position:relative;
+	border: solid 1px #ececec;
+}
+.main-container{
+	overflow: hidden;
+}
+.panel-custom{
+    background-color: transparent !important;
+    border-radius: transparent !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    text-align: center;
+}
+.btn-custom{
+    border-radius: 20px;
+    background-color: white;
+    width: 25%;
+}
+.select-custom{
+	width: 25%;
+    height: 45px;
+    border-radius: 15px;
+    background: #00000082;
+    color: white !important;
+}
+.div-1{
+    border-top: 2px dashed;
+    border-right: 2px dashed;
+    height: 75px;
+    border-top-right-radius: 30px;
+    /*border-bottom-right-radius: 30px;*/
+    
+}
+.div-2{
+    border-top: 2px dashed;
+    border-left: 2px dashed;
+    border-bottom: 2px dashed;
+    height: 75px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+
+}
+.div-custom-rounded{
+    position: absolute;
+    height: 8%;
+    background: #ffffff;
+    text-align: center;
+    border-radius: 20px;
+    width: 30%;
+    padding: 1%;
+    cursor: pointer;
+}
+
+.div-custom-placement-1{
+    top: 54%;
+    left: 8%;
+}
+.div-custom-placement-2{
+    top: 54%;
+    right: 11%;
+}
+.div-custom-placement-3{
+    top: 73%;
+    left: 73%;
+}
+.div-custom-placement-4{
+    top: 73%;
+    left: 17%;
+}
+.div-custom-placement-5{
+    top: 92%;
+    left: 10%;
+}
+.div-custom-placement-6{
+    top: 92%;
+    left: 60%;
+}
+.dotted{
+    height: 25px;
+    width: 25px;
+    background-color: #003663;
+    border-radius: 50%;
+    position: absolute;
+    text-align: center;
+    color: white !important;
+    padding: 3px;
+}
+.dot-1{
+    top: 54%;
+    left: 0%;
+}
+.dot-2{
+    top: 54%;
+    left: 50%;
+}
+.dot-3{
+    top: 64%;
+    left: 96.5%;
+}
+.dot-4{
+    top: 74%;
+    left: 52%;
+}
+.dot-5{
+    top: 93%;
+    left: 4%;
+}
+.dot-6{
+    top: 93%;
+    left: 48%;
+}
+.dot-7{
+    top: 93%;
+    left: 95%;
+}
+.visibilityHidden{
+    visibility: hidden;
+}
+.visibilityVisible{
+    visibility: visible;
+}
+.displayDesktop{
+    display: block;
+}
+.blockDesktop{
+    display: none;
+}
+.div-3{
+    top: 12%;
+    left: 50%;
+    border-left: 3px dashed;
+    position: absolute;
+    height: 80%;
+}
+.blockBreakPhone{
+    display: block;
+}
+.branchPlay::after{
+    content: '\f04b';
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    position: absolute;
+    color: black;
+    top: 50%;
+    transform: translate(0%,-50%);
+    right: 3%;
+}
+
+@media (max-width: 768px) and (orientation:portrait){
+    /*tab potrait*/
+    .page_bg_2{
+         background: url('../course_images/pages/m01/t01/p03/bg_img_tab_portrait.jpg') center center;
+    }
+    .displayDesktop{
+        display: none;
+    }
+    .blockDesktop{
+        display: block;
+    }
+    .panel-custom{
+        height: 100%;
+    }
+    .blockBreakPhone{
+        display: block;
+    }
+    .div-custom-rounded {
+        height: 4%;
+        width: 46%;
+        padding-top: 2%;
+    }
+    .div-custom-placement-1 {
+        top: 17%;
+        left: 27%;
+    }
+    .div-custom-placement-2 {
+        top: 30%;
+        right: 27%;
+    }
+    .div-custom-placement-3 {
+        top: 44%;
+        left: 27%;
+    }
+    .div-custom-placement-4 {
+        top: 58%;
+        left: 27%;
+    }
+    .div-custom-placement-5 {
+        top: 72%;
+        left: 27%;
+    }
+    .div-custom-placement-6 {
+        top: 85%;
+        left: 27%;
+    }
+    .dot-1{
+        top: 11%;
+        left: 48%;
+    }
+    .dot-2 {
+        top: 23%;
+        left: 48%;
+    }
+    .dot-3 {
+        top: 38%;
+        left: 48%;
+    }
+    .dot-4 {
+        top: 51%;
+        left: 48%;
+    }
+    .dot-5 {
+        top: 65%;
+        left: 48%;
+    }
+    .dot-6 {
+        top: 79%;
+        left: 48%;
+    }
+    .dot-7 {
+        top: 91%;
+        left: 48.2%;
+    }
+
+    
+}
+@media (max-width: 375px) and (orientation:portrait){
+    /*phone potrait*/
+    .page_bg_2{
+         background: url('../course_images/pages/m01/t01/p03/bg_img_ph_portrait.jpg') center center;
+    }
+    .displayDesktop{
+        display: none;
+    }
+    .blockDesktop{
+        display: block;
+    }
+    .panel-custom{
+        height: 100%;
+        top: -2%;
+    }
+    .blockBreakPhone{
+        display: block;
+    }
+    .div-custom-rounded {
+        height: 4%;
+        width: 80%;
+    }
+    .div-3 {
+        top: 28%;
+        height: 73%;
+    }
+    .div-custom-placement-1 {
+        top: 31%;
+        left: 12%;
+    }
+    .div-custom-placement-2 {
+        top: 43%;
+        right: 12%;
+    }
+    .div-custom-placement-3 {
+        top: 56%;
+        left: 12%;
+    }
+    .div-custom-placement-4 {
+        top: 70%;
+        left: 12%;
+    }
+    .div-custom-placement-5 {
+        top: 83%;
+        left: 12%;
+    }
+    .div-custom-placement-6 {
+        top: 94%;
+        left: 12%;
+    }
+    .dot-1 {
+        top: 25%;
+        left: 46%;
+    }
+    .dot-2 {
+        top: 37%;
+        left: 46%;
+    }
+    .dot-3 {
+        top: 50%;
+        left: 46%;
+    }
+    .dot-4 {
+        top: 63%;
+        left: 46%;
+    }
+    .dot-5 {
+        top: 77%;
+        left: 46%;
+    }
+    .dot-6 {
+        top: 89%;
+        left: 46%;
+    }
+    .dot-7 {
+        top: 99%;
+        left: 46%;
+    }
+
+}
+@media (max-width: 667px) and (orientation:landscape){
+    /*phone landscape*/
+    .page_bg_2{
+         background: url('../course_images/pages/m01/t01/p03/bg_img_ph_landscape.jpg') center center;
+    }
+    .logo-placement{
+        top: 0%;
+        left: 36%;
+    }
+    .displayDesktop{
+        display: block;
+    }
+    .blockDesktop{
+        display: none;
+    }
+    .blockBreakPhone{
+        display: none;
+    }
+    .div-custom-rounded {
+        height: 12%;
+        width: 40%;
+        padding-top: 2%;
+    }
+    .div-custom-placement-1 {
+        top: 45%;
+        left: 6%;
+    }
+    .div-custom-placement-2 {
+        top: 45%;
+        right: 6%;
+    }
+    .div-custom-placement-3 {
+        top: 67%;
+        left: 70%;
+    }
+    .div-custom-placement-4 {
+        top: 68%;
+        left: 15%;
+    }
+    .div-custom-placement-5 {
+        top: 90%;
+        left: 4%;
+    }
+    .div-custom-placement-6 {
+        top: 90%;
+        left: 54%;
+    }
+    .dot-1 {
+        top: 48%;
+        left: -1%;
+    }
+    .dot-2 {
+        top: 47%;
+        left: 48%;
+    }
+    .dot-3 {
+        top: 56%;
+        left: 95%;
+    }
+    .dot-4 {
+        top: 69%;
+        left: 61%;
+    }
+    .dot-5 {
+        top: 80%;
+        left: 1%;
+    }
+    .dot-6 {
+        top: 92%;
+        left: 47%;
+    }
+    .dot-7 {
+        top: 92%;
+        left: 96%;
+    }
+}
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var animationEndCheck = 'webkitAnimationEnd mozAnimationEnd oAnimationEnd animationend';
+
+        $('#main_Div').addClass('visibilityVisible animated fadeIn _1').one(animationEndCheck,function(){
+            $('#div_1').addClass('visibilityVisible animated fadeIn');
+            $('#div_3').addClass('visibilityVisible animated fadeIn');
+            $('#div_Dot_1').addClass('visibilityVisible animated fadeIn');
+            $('#div_Custom_1').addClass('visibilityVisible animated bounceInLeft')  
+        })
+        $('#div_Custom_1').one(animationEndCheck,function(){
+            $('#div_Dot_2').addClass('visibilityVisible animated fadeIn');
+            $('#div_Custom_2').addClass('visibilityVisible animated bounceInRight')
+            $('#div_2').addClass('visibilityVisible animated fadeIn');
+        })
+        $('#div_Custom_2').one(animationEndCheck,function(){
+            $('#div_Dot_3').addClass('visibilityVisible animated fadeIn');
+            $('#div_Custom_3').addClass('visibilityVisible animated bounceInRight')
+        })
+        $('#div_Custom_3').one(animationEndCheck,function(){
+            $('#div_Dot_4').addClass('visibilityVisible animated fadeIn');
+            $('#div_Custom_4').addClass('visibilityVisible animated bounceInLeft')
+        })
+        $('#div_Custom_4').one(animationEndCheck,function(){
+            $('#div_Dot_5').addClass('visibilityVisible animated fadeIn');
+            $('#div_Custom_5').addClass('visibilityVisible animated bounceInLeft')
+        })
+        $('#div_Custom_5').one(animationEndCheck,function(){
+            $('#div_Dot_6').addClass('visibilityVisible animated fadeIn');
+            $('#div_Custom_6').addClass('visibilityVisible animated bounceInRight')
+        })
+        $('#div_Custom_6').one(animationEndCheck,function(){
+            $('#div_Dot_7').addClass('visibilityVisible animated fadeIn');
+        })
+
+    })
+</script>
+
+<div id="main_Div" class='main-container visibilityHidden'>
+	<div class="page_bg_2">
+		<div class="panel panel-custom">
+	        <div class="panel-body">
+	          <h3>CUSTOMER COMMUNICATION MANAGEMENT</h3>
+	          <p>
+	              Select any module to proceed with your learning
+	          </p>
+
+	          <br><br><br>
+              <span class="blockBreakPhone"><br><br><br><br><br></span>
+
+              <div id="div_1" class="div-1 visibilityHidden displayDesktop"></div>
+              <div id="div_2" class="div-2 visibilityHidden displayDesktop"></div>
+              <div id="div_3" class="div-3 visibilityHidden blockDesktop"></div>
+
+              <div id="div_Custom_1" class="div-custom-rounded div-custom-placement-1 branchPlay visibilityHidden">Be a Better Communicator</div>
+              <div id="div_Custom_2" class="div-custom-rounded div-custom-placement-2  branchPlay visibilityHidden">Honning Your Message</div>
+              <div id="div_Custom_3" class="div-custom-rounded div-custom-placement-3 branchPlay visibilityHidden">Say It Like You Mean It</div>
+              <div id="div_Custom_4" class="div-custom-rounded div-custom-placement-4 branchPlay visibilityHidden">Look Like You Mean It</div>
+              <div id="div_Custom_5" class="div-custom-rounded div-custom-placement-5 branchPlay visibilityHidden">Confronting Anxiety</div>
+              <div id="div_Custom_6" class="div-custom-rounded div-custom-placement-6 branchPlay visibilityHidden">In Action</div>
+
+              <div id="div_Dot_1" class="dotted dot-1 visibilityHidden">1</div>
+              <div id="div_Dot_2" class="dotted dot-2 visibilityHidden">2</div>
+              <div id="div_Dot_3" class="dotted dot-3 visibilityHidden">3</div>
+              <div id="div_Dot_4" class="dotted dot-4 visibilityHidden">4</div>
+              <div id="div_Dot_5" class="dotted dot-5 visibilityHidden">5</div>
+              <div id="div_Dot_6" class="dotted dot-6 visibilityHidden">6</div>
+              <div id="div_Dot_7" class="dotted dot-7 visibilityHidden">&nbsp;</div>
+
+            </div>
+	    </div>
+	</div>
+</div>

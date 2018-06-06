@@ -1,0 +1,242 @@
+<style>
+
+.trnsBg{
+	background: rgba(0,0,0,0.5);
+    width: 450px;
+    height: 100%;
+    position: absolute;
+    padding: 0px;
+}
+
+.feedback-panel {
+    background: #ebebeb;
+    color: #0172aa;
+    padding: 10px;
+	position: absolute;
+    width: auto;
+	height: auto;
+    bottom: 0px;
+}
+.feedback {
+	margin-bottom: 0px;
+    padding: 10px;
+    padding-top: 16px;
+    color: #000000;
+}
+.feedback-bullet{
+	margin-top: 15px;
+    margin-bottom: 10px;
+}
+.bullet-points{
+	list-style:disc;
+	padding-bottom: 10px;
+}
+.col-xs-7.page-text.kc-option-container ul{
+	padding-left:0px;
+}
+
+.quiz-area {
+	padding-left: 0;
+}
+
+.kc-option-container ul {
+	padding: 10px 10px 10px 20px;
+}
+
+.kc-option {
+    margin-bottom: 3px;
+    position: relative;
+    float: left;
+	margin-left: -17px;
+}
+
+.kc-option-label {
+	border-radius: 6px;
+    font-weight: normal;
+    padding: 10px 7px;
+    display: block;
+    cursor: pointer;
+    float: left;
+    background: url(../course_images/interface/circle.png) no-repeat;
+    width: 420px;
+    display: block;
+    background-color: #ebebeb;
+	color: #000;
+    background-position: 5px 7px;
+}
+
+.option-selected{
+    color: #000;
+    background: url(../course_images/interface/circle_checkbox.png) no-repeat;
+	background-position: 5px 7px;
+    background-color: #96ffb3;
+}
+
+.correct-checkbox{
+	background: url(../course_images/interface/circle__correct_checkbox.png) no-repeat !important;
+    background-position: 5px 7px !important;
+    background-color: #96ffb3 !important;
+	border-radius: 6px;
+	
+}
+
+
+.in-correct-checkbox{
+	background: url(../course_images/interface/circle__incorrect_checkbox.png) no-repeat !important;
+	background-position: 5px 7px !important;
+    background-color: #96ffb3 !important;
+	border-radius: 6px;
+}
+
+.btn-submit {
+    cursor: pointer;
+    float: left;
+	color: #fff;
+    background: url(../course_images/common_bg/vertical_line.png) repeat-x;
+    border-color: #4cae4c;
+    margin-top: 16px;
+	margin-left: -14px;
+    height: 38px;
+    border-radius: 7px;
+    width: 132px;
+	font-weight: bold;
+}
+
+.back_button{
+	position: absolute;
+	top:10px;
+	left: 10px;
+	cursor: pointer;
+}
+.kc-option input{
+	opacity:0;
+	width:0px;
+	height:0px;
+}
+.option-text{
+    float: left;
+    display: block;
+    width: 95%;
+	padding-left:35px;
+}
+#options {
+    padding: 3px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    margin-top: 16px;
+}
+.instruction-text{
+	color:#fff;
+}
+.page-heading {
+    color: #000000;
+    font-family: Arial;
+}
+
+
+/**** popup styles ***/
+
+.popup_contain{
+    position: absolute;
+    top: 0;
+    bottom: 45px;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    background: rgba(69,71,73,0.9);
+}
+.pop_text{
+    background: #dcf4ff;
+    width: 100%;
+    margin: auto;
+    margin-top: 98px;
+    padding: 35px;
+    height: 350px;
+	position:absolute;
+}
+.do{
+    width: 50%;
+    float: left;
+}
+.dont{
+    width: 50%;
+    float: left;
+}
+.pop_text .head{
+    background: #005c85;
+    color: #fff;
+    padding: 15px;
+	padding-bottom:10px;
+	margin-bottom:0px;
+}
+.pop_text .conent{
+    padding: 10px;
+    border: 1px dashed;
+    border-top: 0px;
+    min-height: 200px;
+}
+.dont .content{
+	border-left:0px;
+}
+.pop_text .head{
+	border-right: 1px dashed #ffffff;
+}
+.guideLine2{
+    position: absolute;
+    right: 35px;
+    background: #3bb046;
+    border: 0px;
+    color: #fff;
+    padding: 5px 40px;
+    padding-top: 10px;
+    border-radius: 5px;
+    padding-left: 18px;
+    bottom: -28px;
+    z-index: 9;
+    padding-top: 7px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+	font-weight:bold;
+}
+.guideLine2 .fa{
+	font-size: 24px;
+    position: absolute;
+    right: 15px;
+    top: 3px;
+}
+.guideLine{
+	position: absolute;
+    right: 20px;
+    top: 93px;
+    background: #3bb046;
+    border: 0px;
+    color: #fff;
+    padding: 6px 20px;
+    padding-top: 4px;
+    border-radius: 5px;
+    padding-left: 18px;
+	font-weight:bold;
+}
+.guideLine .fa{
+    font-size: 24px;
+    position: relative;
+    right: -5px;
+    top: 3px;
+}
+
+</style>
+<div class="quiz-area col-xs-12">
+    <div class="col-xs-7 option-container">
+        <ul id="options">
+            <li ng-repeat="option in options" class="kc-option">
+                <label class="kc-option-label">
+                    <input type="radio" name="answer" value="{{option.id}}" correct="{{option.isCorrect}}" ng-disabled="disableInput" ng-click="onOptionSelected($index)"/>
+                    <span class="option-text" ng-bind-html="option.text"></span>
+                </label>
+            </li>
+        </ul>
+    </div>
+	<div class="col-xs-7 btn-fdbk-container">
+		<button ng-click="checkAnswer()" class="btn btn-submit" ng-disabled="disableButton" ng-bind-html="buttonText"></button>
+	</div>
+</div>

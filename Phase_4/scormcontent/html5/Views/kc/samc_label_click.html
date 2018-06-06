@@ -1,0 +1,117 @@
+<style>
+.page-bg{
+	position:relative;
+}
+input[type="radio"], input[type="checkbox"]{
+	width: 0px;
+    height: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+#options{
+	padding:0px;
+    margin-top: 0px;
+	margin-bottom: 10px;
+	float: left;
+}
+.kc-option-label span{
+    padding-left: 30px;
+    display: block;
+    float: left;
+}
+.kc-option-label{
+	background-image: url(../course_images/pages/assesment/radio_btn.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-weight: normal;
+    background-color: #017f95;;
+    width: 925px;
+    padding: 10px;
+    color: #000;
+    border-radius: 5px;
+    background-position: 8px 50%;
+}
+.kc-option{
+	position:relative;
+}
+[disabled]{
+	opacity: 0.7;
+}
+.option-selected{
+	background-image: url(../course_images/pages/assesment/radio_btn_selected.png);
+	cursor: default;
+}
+
+.btn-submit-q{
+	margin-left: 0;
+	border: 0px;
+   background-color: #017f95;
+    padding: 8px 27px;
+    border-radius: 5px;
+    font-size: 16px;
+	color:#fff;
+	float: left;
+}
+.instruction-text{
+	margin-left:0px;
+}
+.btn-cntain{
+	float:left;
+	width: 100%;
+}
+
+.correct:before {
+    content: "\f00c";
+    font-family: FontAwesome;
+    color: green;
+    font-size: 25px;
+    left: -25px;
+    top: 5px;
+    position: absolute;
+    display: block;
+}
+
+.in-correct:before {
+    content: "\f00d";
+    font-family: FontAwesome;
+    color: #ad3535;
+    font-size: 25px;
+    left: -25px;
+    top: 5px;
+    position: absolute;
+    display: block;
+}
+
+.feedback-container {
+    height: 51px;
+    border-radius: 12px;
+    color: #005bab;
+    background: #fff;
+    padding: 12px;
+    font-weight: bold;
+    float: left;
+    font-size: 16px;
+}
+.quiz-area{
+	position: relative;
+    float: left;
+}
+</style>
+<div class="quiz-area">
+    <div class="page-text kc-option-container option-label">
+        <ul id="options">
+            <li ng-repeat="option in options" class="kc-option">
+                <label class="kc-option-label">
+                    <input type="radio" name="answer" value="{{option.id}}" correct="{{option.isCorrect}}" ng-disabled="disableInput" ng-click="onOptionSelected($index)">
+                    <span class="option-text" ng-bind-html="option.text"></span>
+                </label>
+            </li>
+        </ul>
+    </div>
+	 <div class='btn-cntain'>
+		<button ng-click="checkAnswer()" class="btn-submit-q" ng-disabled="disableButton" ng-bind-html="buttonText"></button>
+		<div class="feedback-container" ng-show="feedbackToggle">
+			<div class="feedback" ng-bind-html="feedback"></div>
+		</div>
+	</div> 
+</div>

@@ -1,0 +1,107 @@
+<style>
+input[type="radio"], input[type="checkbox"]{
+	width: 0px;
+    height: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+#options {
+    padding-top: 25px;
+    padding-left: 0px;
+    margin: 0px;
+    font-size: 16px;
+}
+.kc-option-label span{
+    padding-left: 27px;
+    display: block;
+    float: left;
+    margin-top: -7px;
+}
+.kc-option-label{
+	padding: 10px;
+    background-image: url(../course_images/pages/assesment/checkbox.png);
+    background-repeat: no-repeat;
+	cursor: pointer;   
+	font-weight: normal;
+	position:relative;
+}
+.option-selected{
+	background-image: url(../course_images/pages/assesment/checkbox_selected.png);
+	cursor: default;
+}
+.btn-submit-q{
+	margin-left: 0;
+    margin-top: 35px;
+    border: 0px;
+    background: #65cdf4;
+    padding: 8px 22px;
+    border: 0px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+.instructionText{
+	margin-left:0px;
+	color: #fff;
+	font-weight: normal;
+}
+.instructionText:before {
+    content: url(../course_images/langselection/select.png);
+    font-size: 24px;
+    right: 6px;
+    margin-bottom: 14px;
+    position: relative;
+    top: 3px;
+}
+.istr-qz{
+    padding-left: 12px;
+}
+.feedback-panel{
+    position: absolute;
+    bottom: 48px;
+    width: 853px;
+    left: 87px;
+    background: #fff;
+    color: #000;
+    padding: 10px;
+    height: 64px;
+    padding-right: 159px;
+}
+.try-aggain{
+    position: absolute;
+    right: 15px;
+    top: -20px;
+	color:#fff;
+}    
+.correct:before{
+	display:block;
+	left: -32px;
+    top: 1px;
+	color:#fff;
+}
+.in-correct:before{
+	display:block;
+	left: -32px;
+    top: 1px;
+	color:#fff;
+}
+
+</style>
+<div class="quiz-area">
+    <div class="page-text kc-option-container">
+	<p class='istr-qz'><span class="instructionText"><i>Select the correct options and Submit.</i></span></p>
+        <ul id="options">
+            <li ng-repeat="option in options" class="kc-option">
+                <label class="kc-option-label">
+                    <input type="checkbox" name="answer" value="{{option.id}}" correct="{{option.isCorrect}}" ng-disabled="disableInput" ng-click="onOptionSelected($index)">
+                    <span class="option-text" ng-bind-html="option.text"></span>
+                </label>
+            </li>
+        </ul>
+    </div>
+	<p><button ng-click="checkAnswer()" class="btn-submit-q" ng-disabled="disableButton" ng-bind-html="buttonText"></button></p>
+    <div class="feedback-panel" ng-show="feedbackToggle">
+        <div class="feedback" ng-bind-html="feedback"></div>     
+		<button ng-click="resetOptions()" ng-hide="disabletryAgain" class="btn-submit-q try-aggain" >TRY AGAIN</button>		
+    </div>
+</div>

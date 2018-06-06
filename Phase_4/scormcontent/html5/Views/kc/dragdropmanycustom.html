@@ -1,0 +1,653 @@
+﻿<style>
+    .optionEntiteContent{
+		padding: 0px;
+		height: 505px;
+	}
+    #question-text{
+		padding-left: 0;
+		margin-bottom: 10px;
+		overflow: hidden;
+    }
+
+    #question-text li{
+		display: flex;
+    }
+
+    #question-text li .scenario{
+        padding: 0;
+		text-align: center;
+    }
+
+    #question-text li{
+       border-bottom: #717171 dashed thin;
+    }
+	.dragHolder{
+		
+	}
+   
+
+    /* Slots for final card positions */
+
+    #droppable-container {
+        margin: 20px auto 0 auto;
+    }
+
+    /* The initial pile of unsorted cards */
+
+    #draggable-container {
+        margin: 20px auto;
+    }
+
+	/* Individual cards and slots */
+	.droppable-item , .Caart{
+		height: 296px;
+		color: #000;
+		width: 226px;
+		position: absolute;
+		top: 71px;
+		left: 38px;
+	}
+	.Caart{
+		padding-top: 40px;
+		width: 194px;
+		left: 54px;
+	}
+	.cart {
+		display:none;
+		background: none;
+		text-align: center;
+	}
+	.btn-submit{
+		display:none;
+	}
+
+	.draggable-item-panel {
+		height: 105;
+		width: 331px !important;
+		color: #060606;
+		text-align: left;
+		display: table-cell;
+		vertical-align: middle;
+		padding: 0px 5px 0px 43px;
+	}
+	.draggable-item {
+		height: 54px;
+		color: #060606;
+		text-align: center;
+		margin-bottom: 8px;
+		display: inline-block;
+		bottom: 5px;
+		left: 22%;
+		border-radius: 11px;
+		padding: 0px 6px;
+		position: relative;
+	}
+	.drag-content{
+		cursor: move;
+		background-color: #0078ad;
+		border-radius: 11px;
+		padding: 0px 10px;
+		width: 193px;
+		margin: 0px auto;
+	}
+	.drag-content p {
+		height: 55px;
+		display: table-cell;
+		vertical-align: middle;
+		width: 100%;
+		text-align: center !important;
+		color: #fff;
+		width: 500px;
+	}
+	.draggable-item::before {
+		content: "";
+		height: 26px;
+		width: 14px;
+		position: absolute;
+		left: 21px;
+		top: 45px;
+	}
+	.droppable-item::after {
+		content: "";
+		height: 26px;
+		width: 14px;
+		position: absolute;
+		right: 9px;
+		top: 45px;
+	}
+	.drophere{
+		position: relative;
+		color: #ffffff;
+		font-weight: bold;
+		text-align: center;
+		vertical-align: middle;
+		top: 12px;
+	}
+	.dropIns{
+		top: 5px;
+		color: #5d5d5d;
+		width: 100%;
+		position: relative;
+		display: block;
+		text-align: center;
+	}
+	
+     .feedback-panel {
+		background: #f4eedc;
+		color: #000000;
+		padding: 14px;
+		border-radius: 7px;
+		width: 302px;
+		box-shadow: 2px 2px 8px rgba(66, 66, 66, 0.88);
+		top: 1px;
+		display: inline-block !important;
+		position: absolute;
+		margin-left: 20;
+	}
+
+    .feedback-close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+    }
+
+
+    /* "You did it!" message */
+    #successMessage {
+        position: absolute;
+        left: 580px;
+        top: 250px;
+        width: 0;
+        height: 0;
+        z-index: 100;
+        background: #dfd;
+        border: 2px solid #333;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        -moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+        -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+        box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+        padding: 20px;
+    }
+
+	.scenario{
+		font-size: 16px;
+		color:#000;
+		font-family: robotoMedium;
+		background-color: #ebf5ed;
+	}
+	.scenario img	{
+		margin-top: 20px;
+	}
+	.redBorder::before{
+		content: url(../course_images/interface/red.png);
+		font-size: 24px;
+		left: 7px;
+		position: absolute;
+		top: 23px;
+	}
+	.greenBorder::before {
+		content: "\f00c";
+		font-family: FontAwesome;
+		right: -13px;
+		top: -13px;
+		color: #ffffff;
+		font-size: 23px;
+		width: 14px;
+		position: absolute;
+		background-color: #00b050;
+		border-radius: 50%;
+		height: 30px;
+		width: 30px;
+		padding-left: 3px;
+		padding-top: 1px;
+		z-index: 9;
+	}
+	.scenario p{
+		height: auto;
+		vertical-align: middle;
+		width: 100%;
+		margin-top:10px;
+		text-align: center;
+		position: relative;
+	}
+	   
+	.in-correct:before{
+		left:-20px;
+		top: 36px;
+	}
+	.correct:before{
+		left: -20px;
+		top: 36px;
+	}
+	.onDrag{
+		
+	}
+	.afterDrag {
+		text-align: left !important;
+		padding: 0px 10px;
+		border-radius: 11px;
+		top: 15px;
+		font-size: 14px;
+	}
+	.btn-submit, .btn-reset {
+		border-radius: 30px;
+		background-color: rgb(1, 169, 224);
+		border: none;
+		color: #fff;
+		height: 60px;
+		font-size: 20px;
+		position: absolute;
+		letter-spacing: 1px;
+		padding: 0px 22px 0px 22px;
+		margin: 0px auto;
+		font-family: myCustomFont1;
+		bottom: 58px;
+		left: 44%;
+	}
+	
+	.btn-show-ans {
+		border-radius: 30px;
+		background-color: rgb(1, 169, 224);
+		border: none;
+		color: #fff;
+		height: 60px;
+		width: 252px;
+		font-size: 20px;
+		position: absolute;
+		letter-spacing: 1px;
+		padding: 0px 22px 0px 22px;
+		margin: 0px auto;
+		font-family: myCustomFont1;
+		bottom: 52px;
+		left: 37%;
+		z-index: 9999;
+	}
+	.btn:hover, .btn:focus, .btn.focus{
+		color: #fff;
+	}
+	@media all and (max-width:420px) {
+		
+	}
+		
+	.left15{
+		margin-left:30px;
+	}
+@media screen and (min-device-width: 768px) and (max-device-width: 1824px) and (orientation : portrait){
+	.optionEntiteContent {
+		padding: 0px;
+		height: 96%;
+	}
+	.quizHolder{
+		height: 89%;
+		margin: 15px 10px 10px 24px;
+	}
+	.draggable-item{
+		left: 18%;
+	}
+	
+}
+
+
+
+.optionContent {
+	padding: 0px;
+    background: url(../course_images/pages/m01/t13/p06/mobile.png);
+    background-repeat: no-repeat;
+    margin-left: 0px;
+    position: relative;
+    background-position: 37px 2px;
+    background-size: 77%;
+    height: 472px;
+}
+.fa-angle-down:before {
+  
+}
+/*.button_Container_1{
+	margin-top: 323px;
+    margin-left: 36%;
+}*/
+.fa-angle-down:before{
+	left:0px;
+}
+
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1824px) and (orientation : landscape){
+	.btn-submit{
+		
+		bottom: 35px  !important;
+		
+	}
+	.btn-reset{
+		
+		bottom: 35px !important;
+		
+	}
+	.btn-show-ans {
+		   
+			bottom: 35px !important;
+			
+	}
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1824px) and (orientation : portrait){
+	.clear{
+	    
+	}
+	.col-sm-6 {
+		width: 33%;
+		position: relative;
+	}
+	.btn-submit{
+		
+		bottom: 62px !important;
+		
+	}
+	.btn-reset{
+		
+		bottom: 62px !important;
+		
+	}
+	.btn-show-ans {
+		    
+			bottom: 62px !important;
+			
+	}
+}
+
+@media screen and (max-device-width: 767px) and (orientation: portrait) {
+	.kc-page-content{
+		padding:0px;
+	}
+	.mleft{
+		margin-left: 23px !important;
+	}
+	.questionHolder {
+		padding: 10px 0px 27px 0px;
+	}
+	.qtnTxt {
+		color: #000;
+		margin-top:0px;
+	}
+	.option-container {
+		height: 885px;
+	}
+	.quizHolder{
+		height: 94%;
+		width: 90%;
+		margin: 15px 20px 15px 20px;
+		padding-top: 10px;
+	}
+	.dragHolder{
+		position: fixed;
+		bottom: 0px;
+	}
+	
+	.draggable-item{
+		left: 0px; 
+	}
+	.drag-content p {
+		width: 368px !important;
+		padding: 10px;
+	}
+	.optionEntiteContent{
+	    padding: 0px;
+		overflow: scroll;
+		padding-bottom:320px !important;
+	}
+	.btn-submit, .btn-reset{
+		bottom: 52px !important;
+		text-align: center;
+		height: 40px;
+		font-size: 14px;
+		margin: 0px auto;
+		left: 132px !important;
+		position: fixed;
+	}
+	.btn-reset{
+		bottom: 52px !important;
+		text-align: center;
+		height: 40px;
+		font-size: 14px;
+		margin: 0px auto;
+		left: 132px !important;
+		position: fixed;
+	}
+	.btn-show-ans {
+		bottom: 52px !important;
+		text-align: center;
+		height: 40px;
+		font-size: 14px;
+		margin: 0px auto;
+		width: 200px;
+		left: 92px !important;
+		position: fixed;
+	}
+	.onDrag{
+		padding-left:100px;
+		padding-right:100px;
+	}
+}
+@media screen and (max-device-width: 767px) and (orientation: landscape) {
+	.kc-page-content{
+		padding:0px;
+	}
+	.mleft{
+		margin-left: 23px !important;
+	}
+	.questionHolder {
+		padding: 10px 0px 27px 0px;
+	}
+	.qtnTxt {
+		color: #000;
+		margin-top:0px;
+	}
+	.option-container {
+		height: 885px;
+	}
+	.quizHolder{
+		height: 94%;
+		width: 93%;
+		margin: 10px 25px 10px 25px;
+		padding-top: 10px;
+	}
+	.dragHolder{
+		position: fixed;
+		bottom: 0px;
+	}
+	
+	.drag-content p {
+		<!-- width: 368px !important; -->
+		padding: 10px;
+	}
+	.optionEntiteContent{
+	    padding: 0px;
+		overflow: scroll;
+		padding-bottom:120px !important;
+		height: 231px !important;
+	}
+	.btn-submit{
+		position: relative;
+		bottom: 106px !important;
+		height: 40px;
+		font-size: 14px;
+		text-align: center;
+		margin: 0px auto;
+	}
+	.btn-reset{
+		position: relative;
+		bottom: 113px !important;
+		text-align: center;
+		height: 40px;
+		font-size: 14px;
+		margin: 0px auto;
+		left: 103px !important;
+	}
+	.btn-show-ans {
+		    position: relative;
+			bottom: 107px !important;
+			text-align: center;
+			height: 40px;
+			font-size: 14px;
+			width: 200px;
+			margin: 0px auto;
+			left: 208px;
+	}
+	.onDrag{
+		padding-left:100px;
+		padding-right:100px;
+	}
+	.draggable-item{
+		left: 85px;
+	}
+	.Caart{
+		text-align:center;
+	}	
+}
+
+
+.col-1{
+	width: 30.5%;
+    display: inline-block;
+    float: left;
+}
+
+.col-2{
+	width: 39%;
+    display: inline-block;
+    float: left;
+    position: relative;
+}
+
+.col-3{
+	width: 30.5%;
+    display: inline-block;
+    float: left;
+}
+.questionHolder{
+	background-color: #2093d9;
+    position: inherit;
+    z-index: 99;
+    border-radius: 7px;
+    display: table;
+    width: 230px;
+    padding: 11px;
+}
+
+.paraHead{
+	display: block;
+    margin-bottom: 0px;
+    height: 12px;
+    font-size: 14px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    font-weight: bold;
+    color: #fff;
+}
+
+.instructionTxt{
+	position: relative;
+    color: #006495;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 7px;
+    margin-bottom: 12px;
+}
+.do{
+	background-color: #00b050;
+	width: 65px;
+    padding: 8px;
+    margin: 0px auto;
+    top: 6px;
+    border-radius: 5px;
+}
+.dont{
+    background-color: #ff0000;
+	width: 65px;
+    padding: 8px;
+    margin: 0px auto;
+    top: 6px;
+    border-radius: 5px;
+}
+
+
+.feedBackPanel{
+	background-color: #007aae;
+    padding: 10px;
+    border-radius: 11px;
+    left: 20px;
+    position: absolute;
+    height: 233px;
+    width: 365px;
+    margin: 0px auto;
+}
+.correctFeedback{
+    text-align: center;
+    font-size: 14;
+    margin-top: 17px;
+    color: #fff;
+}
+.rightMark{
+	background: url(../course_images/pages/m01/t13/p06/rightMark.png) no-repeat;
+    width: 99px;
+    height: 148px;
+    background-size: contain;
+    margin: 0px auto;
+}
+.cart_1{
+    left: 50px;
+}
+
+.z-depth-1, .btn, .btn-floating {
+    box-shadow: none;
+}
+
+.z-depth-1-half, .btn:hover, .btn-floating:hover {
+    box-shadow: none;
+}
+
+</style>
+<div id="content">
+	<div class="row">
+		<div class="col-sm-12 optionEntiteContent" >
+				<div  class="col-1">  
+					<div class="optionContent"  >
+						<div class="droppable-item" id="target_1"   data-number=1> <p class="drophere do">{{question[0].dropText}} </p></div>
+						<div  id="cart_1" class="Caart" ><span class="cart"></span> </div>
+					</div>
+				</div>
+				
+				<div  class="col-2">
+					<div class="questionHolder">
+						<p class="paraHead" ng-bind-html="pageHeading"></p>
+					</div>
+					<p class="instructionText" ng-bind-html="instruction_text"></p>
+					<div class="feedBackPanel animated ZoomIn" ng-show="showFeedBack"> <div ng-bind-html="correctFeedback" class="correctFeedback" ></div>  </div>
+					<div ng-repeat="item in options" id="dragHolder_{{$index+1}}" class="dragHolder">
+						<div  class="draggable-item drag-area"   id="dragarea_{{$index+1}}" id="card{{item.id}}" data-number={{item.id}} ng-mousedown="$event.stopPropagation();" ontouchmove="event.stopPropagation()" ontouchstart="event.stopPropagation()" ontouchend="event.stopPropagation()">
+							<div id="draggable_{{$index+1}}" class="drag-content"><p>{{item.dragText}}</p></div>
+							<!-- <div class="drag_img{{item.dropIndex}} drag-old"><p>{{item.dragText}}</p></div> -->
+						</div>
+					</div>
+				</div>
+				
+				<div  class="col-3">
+					<div class="optionContent"  >
+						<div class="droppable-item" id="target_2"   data-number=2> <p class="drophere dont">{{question[1].dropText}} </p> </div>
+						<div  id="cart_2" class="Caart" ><span class="cart"></span> </div>
+					</div>
+				</div>
+							
+			
+		
+		</div>
+
+	
+		<!-- <button ng-click="onSubmitClick()" class="btn btn-submit" ng-bind-html="buttonText" disabled></button> -->
+		<!-- <button ng-click="onShowAnsClick()" class="btn btn-show-ans" ng-bind-html="showAnsText" ng-show="showAnser" disabled></button>  -->
+	</div>
+</div>

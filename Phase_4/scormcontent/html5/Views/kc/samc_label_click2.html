@@ -1,0 +1,150 @@
+<style>
+.feedback-panel {
+	background: #0078ad;
+    color: #FFF;
+    margin-top: 16px;
+    margin-left: 142px;
+    padding: 10px;
+    height: 38px;
+    border-radius: 7px;
+    width: 441px;
+    font-size: 17px;
+}
+.feedback {
+	margin-bottom:0px;
+}
+.col-xs-7.page-text.kc-option-container ul{
+	padding-left:0px;
+}
+.kc-option-container ul {
+	padding: 10px 10px 10px 20px;
+}
+.instruction-text{
+	color:#fff;
+}
+.kc-option-radio {
+   margin-bottom: 3px;
+    position: relative;
+    float: Left;
+    width: 482px;
+}
+.kc-option-label-radio {
+	border-radius: 6px;
+    font-weight: normal;
+    padding: 10px 10px;
+    display: block;
+    cursor: pointer;
+    float: left;
+    background: url(../course_images/interface/circle.png) no-repeat;
+    width: 590px;
+    display: block;
+    background-color: #ebebeb;
+	color: #000;
+    background-position: 13px 9px;
+}
+.quiz-area-samc .option-selected-radio{
+    color: #000;
+    background: url(../course_images/interface/circle_checkbox.png) no-repeat;
+	background-position: 13px 9px;
+    background-color: #96ffb3;
+}
+.quiz-area-samc .correct-checkbox-radio{
+	background: url(../course_images/interface/circle__correct_checkbox.png) no-repeat !important;
+    background-position: 13px 9px !important;
+    background-color: #96ffb3 !important;
+	border-radius: 6px;
+	
+}
+.quiz-area-samc .in-correct-checkbox-radio{
+	background: url(../course_images/interface/circle__incorrect_checkbox.png) no-repeat !important;
+	background-position: 13px 9px !important;
+    background-color: #96ffb3 !important;
+	border-radius: 6px;
+}
+.quiz-area-samc .btn-submit {
+    cursor: pointer;
+    float: left;
+	color: #fff;
+    background: url(../course_images/common_bg/vertical_line.png) repeat-x;
+    border-color: #4cae4c;
+    margin-top: 16px;
+    margin-left: 2px;
+    height: 38px;
+    border-radius: 7px;
+    width: 132px;
+	font-weight: bold;
+}
+.page-heading{
+	margin-top: 0px;
+}
+.back_button{
+	position: absolute;
+	top:10px;
+	left: 10px;
+	cursor: pointer;
+}
+.kc-option-radio input{
+	opacity:0;
+}
+.quiz-area-samc .option-container{
+	margin-left: 226px;
+}
+.btn-fdbk-container{
+    margin-left: 236px;
+}
+.quiz-area-samc {
+	background: #005c85;
+    padding: 18px;
+    width: 98%;
+    margin-left: 1%;
+    border-radius: 5px;
+    height: 285px;
+}
+.Feedback-holder{
+	background: #ebebeb;
+    color: #000;
+    padding: 10px;
+    position: absolute;
+    width: auto;
+    height: 100%;
+    bottom: 0px;
+}
+.trnsBg{
+	background: rgba(0,0,0,0.5);
+    width: 363px;
+    height: 100%;
+    position: absolute;
+    padding: 0px;
+}
+.feedback ul li{
+	list-style: disc;
+}
+.q-txt{
+    padding: 10px 14px 0px 10px;
+}
+</style>
+<div class='q-txt' ng-bind-html="questionText" ></div>
+<div class="quiz-area-samc col-xs-12">
+    <div class="col-sm-7 questionHolder">
+		<!-- <p class="question-text" ng-bind-html="questionText"></p> -->
+		<p class="instruction-text" ng-bind-html="instructionText"></p>
+	    <ul id="options">
+            <li ng-repeat="option in options" class="kc-option-radio">
+                <label class="kc-option-label-radio">
+                    <input type="radio" name="answer" value="{{option.id}}" correct="{{option.isCorrect}}" ng-disabled="disableInput" ng-click="onOptionSelected($event)">
+                    <span class="option-text" ng-bind-html="option.text"></span>
+                </label>
+            </li>
+        </ul>
+		<button ng-click="checkAnswer()" class="btn btn-submit" ng-disabled="disableButton" ng-bind-html="buttonText"></button>
+	</div>
+	<div class="col-sm-5 option-label"  ng-style="{'background-image': 'url(' + pageBG + ')'}">
+		 <div class="fdbk-container" ng-show="feedbackToggle">
+			<div class="trnsBg">
+			 <div class="Feedback-holder" >
+				<div class="feedback-body"><p ng-bind-html="feedback" class="feedback"></p></div>
+			 </div>
+			 </div>
+		</div>
+	</div>
+</div>

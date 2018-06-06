@@ -1,0 +1,276 @@
+﻿<style>
+.kc-page-content{
+	padding: 90px 0px 0 80px;
+    font-size: 16px;
+    max-height: 610px;
+}
+
+#question-text{
+	padding-left: 0;
+	margin-top: 4px;
+	margin-bottom: 0px;
+}
+
+#question-text li{
+    display: inline-block;
+    padding-top: 2px;
+	width:100%;
+}
+
+#question-text li .scenario{
+	padding-left: 0;
+}
+
+.wideBox {
+	clear: both;
+	text-align: center;
+	margin: 70px;
+	padding: 10px;
+	background: #ebedf2;
+	border: 1px solid #333;
+}
+
+.wideBox h1 {
+	font-weight: bold;
+	margin: 20px;
+	color: #666;
+	font-size: 1.5em;
+}
+
+/* Slots for final card positions */
+
+#droppable-container {
+	margin: 20px auto 0 auto;
+}
+
+/* The initial pile of unsorted cards */
+
+#draggable-container {
+	margin: 20px auto;
+}
+
+
+/* Individual cards and slots */
+
+
+.droppable-item.hovered {
+	background: #aaa;
+}
+
+.droppable-item {
+	border-style: dashed;
+}
+
+.draggable-item {
+	background: #017f95;
+	border: 1px solid #017f95;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+
+.draggable-item.ui-draggable-dragging {
+	-moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+	box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+}
+
+.feedback-close {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	cursor: pointer;
+}
+
+
+/* "You did it!" message */
+#successMessage {
+	position: absolute;
+	left: 580px;
+	top: 250px;
+	width: 0;
+	height: 0;
+	z-index: 100;
+	background: #dfd;
+	border: 2px solid #333;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+	-webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+	box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+	padding: 20px;
+}
+.btn-show-ans {
+    background: #017f95;
+    padding: 6px 12px;
+    border: 0px;
+    margin-top: 2px;
+    margin-left: 15px;
+    height: 36px;
+    font-weight: bold;
+    border-radius: 30px;
+    -webkit-box-shadow: 0px 4px 33px -7px rgba(0,0,0,0.71);
+    -moz-box-shadow: 0px 4px 33px -7px rgba(0,0,0,0.71);
+    box-shadow: 0px 4px 33px -7px rgba(0,0,0,0.71);
+    width: 165px;
+	text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+}
+
+.in-correct:before{
+	left:-22px;
+}
+.correct:before{
+	left: -25px;
+}
+
+
+.dragTextBox, .scenarioTextBox{
+	display: table-cell;
+    vertical-align: middle;
+}
+
+.droppable-item{
+    width: 248px;
+    height: 42px;
+    padding: 5px 16px 10px 10px;
+    padding-bottom: 0;
+    border: 1px dashed #017f95;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    margin: 0;
+    background: #fff;
+    margin-bottom: 3px;
+	padding:0;
+	margin-right: 9px;
+    margin-left: 17px;
+}
+
+.draggable-item {
+    width: 248px;
+    height: 42px;
+    padding-bottom: 0;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    margin: 0;
+    margin-bottom: 3px;
+    display: table;
+    font-size: 16px;
+    text-align: left;
+}
+
+.scenario {
+	font-size: 16px;
+    height: 42px;
+    display: table;
+    border-bottom: 1px solid #017f95;
+    width: 339px;
+    margin-right: 0px;
+}
+
+.btn-submit, .btn-reset {
+	cursor: pointer;
+    float: left;
+    color: #fff;
+    background: #017f95;
+    margin-top: 2px;
+    margin-left: -3px;
+    height: 36px;
+    border-radius: 30px;
+    -webkit-box-shadow: 0px 4px 33px -7px rgba(0,0,0,0.71);
+    -moz-box-shadow: 0px 4px 33px -7px rgba(0,0,0,0.71);
+    box-shadow: 0px 4px 33px -7px rgba(0,0,0,0.71);
+    width: 132px;
+    font-weight: bold;
+    padding-top: 2px;
+	border: none;
+}
+
+.btn-reset {
+	margin-left:15px;
+}
+
+button[disabled], html input[disabled] {
+    pointer-events: none;
+    cursor: not-allowed;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    opacity: 0.3;
+}
+
+.feedback-panel {
+	width: 240px;
+    background: #017f95;
+    color: #FFF;
+	font-size: 16px;
+    min-height: 80px;
+    top: 434px;
+    right: 50px;
+    padding: 10px;
+    border-radius: 7px;
+    position: absolute;
+}
+
+
+.in-correct:before {
+    content: "\f00d";
+    font-family: FontAwesome;
+    color: #02babe;
+    font-size: 17px;
+    left: -30px;
+    top: 9px;
+    position: absolute;
+}
+
+.correct:before {
+    content: "\f00c";
+    font-family: FontAwesome;
+    color: #02babe;
+    font-size: 17px;
+    left: -30px;
+    top: 9px;
+    position: absolute;
+}
+.answer-table{
+	position: absolute;
+    padding: 10px;
+    top: 192px;
+    left: 77px;
+    width: 859px;
+    z-index: 999;
+    height: 405px;
+    color: #fff;
+}
+	
+</style>
+<div id="content">
+
+    <div class="col-sm-12" style="padding-left: 0">
+	
+	
+		
+        <ul id="question-text">
+            <li ng-repeat="item in question" class="containDrags">
+                <div  class="col-sm-6 scenario"><span class="scenarioTextBox">{{item.dropText}}</span></div>
+                <div  class="col-sm-3 droppable-item" id="target{{item.id}}" data-number={{item.id}}></div>
+                <div  class="col-sm-3 draggable-item drgblItem_{{item.id}}" id="card{{item.dropIndex}}" data-order={{item.id}} data-number={{item.dropIndex}} ng-mousedown="$event.stopPropagation();" ontouchmove="event.stopPropagation()" ontouchstart="event.stopPropagation()" ontouchend="event.stopPropagation()"><span class="	">{{item.dragText}}</span></div>
+            </li>
+        </ul>
+        <button ng-click="checkAnswer()" class="btn-global btn-submit" ng-bind-html="buttonText" disabled></button>
+		<button ng-click="resetOptions()" class="btn-global btn-reset" ng-bind-html="buttonResetText" disabled></button>
+		<button ng-click="showAnswer()" class="btn-global btn-show-ans" ng-bind-html="showAnsText" ng-show="showAns"></button>
+    </div>
+    <div class="feedback-panel" ng-show="feedbackToggle">
+        <div class="feedback" bind-html-compile="feedback"></div>        
+    </div>
+	<!-- <div class="answer-table" ng-show="answerTable">
+		<span class="close" ng-click="closeAnswerTable()">Close</span>
+		<table class="table table-bordered" ng-bind-html="correctAnswerConent">
+		</table>
+	</div> -->
+</div>

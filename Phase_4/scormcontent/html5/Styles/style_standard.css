@@ -1,0 +1,7 @@
+
+*:focus {
+    outline: 0 !important;
+}
+select, div, a, img {
+    outline: 0;
+}

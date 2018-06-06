@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+	<course_title>
+		<![CDATA[General Ethics]]>
+	</course_title>
+	<instruction>Select Next to continue</instruction>
+	<uiButtons>
+		<exit_button> Exit</exit_button>
+		<menu_button>Menu</menu_button>
+		<Resources_button>Resources</Resources_button>
+		<help_button>Help</help_button>
+		<previous_button>Previous</previous_button>
+		<next_button>Next</next_button>
+		<of>of</of>
+	</uiButtons>
+	<exit_confirm>
+		<text>Do you really want to exit the course?</text>
+		<Confirm>Yes</Confirm>
+		<Cancel>Continue</Cancel>
+	</exit_confirm>
+</root>

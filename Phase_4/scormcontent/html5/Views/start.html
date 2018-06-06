@@ -1,0 +1,12 @@
+<div ng-switch="CourseConfig.HasLangSelectionPage">
+<div ng-switch-when="true">
+    <div ng-include src="'../html5/Views/lang_select.html'"></div>
+</div>
+<div ng-switch-when="false">
+    <div ng-switch="CourseConfig.HasIntroPage">
+        <div ng-switch-when="true">
+            <div ng-include src="'../html5/Views/intro.html'"></div>
+        </div>
+    </div>
+</div>
+</div>

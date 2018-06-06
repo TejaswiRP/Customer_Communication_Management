@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+	<vMenuHeading>Visual Menu</vMenuHeading>
+	<pageBG>../course_images/visualmenu/bg.jpg</pageBG>
+	<pipeMenu>../course_images/visualmenu/pipeMenu.png</pipeMenu>
+	<pipeMenu_passed_pre>../course_images/visualmenu/pipeMenu_passed_pre.png</pipeMenu_passed_pre>
+	<certificate_pass>../course_images/visualmenu/print_btn_pass.png</certificate_pass>
+	<certificate_fail>../course_images/visualmenu/print_btn.png</certificate_fail>
+	<Resume>PROCEED</Resume>
+	<topic>General Ethics at ........</topic>
+	<instruction_text>Select a topic to proceed.</instruction_text>
+	<lead_in>Attempt each topic in sequence starting with the first topic. Completing a topic brings you back to this screen and allows you to choose the next topic.</lead_in>
+	<status>
+		<notStarted>Not attempted</notStarted>
+		<completed>Completed</completed>
+		<progress>In Progress</progress>
+	</status>
+</root>

@@ -1,0 +1,110 @@
+<style>
+
+.certifcate-page{
+	width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0px;
+    z-index: 8;
+    left: 0px;
+}
+.certi-conent{
+	margin: auto;
+    width: 75%;
+    background: #fff;
+    margin-top: 14%;
+    border-radius: 5px;
+    padding: 20px;
+}
+.t-title{
+    float: left;
+    color: #fff;
+    font-family: arial;
+    font-size: 18px;
+    padding: 6px;
+    font-weight: bold;
+}
+/* Certi */
+.certifcate-page .certi-conent {
+    margin: auto;
+    width: 830px;
+    background: #fff;
+    margin-top: 15%;
+    border-radius: 5px;
+    padding: 60px;
+    font-size: 14px;
+    height: 365px;
+	position: relative;
+}
+.certifcate-page .cnt-area {
+    width: 100%;
+    float: left;
+}
+.certifcate-page .trophy {
+    float: left;
+    width: 40%;
+	text-align:center;
+}
+.certifcate-page .cngrts-text {
+    float: left;
+    width: 60%;
+    text-align: left;
+}
+.certifcate-page .i-txt-cntr{
+    position: absolute;
+	background: rgba(23, 33, 42, 1);
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    padding: 20px 20px 10px 55px;
+}
+.certifcate-page .i-txt-cntr-pass{
+    position: absolute;
+	background: rgba(23, 33, 42, 1);
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    padding: 15px 20px 0px 55px;
+}
+.certifcate-page .cngrts-text h4{
+	font-size: 22px;
+}
+.certifcate-page .instruction-text:before{
+    float: left;
+}
+.certifcate-page .instruction-text span{
+    float: left;
+    width: 54%;
+    font-size: 14px;
+    font-weight: normal;
+}
+.certifcate-page .cngrts-text p{
+    padding-top: 10px;
+}
+</style>
+<div class='certifcate-page'>
+	<!-- LESS THAN 80 -->
+	<div class='certi-conent animated bounceInDown _0.5'>
+		<div class='cnt-area'>
+			<div class="cngrts-text">
+				<div class="result-head">
+					<p>RESULT</p>
+					<p>SCORE: <span class='certi-score'>{{assesmentPercentageScore+"%"}}</span></p>
+				</div>
+				<p>Unfortunately, your test results are not quite good enough.</p>
+				<p>Go through the relevant sections and then try the Assessment again. Remember, to pass the Assessment you need to score 80%.</p>
+			</div>
+			<div class='trophy'>
+				<img src='../course_images/certificate/try_again.png'/>
+			</div>
+		</div>
+		<div class="i-txt-cntr">
+			<p class="instruction-text "><span>Select the <b>RETAKE</b> button to attempt the assessment again.</span></p>
+		</div>
+		<button ng-click="retakeAssesment()" class="custom-btn">
+			<img src="../course_images/pages/assesment/retake_icon.png"/>
+			<span>RETAKE</span>
+		</button>
+	</div>
+</div>

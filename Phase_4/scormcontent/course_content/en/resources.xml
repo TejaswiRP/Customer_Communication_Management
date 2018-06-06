@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+	<resourceHeading>RESOURCES</resourceHeading>
+	<close><![CDATA[<u>Close</u>]]></close>
+	
+	<bridge>
+		<linkText><![CDATA[<p class='link-1'>Classifying Information</p> ]]></linkText>
+		<link>
+			<![CDATA[
+			<a href="../course_document/........_Code_of_Conduct_07062017.pdf" target="blank">........ Code of Conduct</a>
+			]]>
+		</link>
+	</bridge>
+	<bridge>
+		<linkText><![CDATA[<p class='link-1'>Cyber Essentials</p> ]]></linkText>
+		<link>
+			<![CDATA[
+			<a href="../course_document/CG_POL_001_Corporate_Ethics_Policy.pdf" target="blank">CG-POL-001 - Corporate Ethics Policy</a>
+			]]>
+		</link>
+	</bridge>
+</root>

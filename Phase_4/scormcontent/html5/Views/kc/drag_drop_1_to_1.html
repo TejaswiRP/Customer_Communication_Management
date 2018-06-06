@@ -1,0 +1,303 @@
+﻿<style>
+.btn-tryagain {
+    border-radius: 5px;
+    background: #65cdf4;
+    padding: 8px 22px;
+    top: 0px;
+    color: #fff;
+    z-index: 9;
+    position: absolute;
+    right: 10px;
+	z-index:999;
+}
+
+
+.btn-tryagain:hover {
+		color: #fff;
+}
+
+.btn-tryagain:focus {
+		color: #fff;
+}
+	.draggable-item:before {
+		content: url(../course_images/pages/m01/t02/p03/shape.png);
+		font-size: 24px;
+		left: -3px;
+		position: absolute;
+		top: 10px;
+	}
+	.droped:before{
+		display:none !important;
+	}
+	.page-heading{
+		margin-left: 7px;
+	}
+	.page-text {
+		padding-left: 32px;
+		width: 705px;
+	}
+    #question-text {
+		width: 850px;
+		padding-left: 0;
+		margin-top: 20px;
+		padding-top: 6px;
+		margin-bottom: 0px;
+		float: left;
+	}
+
+    #question-text li{
+		margin-bottom: 6px;
+		float: left;
+	}
+
+    #question-text li .scenario{
+		float: left;
+		width: 435px;
+		padding-left: 20px;
+    }
+
+    .wideBox {
+        clear: both;
+        text-align: center;
+        margin: 70px;
+        padding: 10px;
+        background: #ebedf2;
+        border: 1px solid #333;
+    }
+
+	.wideBox h1 {
+		font-weight: bold;
+		margin: 20px;
+		color: #666;
+		font-size: 1.5em;
+	}
+
+    /* Slots for final card positions */
+
+    #droppable-container {
+        margin: 20px auto 0 auto;
+    }
+
+    /* The initial pile of unsorted cards */
+
+    #draggable-container {
+        margin: 20px auto;
+    }
+
+
+	/* Individual cards and slots */
+
+	.draggable-item {
+		width: 160px;
+		height: 41px;
+		padding: 5px 10px 10px 10px;
+		padding-bottom: 0;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		border-radius: 10px;
+		margin: 0 0 0 31px;
+		margin-bottom: 2px;
+	}
+
+	.ui-draggable-disabled{
+		padding: 10px 5px 5px 15px;
+	}
+	
+	.droppable-item{
+		width: 195px;
+		height: 41px;
+		padding: 5px 10px 10px 10px;
+		padding-bottom: 0;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		border-radius: 10px;
+		margin: 0 0 0 3px;
+		margin-bottom: 0px;
+		box-shadow: inset 1px 1px 6px #000;
+		background: #22629d;
+	}
+
+	.droppable-item.hovered {
+		background: #aaa;
+	}
+
+	.draggable-item {
+		color: #fff;
+		cursor: pointer;
+	}
+
+	.btn.disabled, .btn[disabled], fieldset[disabled] .btn{
+		pointer-events: none;
+		cursor: not-allowed;
+		filter: alpha(opacity=65);
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		/* opacity: .65; */
+		background: #44a8e4;
+		color: rgba(255, 255, 255, 0.6);
+	}
+
+    .btn-submit {
+		background: #65cdf4;
+		padding: 10px 22px 9px 22px;
+		border: 0px;
+		border-radius: 5px;
+		margin-left: 20px;
+		margin-top: 15px;
+	}
+	.btn-reset {
+		background: #65cdf4;
+		padding: 10px 22px 9px 22px;
+		border: 0px;
+		border-radius: 5px;
+		margin-top: 15px;
+	}
+    .feedback-panel {
+		background-repeat: no-repeat;
+		background: #f5f5f5;
+		position: absolute;
+		right: 83px;
+		top: 475px;
+		width: 854px;
+		height: 70px;
+		color: #000;
+		padding: 10px;
+		z-index: 99;
+	}
+
+    .feedback-close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+    }
+
+
+    /* "You did it!" message */
+    #successMessage {
+        position: absolute;
+        left: 580px;
+        top: 250px;
+        width: 0;
+        height: 0;
+        z-index: 100;
+        background: #dfd;
+        border: 2px solid #333;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        -moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+        -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+        box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+        padding: 20px;
+    }
+	.btn-show-ans{
+		border-radius: 15px;
+        background: #0072aa;
+		padding: 6px 12px;
+		border:0px;
+		margin-top: 10px;
+        color: #fff;
+		cursor:pointer;
+	}
+	.scenario{
+		font-size: 14px;
+	}
+	.in-correct:before{
+		left:-22px;
+	}
+	.correct:before{
+		left: -25px;
+	}
+	.kc-page-content {
+		padding-top: 94px;
+		position: relative;
+		height: 100%;
+		width: 100%;
+		font-size: 16px;
+		padding-bottom: 64px;
+		overflow-x: hidden;
+		color: #fff;
+		padding-bottom: 0px;
+	}
+	.option_container{
+		width: 100%;
+		margin-left: 60px;
+		margin-top: 20px;
+		padding-left: 0px;
+	}
+	.instructionText{
+			position: relative;
+			width: 713px;
+			top: 14px !important;
+			float: left;
+			margin-left: 41px;
+		}
+	.instruction-text:before{
+		margin-right: 15px;
+		top: -7px;
+		float: left;
+	}
+	.content-area{
+		float: left;
+		width: 100%;
+		overflow: hidden;
+		height: 325px;
+	}
+	.headings{
+		padding: 0px 28px;
+		font-weight: bold;
+		float: left;
+		text-decoration: underline;
+		width: 100%;
+		padding-bottom: 5px;
+	}
+	.violation{
+		float: left;
+		text-align: center;
+		width: 75px;
+		margin-left: 245px;
+	}
+	.ofence{
+		float: left;
+		text-align: center;
+		margin-left: 220px;
+		width: 70px;
+
+	}
+	.instr{
+		position: absolute;
+		top: 14px;
+		left: 56px;
+		font-size: 12px;
+		color: #cacaca;
+	}
+	.ui-droppable-disabled .instr{
+		display:none;
+	}
+	
+	.page-bg{
+    background-size: unset !important;
+}
+</style>
+<div id="content" class="content-area">
+    <div class="col-xs-12 option_container">
+        <ul id="question-text">
+			<div class="headings"><span class="ofence">Offence</span><span class="violation">Violation</span></div>
+            <li ng-repeat="item in question" class="containDrags">
+                <div  class="col-xs-3 draggable-item" id="card{{item.dropIndex}}" data-number={{item.dropIndex}} ng-mousedown="$event.stopPropagation();" ontouchmove="event.stopPropagation()" ontouchstart="event.stopPropagation()" ontouchend="event.stopPropagation()">{{item.dragText}}</div>
+               <!--  <div  class="col-xs-3 draggable-item" id="card{{item.dropIndex}}" data-number={{item.dropIndex}} ng-mousedown="$event.stopPropagation();" ontouchmove="event.stopPropagation()" ontouchstart="event.stopPropagation()" ontouchend="event.stopPropagation()">{{item.dragText}}</div> -->
+                <div  class="col-xs-4 droppable-item" id="target{{item.id}}" data-number={{item.id}}>
+					<p class='instr'>Drop here..</p>
+				</div>
+                <div  class="col-xs-5 scenario">{{item.dropText}}</div>
+            </li>
+        </ul>
+        <button ng-click="checkAnswer()" class="btn btn-submit" ng-bind-html="buttonText" disabled></button>
+		<button ng-click="resetOptions()" class="btn btn-reset" ng-bind-html="buttonResetText" disabled></button>
+    </div>
+    <div class="feedback-panel" ng-show="feedbackToggle">
+        <div class="feedback" ng-bind-html="feedback"></div>
+		<button ng-click="tryAgain()" class="btn btn-tryagain" ng-show="tryAgainButton" ng-bind-html="TrybuttonText"></button>
+    </div>
+</div>

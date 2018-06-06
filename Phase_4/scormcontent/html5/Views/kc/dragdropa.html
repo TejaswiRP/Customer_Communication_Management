@@ -1,0 +1,459 @@
+﻿<style>
+
+#question-text{
+	padding-left: 0;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+#question-text li{
+	display: flex;
+}
+
+#question-text li .scenario{
+	padding: 0;
+	text-align: center;
+}
+
+#question-text li{
+   border-bottom: #717171 dashed thin;
+}
+
+#droppable-container {
+	margin: 20px auto 0 auto;
+}
+
+#draggable-container {
+	margin: 20px auto;
+}
+
+.droppable-item {
+	color: #000;
+    border-radius: 18px;
+    border: #0078ad solid 2px;
+    height: 57px;
+    width: 200px !important;
+    background-color: #fff;
+    position: relative;
+}
+
+.arrow{
+	width: 44px;
+	height: 217px;
+	background: url(../course_images/pages/m01/page_common/calloutArrowImg.png);
+	background-repeat: no-repeat;
+	position: absolute;
+	margin-left: 11px;
+	bottom: -115px;
+	-ms-transform: rotate(64deg);
+	-webkit-transform: rotate(64deg);
+	transform: rotate(53deg);
+	z-index: -1;
+	background-size: 56%;
+}
+
+.draggable-item-panel {
+	height: 105;
+	width: 331px !important;
+	color: #060606;
+	text-align: left;
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0px 5px 0px 43px;
+}
+.draggable-item {
+	width: 240px !important;
+    color: #060606;
+    margin-top: 23px;
+    padding: 0px 8px 22px 31px;
+    margin: 0px auto;
+}
+.drag-content{
+	cursor: move;
+	background-color: #0078ad;
+	border-radius: 15px;
+	padding: 11px;
+	color: #fff;
+	font-size: 14px;
+	position: relative;
+}
+.drag-content::after{
+	content: "";
+	background: url(../course_images/pages/m01/t13/p07/arrow_b.png) no-repeat;
+	height: 26px;
+    width: 74px;
+    position: absolute;
+    left: 23px;
+    top: 53px;
+    z-index: 1;
+}
+.drag-content p {
+	height: 34px;
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    text-align: center;
+    margin: 0px;
+}
+.draggable-item::before {
+	content: "";
+	height: 26px;
+	width: 14px;
+	position: absolute;
+	left: 21px;
+	top: 45px;
+}
+.droppable-item::after {
+    content: "";
+    background: url(../course_images/pages/m01/t13/p07/arrow_w.png) no-repeat;
+    height: 26px;
+    width: 74px;
+    position: absolute;
+    left: 23px;
+    top: 53px;
+    z-index: 0;
+}
+.drophere{
+	position: relative;
+	top: 38%;
+	color: #8e9194;
+	text-align: center;
+}
+
+.feedback-panel {
+	background: #f4eedc;
+	color: #000000;
+	padding: 14px;
+	border-radius: 7px;
+	width: 302px;
+	box-shadow: 2px 2px 8px rgba(66, 66, 66, 0.88);
+	top: 1px;
+	display: inline-block !important;
+	position: absolute;
+	margin-left: 20;
+}
+
+.feedback-close {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	cursor: pointer;
+}
+
+
+/* "You did it!" message */
+#successMessage {
+	position: absolute;
+	left: 580px;
+	top: 250px;
+	width: 0;
+	height: 0;
+	z-index: 100;
+	background: #dfd;
+	border: 2px solid #333;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+	-webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+	box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+	padding: 20px;
+}
+
+.scenario{
+	font-size: 14px;
+	color:#000;
+	font-family: robotoMedium;
+	background-color: #ebf5ed;
+}
+.scenario img	{
+	margin-top: 20px;
+}
+.redBorder::before{
+	content: "\f00d";
+	font-family: FontAwesome;
+	left: 12px;
+	top: 50px;
+	font-size: 18px;
+	width: 14px;
+	color: rgba(234, 10, 16, 0.94);
+	position: absolute;
+}
+.greenBorder::before{
+	content: "\f00c";
+	font-family: FontAwesome;
+	right: -13px;
+	top: -13px;
+	color: #ffffff;
+	font-size: 23px;
+	width: 14px;
+	position: absolute;
+	background-color: #00b050;
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+	padding-left: 3px;
+	padding-top: 1px;
+	z-index: 9;
+}
+.scenario p{
+	height: auto;
+	vertical-align: middle;
+	width: 100%;
+	margin-top:10px;
+	text-align: center;
+	position: relative;
+}
+   
+.in-correct:before{
+	left:-20px;
+	top: 36px;
+}
+.correct:before{
+	left: -20px;
+	top: 36px;
+}
+
+@media all and (max-width:420px) {
+	#question-text li{
+		display: block;
+		border-top: 1px solid #ccc;
+		padding-top: 5px;
+		padding-bottom: 2px;
+	}
+	
+	.feedback-panel {
+		right: 202px;
+		top: 951px;
+	}
+}
+	
+
+
+.left15{
+	margin-left:30px;
+}
+@media screen and (min-device-width: 768px) and (max-device-width: 1824px) and (orientation : portrait){
+	.droppable-item::after {
+		content: "";
+		right: -2px;
+		top: 45px;
+	}
+	.droppable-item {
+		width: 296px;
+		margin-left: -6px;
+		background-size: contain;
+	}
+	.draggable-item {
+		width: 358px !important;
+		color: #060606;
+		margin-top: 3px;
+		padding: 0px 8px 0px 43px;
+		background-size: contain;
+	}
+}
+
+@media screen and (max-device-width: 767px) and (orientation: portrait) {
+	.draggable-item {
+		left: 21px;
+	}
+	.droppable-item {
+		margin-left: 18px;
+	}
+	.droppable-item::after {
+		content: "";
+		background: none;
+	}
+}
+
+
+.col-1{
+	width: 318px;
+    display: inline-block;
+    float: left;
+    margin-left: 38px;
+}
+
+.col-2{
+	width: 250px;
+    display: inline-block;
+    float: left;
+    position: relative;
+}
+
+.col-3{
+	width: 238px;
+    display: inline-block;
+    float: left;
+}
+
+
+.questionHolder{
+	background-color: #2093d9;
+	position: inherit;
+	z-index: 99;
+	border-radius: 7px;
+	display: table;
+	width: 390px;
+	padding: 11px;
+	margin: auto;
+	margin-top:10px;
+}
+
+.paraHead{
+	display: block;
+	margin-bottom: 0px;
+    height: 12px;
+    font-size: 14px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.instructionText{
+	position: relative;
+    color: #006495;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.feedBackPanel{
+	background-color: #007aae;
+    padding: 10px;
+    border-radius: 11px;
+    width: 302px;
+    position: relative;
+    margin: auto;
+    margin-top: 25px;
+	margin-left: 3px;
+}
+
+.char1{
+	width: 146px;
+    height: 315px;
+    background: url(../course_images/pages/m01/t13/p07/Picture1.png);
+    background-repeat: no-repeat;
+    margin-left: 1px;
+    position: absolute;
+    background-position: 0px 56px;
+    background-size: 100%;
+    left: 42px;
+    top: 190px;
+}
+
+.char2{
+	width: 146px;
+    height: 257px;
+    background: url(../course_images/pages/m01/t13/p07/Picture2.png);
+    background-repeat: no-repeat;
+    margin-left: 20px;
+    position: relative;
+    background-position: 0px 36px;
+    background-size: 100%;
+    bottom: 20px;
+    left: 47px;
+	
+}
+.greenBg{
+	background-color: #4CAF50;
+    bottom: 78px;
+    left: 39px;
+    padding: 10px;
+    position: absolute;
+    display: table;
+    color: #FFF;
+    width: 80px;
+    border-radius: 5px;
+} 
+
+.redBg{
+	background-color: #ff200d;
+    bottom: 28px;
+    left: 33px;
+    padding: 10px;
+    position: absolute;
+    display: table;
+    color: #FFF;
+    width: 80px;
+    border-radius: 5px;
+}
+
+.greenBg p, .redBg p{
+	font-size: 14px;
+    font-weight: bold;
+    vertical-align: middle;
+    display: table-cell;
+    text-align: center;
+}
+.col-spc_1{margin-left: 64px; margin-top: 7px;}
+.col-spc_2{margin-left: 40px; margin-top: 7px;}
+.col-spc_3{margin-left: 144px; margin-top: 13px;}
+.col-spc_4{margin-left: 100px; margin-top: 13px;}
+
+
+.correctFeedback{
+	color:#FFF;
+    text-align: center;
+    font-size: 14px;
+	padding: 10px;
+}
+.rightMark{
+	background: url(../course_images/pages/m01/t13/p06/rightMark.png) no-repeat;
+    width: 99px;
+    height: 90px;
+    background-size: contain;
+    margin: 0px auto;
+	margin-top: 30px;
+}
+
+.z-depth-1, .btn, .btn-floating {
+    box-shadow: none;
+}
+
+.z-depth-1-half, .btn:hover, .btn-floating:hover {
+    box-shadow: none;
+}
+
+
+
+</style>
+<div id="content">
+	<div class="row">
+		<div class="col-sm-12" style="padding: 0px">
+		
+				<div  class="containDrags">
+					<div class="questionHolder">
+							<p class="paraHead" ng-bind-html="pageHeading"></p>
+						</div>
+					<p class="instructionText" ng-bind-html="instruction_text"></p>
+				
+					<div  class="col-1">
+						<div ng-repeat="item in question"  ng-hide="{{item.dropText==''}}" ng-if="$odd" class="droppable-item col-spc_{{item.id}}" id="target_{{item.id}}"></div>
+						<div class="char1">
+							<div class="greenBg"> <p ng-bind-html="para1"> </p>  </div>
+						</div>
+					</div>
+					
+					<div  class="col-2">
+						<div class="feedBackPanel animated ZoomIn" ng-show="showFeedBack"> <div ng-bind-html="correctFeedback" class="correctFeedback" ></div></div>
+						<div class="draggable-item drag-area" ng-repeat="item in question" ng-hide="{{item.dragText==''}}" id="dragarea_{{item.id}}" ng-mousedown="$event.stopPropagation();" ontouchmove="event.stopPropagation()" ontouchstart="event.stopPropagation()" ontouchend="event.stopPropagation()">
+							<div id="draggable_{{item.id}}" class="drag-content"><p>{{item.dragText}}</p></div>
+						</div>
+					</div>
+					<div class="col-3">
+						<div ng-repeat="item in question" ng-hide="{{item.dropText==''}}" ng-if="$even" class="droppable-item col-spc_{{item.id}}" id="target_{{item.id}}"></div>
+						<div class="char2">
+							<div class="redBg"><p ng-bind-html="para2"></p></div>
+						</div>
+					</div>
+					
+				</div>
+	
+		
+		</div>
+	</div>
+</div>

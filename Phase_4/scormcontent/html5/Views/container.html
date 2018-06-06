@@ -1,0 +1,41 @@
+﻿<div class="course-page content" id="PageContent" ng-controller="PageContentCtrl" style="width: 100%; height: 100%; overflow-y: hidden; overflow-x:hidden" ng-switch="gamifiedPage()">
+    <!--to change the page animation changr the class name---- slide,slider,flip,slide-pop--->
+	<div ng-switch-when="false">
+		<div ng-cloak class="ng-cloak page-holder" ui-view="page-container"  style="width: 100%; height: 100%; overflow-y: hidden; overflow-x: hidden"  ng-swipe-right="(isPrevButtonDisabled || deskTop)?return: gotoPreviousPage()" ng-swipe-left="isNextButtonDisabled || deskTop?return: gotoNextPage()"></div>
+	</div>
+	<div ng-switch-when="true">
+		<div ng-cloak class="ng-cloak page-holder-assessment">
+			<!-- <div class='assessment-score-board'>
+				<div class="t-title">{{topicTitle}}</div>
+			</div> -->
+			<div ng-if="isLastQuestion" ng-include="getResult()" resultpage></div>
+			<div class="mn-qz-cnt">
+				<div class='contain-quiz'>
+					<div class="question-container">
+						<div class="qz-txts">
+							<h3>{{CourseContent.pageHeading +' '+ currentPage}}</h3>
+							<p bind-html-compile="CourseContent.paragraph_text1_1"></p>
+							<p class='instruction-text' bind-html-compile="CourseContent.instruction_text"></p>
+						</div>
+					</div>
+					<div class="pzl-cntr">
+						<div class="gamified-div" ng-class="{'blinkQuizWrapper': blinkQuizWrapper }">
+							<div class='col-1'>
+								<div class='grid' ng-style='crntQuizStatus(1)' ng-click="loadQuestion($event,1)"><img ng-src="{{setImage(1)}}"/></div>
+								<div class='grid' ng-style='crntQuizStatus(2)' ng-click="loadQuestion($event,2)"><img ng-src="{{setImage(2)}}"/></div>
+							</div>
+							<div class='col-2'>
+								<div class='grid' ng-style='crntQuizStatus(3)' ng-click="loadQuestion($event,3)"><img ng-src="{{setImage(3)}}"/></div>
+								<div class='grid' ng-style='crntQuizStatus(4)' ng-click="loadQuestion($event,4)"><img ng-src="{{setImage(4)}}"/></div>
+							</div>
+							<div class='col-3'>
+								<div class='grid' ng-style='crntQuizStatus(5)' ng-click="loadQuestion($event,5)"><img ng-src="{{setImage(5)}}"/></div>
+							</div>						
+						</div>
+					</div>
+				</div>
+				<div class='quiz-area-cnt' ui-view="page-container"></div>
+			</div>
+		</div>
+	</div>
+</div>

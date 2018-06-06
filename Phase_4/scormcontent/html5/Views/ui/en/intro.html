@@ -1,0 +1,86 @@
+<style>
+.page_bg_2{
+    background: url('../course_images/courseIntro/scrn_01_03.jpg') center center;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 1;
+    position:relative;
+	border: solid 1px #ececec;
+}
+
+.video_intro {
+    padding-top: 65px;
+    padding-left: 105px;
+    padding-right: 76px;
+    width: 100%;
+}
+.main-container{
+	overflow: hidden;
+}
+#btn3 {
+    background-color: #005aaa;
+    border: none;
+    color: white;
+    border-radius: 0px;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 80px;
+    right: 115px;
+    border-radius: 5px;
+	width:180px;
+}
+#introVideo{
+    box-shadow: 7px 5px 6px 0px rgba(0, 0, 0, 0.5);
+}
+.right-logo{
+	float: right;
+    padding: 8px 15px 10px 10px;
+}
+.modal-footer .btn {
+	background-color: #005bab !important;
+	margin:0px !important;
+}
+.modal-footer .btn:hover{
+	background-color: #005bab !important;
+}
+.modal-footer .btn:focus{
+	background-color: #005bab !important;
+}
+.modal-footer .btn + btn {
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+</style>
+<div class="course-header">
+	<div class="course-tit">
+	</div>
+    <div ng-style="{'height':CourseConfig.HeaderHeight+'px'}" class="course-brand">       
+		<span class="right-logo" ><img ng-src="{{CourseConfig.LogoPath}}"></span>
+    </div>
+	<div class="course_title_container">
+		<span class="course-name" class="animated fadeIn _0"></span>		
+    </div>
+</div>
+<div class='main-container' intro-control>
+	<div class="page_bg_2" ng-show="page2">  
+		<div class="body_text_5">
+			<div class="video_intro">
+				<video id="introVideo" height="450" controls class="video-mp4" poster="" controlsList="nodownload" >
+						<!--source src="../video/Intro.mp4" type="video/mp4" -->
+						<source ng-src="{{languageSelectContent.videoSource}}" type="video/mp4">
+				</video>
+				<button class="btn-lg continue-btn" id="btn3" ng-click="startcourseFromIntro()">{{languageSelectContent.skip}}</button>
+			</div>
+		</div> 
+	</div>
+</div>

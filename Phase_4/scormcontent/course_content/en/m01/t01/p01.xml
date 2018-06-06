@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+	<contents>
+		<static>false</static>
+		<menuDisable>true</menuDisable>
+		<pageBG>../course_images/pages/m01/t01/p01/bg_img_PC.jpg</pageBG>
+
+	</contents>
+</root> 

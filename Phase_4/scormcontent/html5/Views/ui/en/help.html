@@ -1,0 +1,449 @@
+<style>
+
+
+.modal-content{
+	border: none;
+    background: none;
+    box-shadow: none;
+}
+
+.modal-open .modal{
+	position: absolute;
+	z-index: 9999 !important;
+	overflow:hidden;
+}
+.modal-backdrop.in{
+	position: absolute;
+	z-index: 9999 !important;
+	overflow: hidden;
+}
+
+
+.help-popup{
+	margin:auto;
+	background:#FFF;
+	display: table;
+    position: relative;
+    padding: 10px;
+	width: 890px;
+}
+
+.helpBox{
+	color:#000;
+}
+
+.helpCntBox{
+	background: #e8e8e8;
+    padding: 10px;
+    position: relative;
+}
+
+
+
+.helpCntBody{
+	
+}
+
+.returnBtnBox{
+    color: #FFF;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+	cursor:pointer;
+}
+
+
+.returnBtn img{
+	width: 32px;
+    height: 32px;
+    background-color: #005aa1;
+    background-repeat: no-repeat;
+    position: absolute;
+	
+}
+
+.returnBtn:hover{
+	background-color: #a00000;
+	color:#FFF;
+}
+
+
+.helpIconBox{
+	
+}
+
+.help-popup .col-xs-12{
+	padding:0px;
+}
+
+.helpIconBoxBg{
+	margin-left: 0px;
+	margin-top: 15px;
+}
+
+.icon-menu-text, .icon-audio-text, .icon-transcript-text, .icon-next-text, .icon-numIndicator-text, .icon-back-text, .icon-resource-text, .icon-play_pause-text, .icon-replay-text, .icon-interviewGuide-text {
+    padding-left: 51px;
+    vertical-align: middle;
+    display: table-cell;
+    padding-right: 10px;
+}
+
+
+.icon-transcript, .icon-back{
+	margin-top: 10px;
+}
+
+.helpCntHeader{
+	font-size:24px;
+	padding-bottom: 10px;
+    padding-top: 10px;
+	padding-left: 45px;
+}
+
+.helpCntHeader:before{
+	content:'';
+	width: 42px;
+	height: 41px;
+	background: url('../course_images/help/icon-help.png');
+	background-repeat:no-repeat;
+	position: absolute;
+	margin-top: -6px;
+    left: 9px;
+	border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+
+.icon-menu{
+	width: 42px;
+	height: 41px;
+	background: url('../course_images/help/icon-menu.png');
+	background-repeat:no-repeat;
+	position: absolute;
+    margin-top: 0px;
+	left: 0px;
+	border-radius: 4px;
+    border: 1px solid #ddd;
+	background-color: #0084bf;
+}
+
+.icon-audio{
+	width: 42px;
+	height: 41px;
+	background: url('../course_images/help/icon-audio.png');
+	background-repeat:no-repeat;
+	position: absolute;
+    margin-top: 0px;
+   left: 0px;
+	border-radius: 4px;
+	border: 1px solid #ddd;
+	background-color: #ffffff;
+}
+
+
+.icon-transcript{
+	width: 42px;
+	height: 41px;
+	background: url('../course_images/help/icon-transcript.png');
+	background-repeat:no-repeat;
+	position: absolute;
+    margin-top: 0px;
+    left: 0px;
+	border-radius: 4px;
+    border: 1px solid #ddd;
+	background-color: #ffffff;
+}
+
+.icon-next{
+	width: 42px;
+	height: 41px;
+	background: url('../course_images/help/icon-next.png');
+	background-repeat:no-repeat;
+	position: absolute;
+    margin-top:0px;
+	left: 0px;
+	border-radius: 4px;
+    border: 1px solid #ddd;
+	background-color: #005aa1;
+}
+
+.icon-numIndicator{
+	width: 42px;
+	height: 41px;
+	background: url('../course_images/help/icon-numIndicator.png');
+	background-repeat:no-repeat;
+	position: absolute;
+    margin-top: 0px;
+    left: 0px;
+	border-radius: 4px;
+    border: 1px solid #ddd;
+	background-color: #005aa1;
+}
+
+
+.icon-back{
+	width: 42px;
+    height: 41px;
+	background: url('../course_images/help/icon-back.png');
+	background-repeat:no-repeat;
+	position: absolute;
+    margin-top: 0px;
+	left: 0px;
+	border-radius: 4px;
+    border: 1px solid #ddd;
+	background-color: #005aa1;
+}
+
+.icon-resource{
+	width: 42px;
+    height: 41px;
+	background: url('../course_images/help/icon-resource.png');
+	background-repeat:no-repeat;
+	position: absolute;
+    margin-top: 0px;
+	left: 0px;
+	border-radius: 4px;
+    border: 1px solid #ddd;
+	background-color: #ffffff;
+}
+
+.icon-play_pause{
+	width: 42px;
+    height: 41px;
+	background: url('../course_images/help/icon-play_pause.png');
+	background-repeat:no-repeat;
+	position: absolute;
+    margin-top: 0px;
+	left: 0px;
+	border-radius: 4px;
+    border: 1px solid #ddd;
+	background-color: #ffffff;
+}
+
+.icon-replay{
+	width: 42px;
+    height: 41px;
+	background: url('../course_images/help/icon-replay.png');
+	background-repeat:no-repeat;
+	position: absolute;
+    margin-top: 0px;
+	left: 0px;
+	border-radius: 4px;
+    border: 1px solid #ddd;
+	background-color: #ffffff;
+}
+
+.icon-interviewGuide{
+	width: 42px;
+    height: 41px;
+	background: url('../course_images/help/icon-interviewGuide.png');
+	background-repeat:no-repeat;
+	position: absolute;
+    margin-top: 0px;
+	left: 0px;
+	border-radius: 4px;
+    border: 1px solid #ddd;
+	background-color: #ffffff;
+}
+
+
+
+
+
+.helpIconBoxBg .col-sm-6{
+	padding:0px;
+	min-height:65px;
+	display: table;
+	margin-bottom: 5px;
+}
+
+.helpIconBoxBg .col-sm-5 {
+    padding: 0px;
+    min-height: 49px;
+    display: table;
+    margin-bottom: 20px;
+}
+
+.helpIconBoxBg .col-sm-7 {
+    padding: 0px;
+    min-height: 50px;
+    display: table;
+    margin-bottom: 20px;
+}
+
+
+.modal-backdrop.in {
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+}
+
+
+
+
+
+/*======popup=====*/
+
+.cntBox ul{
+	margin-top: 10px;
+}
+
+.cntBox li{
+	list-style-type: disc;
+	
+}
+
+.cndte-footer{
+    float: left;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.78);
+    color: #fff;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+.cndte-header{
+    float: left;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.78);
+    color: #fff;
+    padding: 10px;
+}
+
+.popGlobal_c-modal-cv{
+	display: table;
+    margin: auto;
+}
+
+.popGlobal_modalBox{
+	height: 630px;
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    margin: auto;
+    position: relative;
+}
+
+.popGlobal_modalBoxBG{
+	border-radius: 5px;
+    background: #fff;
+    margin: auto;
+    display: inline-block;
+}
+
+
+.popCntArea{
+	padding:20px;
+	display: inline-block;
+}
+
+.popupHead{
+	font-size: 18px;
+    color: #ffffff;
+    font-weight: bold;
+	width: auto;
+    display: inline-block;
+    background-color: #005aa1;
+    margin-top: -10px;
+    margin-left: -40px;
+	padding: 9px 45px 7px 40px;
+}
+
+.popCnt{
+	margin-top:10px;
+}
+
+
+.help-popup li{
+	line-height: 30px;
+}
+
+.modal-dialog {
+    width: auto;
+    margin: 0px auto;
+}
+
+
+
+
+
+</style>
+
+
+<div class="custom-modal">
+	<div class="popGlobal_c-modal-cv animated bounceInRight">			
+	
+		<div class="popGlobal_modalBox">
+			<div class="popGlobal_modalBoxBG">
+				<div class="help-popup">
+				
+				<div class="col-xs-12 helpBox">
+					<div class="helpCntBox">
+						<div class="helpCntHeader">HELP</div>
+						<div class="helpCntBody">This screen describes how to use various buttons available to you throughout the module.</div>
+					</div>
+					<div class="returnBtnBox"> 
+						<div id="btn_help_close" class="closeBtnBox closeBtnEffect closeBtnEffect_a" ng-click="cancel()">
+							<span class="closeBtnBg popCloseBtn" ></span>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 helpIconBox">
+					<div class="helpIconBoxBg">
+						<div class="col-sm-12" style="margin-top:10px;">
+							
+							
+							<div class="col-sm-5 col-xs-12">
+								<div class="icon-menu"></div>
+								<div class="icon-menu-text"><b>Menu:</b> Allows for navigation to a specific page within the module.</div>
+							</div>
+							
+							<div class="col-sm-7 col-xs-12">
+								<div class="icon-next"></div>
+								<div class="icon-next-text"><b>Next:</b> Allows for navigation to the next screen. The 'Next' button will remain inactive until the audio is complete and all the buttons are clicked on the screen.</div>
+							</div>
+							
+							<div class="col-sm-5 col-xs-12">
+								<div class="icon-audio"></div>
+								<div class="icon-audio-text"><b>Audio On/Off:</b> Allows you to turn on/off the audio.</div>
+							</div>
+							
+							<div class="col-sm-7 col-xs-12">
+								<div class="icon-numIndicator"></div>
+								<div class="icon-numIndicator-text"><b>Page Counter:</b> Displays the current screen number and the number of screens remaining in the course.</div>
+							</div>
+							
+							<div class="col-sm-5 col-xs-12">
+								<div class="icon-transcript"></div>
+								<div class="icon-transcript-text"><b>Transcript:</b> Displays the audio script.</div>
+							</div>
+							
+							<div class="col-sm-7 col-xs-12">
+								<div class="icon-back"></div>
+								<div class="icon-back-text"><b>Back:</b> Allows for navigation to the previous screen.</div>
+							</div>
+							
+							<div class="col-sm-5 col-xs-12">
+								<div class="icon-resource"></div>
+								<div class="icon-resource-text"><b>Resources:</b> Allows you to view the resources available in this course.</div>
+							</div>
+							
+							<div class="col-sm-7 col-xs-12">
+								<div class="icon-play_pause"></div>
+								<div class="icon-play_pause-text"><b>Play/Pause:</b> Select this button to play \or pause the screen animation as well as audio.</div>
+							</div>
+							
+							<div class="col-sm-5 col-xs-12">
+								<div class="icon-replay"></div>
+								<div class="icon-replay-text"><b>Replay:</b> Select this button to replay a screen from the start.</div>
+							</div>
+				
+				
+						</div>
+					</div>
+				</div>
+				
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>	

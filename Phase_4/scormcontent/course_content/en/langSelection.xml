@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+	<bgImage>bg_image.jpg</bgImage>
+	<brandName><![CDATA[General Ethics]]></brandName>
+	<skip><![CDATA[SKIP VIDEO]]></skip>
+	<videoSource>../video/en/Intro.mp4</videoSource>
+	<selectInstruct><![CDATA[Choose your preferred language and then select <b>PROCEED</b> to begin.]]></selectInstruct>
+	<resolutionInstruct><![CDATA[Please ensure that the Pop-up Blocker is turned off. Best viewed at 1024x768 resolution. DO NOT use your browser's Back button. Use the Previous arrow in the menu bar to navigate to the previous screen.]]></resolutionInstruct>
+	<PROCEED>PROCEED</PROCEED>
+	<BookMarkPopup>
+		<bookMark>Bookmark</bookMark>
+		<bookMarkQues>Do you want to go to the last visited Page?</bookMarkQues>
+		<bYes>Yes</bYes>
+		<bNo>Cancel</bNo>
+	</BookMarkPopup>
+	<copyright><![CDATA[Copyright &#169; 2017 Standard Chartered Bank. All rights reserved.]]></copyright>
+	<closeTxt>Close</closeTxt>
+	<printTxt>Print</printTxt>
+</root>

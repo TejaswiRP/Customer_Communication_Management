@@ -1,0 +1,479 @@
+﻿<style>
+
+.page-bg {
+    background-size: contain;
+    background-position: bottom 45px right;
+}
+.wraper{
+    display: flex;
+	overflow: hidden;
+}
+.col-1{
+	width: 20%;
+    height: 100%;
+    display: table;
+}
+
+.col-2{
+    width: 23%;
+    height: 100%;
+    display: flex;
+	    position: relative;
+}
+
+.col-3{
+    width: 57%;
+    height: 100%;
+    display: flex;
+}
+
+/*-- [ Arrow Animation ] --*/
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+    0%   { display:none;}
+	1%   { left:82px; top:192px; display:block;}
+    100% { left:277px; top:266px;display:none;}
+}
+.arrow{
+	width: 69px;
+    height: 69px;
+    background: url(../course_images/pages/m01/t13/p05/arrow_ease_vmenu.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 999999;
+    top: -70px;
+    display: none;
+    margin: 0px auto;
+    animation: pulse1 1s linear infinite;
+    left: 64px;
+
+}
+
+.arrow1{
+    width: 0px;
+    height: 553px;
+    background: url(../course_images/pages/m01/t13/p05/anim1.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 999999;
+    display: none;
+    top: 146px;
+    left: 131px;
+}
+.arrow2{
+    width: 0px;
+    height: 553px;
+    background: url(../course_images/pages/m01/t13/p05/anim2.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 999999;
+    display: none;
+    top: 103px;
+    left: 122px;
+}
+.arrow3{
+	width: 0px;
+    height: 553px;
+    background: url(../course_images/pages/m01/t13/p05/anim3.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 999999;
+    display: none;
+    top: 65px;
+    left: 110px;
+}
+.charImg{
+    width: 190px;
+    height: 530px;
+    background: url(../course_images/pages/m01/page_common/vera_img_04.png);
+    background-repeat: no-repeat;
+    margin-left: 0px;
+    position: absolute;
+    background-position: 10px 69px;
+    background-size: 100%;
+	top: -5px;
+    left: 30px;
+}
+.holderImg{
+	width: 208px;
+    height: 255px;
+    background: url(../course_images/pages/m01/t13/p05/drawer.png);
+    background-repeat: no-repeat;
+    margin-left: 0px;
+    background-position: center bottom 25px;
+    background-size: 75%;
+    top: 249px;
+    position: absolute;
+}
+
+.droppable-item{
+    flex: 1;
+    background-repeat: no-repeat !important;
+    background-size: 88% !important;
+    background-position: center bottom 0px !important;
+    height: 325px;
+    display: table-cell;
+    display: block;
+    top: 155px;
+    position: relative;
+    right: 10px;
+}
+#target_1.ui-droppable-disabled{
+	background: url(../course_images/pages/m01/t13/p05/bin2_Closed.png) !important;
+	background-size: 88% !important;
+    background-position: center bottom 0px !important;
+    display: block;
+    background-repeat: no-repeat !important;
+    background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+}
+#target_2.ui-droppable-disabled{
+	background: url(../course_images/pages/m01/t13/p05/bin3_Closed.png) !important;
+	background-size: 88% !important;
+    background-position: center bottom 0px !important;
+    display: block;
+    background-repeat: no-repeat !important;
+    background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+}
+#target_3.ui-droppable-disabled{
+	background: url(../course_images/pages/m01/t13/p05/bin1_Closed.png) !important;
+	background-size: 88% !important;
+    background-position: center bottom 0px !important;
+    display: block;
+    background-repeat: no-repeat !important;
+    background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+}
+.draggable-item{
+    height: 50px;
+    width: 198px;
+    top: 178px;
+    position: absolute;
+    left: 39px;
+}
+.drag-content{
+	cursor: move;
+    position: relative;
+    height: 109px;
+    width: 133px;
+    background-size: 100% !important;
+    background-repeat: no-repeat !important;
+	z-index:1;
+}
+.dragText{
+	width: 111px;
+    font-size: 13px;
+    color: #790404;
+    border: 1px dashed #c00000;
+    padding: 0px;
+    text-align: center;
+    top: 53px;
+    left: 15px;
+    margin: auto;
+    display: inline-block;
+    position: relative;
+    -ms-transform: rotate(-16deg);
+    -webkit-transform: rotate(-16deg);
+    transform: rotate(-16deg);
+}
+.dragText span{
+	text-transform: uppercase;
+    color: #c00000;
+    font-weight: bold;
+    font-size: 14px;
+}
+.dropText{
+	color: #fff;
+    position: relative;
+    top: 120px;
+    width: 62%;
+    text-align: center;
+    margin: 0px auto;
+    font-size: 14px;
+    height: 48px;
+    display: table;
+}
+.dropText span {
+	vertical-align: middle;
+    display: table-cell;
+    font-size: 12px;
+    padding: 10px;
+}
+
+
+/*-- [ Challenge Modal ] --*/
+
+.ModalBox {
+	background: rgba(0,0,0,0.8);
+    width: 100%;
+    height: 522px;
+    position: absolute;
+    left: 0;
+    z-index: 99;
+    display: table;
+}
+
+.feedback_panel{
+	display: table-cell;
+    vertical-align: middle;
+    margin: auto;
+    text-align: center;
+}
+
+
+.feedback_panel_Box{
+    margin: auto;
+    display: inline-block;
+}
+
+.para1{
+    margin: 10px 19px;
+	clear: both;
+}
+.para1 p{
+  font-size: 14px;
+}
+  
+.letsGoBtn{
+	color: #FFF;
+    padding: 7px 25px;
+    border-radius: 5px;
+    background-color: #00aef0;
+    display: inline-block;
+    margin: auto;
+    position: relative;
+    text-align: center;
+	margin-top: 25px;
+    margin-bottom: 25px;
+	cursor: pointer;
+	border:0px;
+	font-size: 14px;
+	font-weight:bold;
+}
+.redBg{
+	 background-color:#F00 !important;
+}
+
+.drag-content .animate {
+    transform: scale(0);
+}
+
+
+
+
+
+
+
+
+
+.challengeBoxBG_1{
+	width: 453px;
+    color: #FFF;
+    background: #22aa47;
+    border-radius: 28px;
+    text-align: center;
+    padding: 20px 20px 10px 20px;
+    display: inline-block;
+}
+
+.challengeIconBox_1{
+	margin: auto;
+    padding-bottom: 12px;
+}
+
+.challengeIconBG_1{
+	height: 130px;
+}
+
+.challengeIcon_1{
+	width: 112px;
+    height: 129px;
+    background: url(../course_images/pages/m01/t13/p05/icon.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    margin-bottom: 13px;
+    margin-left: 20px;
+    float: left;
+}
+
+.challengeTitle_1{
+	font-size: 30px;
+    color: #FFF;
+    font-weight: bold;
+    text-align: center;
+    width: 282px;
+    margin-left: 120px;
+    margin-top: 25px;
+    position: absolute;
+}
+
+
+
+
+
+
+
+.challengeBoxBG_2{
+	width: 453px;
+    color: #FFF;
+    background: #006496;
+    border-radius: 28px;
+    text-align: center;
+    padding: 20px 20px 10px 20px;
+    display: inline-block;
+}
+
+
+.challengeIconBox_2{
+	margin: auto;
+    padding-bottom: 12px;
+}
+
+.challengeIconBG_2{
+	height: 130px;
+}
+
+.challengeIcon_2{
+	width: 112px;
+    height: 129px;
+    background: url(../course_images/pages/m01/t13/p05/icon.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    margin-bottom: 13px;
+    margin-left: 10px;
+    float: left;
+}
+
+.challengeTitle_2{
+	font-size: 30px;
+    color: #FFF;
+    font-weight: bold;
+    text-align: center;
+    width: 282px;
+    margin-left: 130px;
+    margin-top: 25px;
+    position: absolute;
+}
+
+.popCntBox{
+	margin-top:10px;
+}
+.animate {
+   animation: pulse2 1s linear infinite;
+}
+
+@keyframes pulse1 {
+    0% {
+		top:-70px;
+    }
+
+
+    50% {
+		top:-80px;
+    }
+    100% {
+		top:-70px;
+    }
+}
+
+@keyframes pulse2 {
+    0% {
+		bottom:0px;
+    }
+
+    50% {
+		bottom:10px;
+    }
+
+    100% {
+
+
+		bottom:0px;
+    }
+}
+
+.z-depth-1, .btn, .btn-floating {
+    box-shadow: none;
+}
+
+.z-depth-1-half, .btn:hover, .btn-floating:hover {
+    box-shadow: none;
+}
+
+
+.standHeadTextBox_01{
+	background-color: #297358;
+}
+
+.standHeadTextBox_02{
+	background-color: #B43132;
+}
+
+
+.standHeadTextBox_03{
+	background-color: #2F5071;
+}
+
+
+</style>
+<div id="content">
+	<div class="row">
+		<div class="ModalBox" ng-class="{'animated fadeIn _0.5':showFeedBack}" ng-show="showFeedBack">						
+			<div class="feedback_panel animated ZoomIn _1">
+				<div class="feedback_panel_Box">
+					<div class="challengeBoxBG_1" ng-class="{'redBg':!isCorrect}">
+						<div class="challengeIconBG_1">
+							<div class="challengeIconBox_1">
+								<div class="challengeIcon_1"></div>
+								<p class="challengeTitle_1" bind-html-compile="feedBacktitle"></p>
+							</div>
+						</div>
+						<p class="para1" bind-html-compile="feedback">
+					</div>
+				</div>	
+			</div>	
+		</div>
+		<div class="col-sm-12 wraper" >
+			<div class="col-1">
+				<div class="charImg"></div>
+			</div>
+			<div class="col-2"> 
+				<!-- <div class="arrow1"></div>
+				<div class="arrow2"></div>
+				<div class="arrow3"></div> -->
+				
+				<div class="draggable-item drag-area" ng-repeat="item in question" ng-hide="{{item.dragText==''}}" id="dragarea_{{item.id}}" ng-mousedown="$event.stopPropagation();" ontouchmove="event.stopPropagation()" ontouchstart="event.stopPropagation()" ontouchend="event.stopPropagation()">
+					<div id="draggable_{{item.id}}" class="drag-content"  ng-style="{'background': 'url(' + item.dragimg + ')'}"> <p class="dragText"> <span>{{item.dragText}}</span></p></div>
+				</div>
+				<div class="holderImg"></div>
+			</div>
+			<div class="col-3">
+				<div ng-repeat="item in question" ng-hide="{{item.dropText==''}}" ng-style="{'background': 'url(' + item.img + ')'}" class="droppable-item col-spc_{{item.id}}"  id="target_{{item.id}}"> 
+				<div class="arrow"></div>
+				<p class="dropText" bind-html-compile="item.dropText"></p></div>
+			</div>
+		</div>		
+		<div class="ModalBox" ng-class="{'animated fadeIn _0.5':!startActivity}" ng-show="!startActivity">
+			<div class="feedback_panel  animated ZoomIn _1">
+				<div class="feedback_panel_Box">
+					<div class="challengeBoxBG_2">
+						<div class="challengeIconBG_2">
+							<div class="challengeIconBox_2">
+								<div class="challengeIcon_2"></div>
+							<div class="challengeTitle_2">SAVE SECURELY CHALLENGE #1</div>
+						</div>
+					</div>	
+					<div class="popCntBox col-sm-12">
+						<p>Where would you put these documents?</b></p><p>Drag the folder to the appropriate bin.</p>
+						<div class="letsGoBtn" ng-click="activityStart();">LET’S GO!</div>
+					</div>
+				</div>	
+			</div>
+		</div>		
+	</div>
+</div>
+</div>

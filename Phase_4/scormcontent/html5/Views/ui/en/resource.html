@@ -1,0 +1,174 @@
+<style>
+.modal-dialog {
+	margin: 30px auto;
+}
+.modal-open .modal {
+	margin-top: 262px;
+}
+.modal {
+	text-align: center;
+	top: -220px;
+	position:absolute;
+}
+
+.modal-content{
+	border-radius: 0px;
+	border: 1px solid #005bab;
+}
+
+.modal-title{
+	color:#4f5f6a;
+	font-size:16px;
+	font-weight:bold;
+}
+.modal-header {
+	border-bottom-color: #005bab;
+	z-index: 99999;
+	position: relative;
+}
+.modal-header .close{
+	position: absolute;
+	right: 20px;
+	top: 21px;
+    color: #000;
+    cursor: pointer;
+    font-weight: normal;
+    opacity: 1;
+    font-size: 14px;
+}
+.modal-body a{
+	/*color: #0072aa;
+	margin-left: 5px;
+	font-weight: 100;
+	display: inline-block;
+	cursor: pointer;
+	width: 267px;*/
+}
+
+.modal-body a{
+
+}
+
+.modal-body ul li span{
+	
+}
+
+
+.pdf-link a{
+   color: #000000 !important;
+}
+
+.pdf-link{
+	margin-left:24px;
+}
+.links{
+	margin-top: 15px;
+}
+.links li{
+	width:100%;
+}
+.bridge-heading{
+	font-size: 14px;
+}
+.instruction-text1{
+	position: relative;
+	margin-bottom: 15px;
+	color: #5cb943;
+	font-weight: bold;
+	z-index: 1;
+}
+@media screen and (min-width: 768px) {
+	.modal:before {
+		display: inline-block;
+		vertical-align: middle;
+		content: " ";
+		height: 100%;
+	}
+}
+.modal-body{
+	min-height: 170px;
+}
+
+.modal-dialog {
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+	margin: 0;
+	top: -5%;
+}
+}
+
+.modal-body ul{
+	padding: 10px 0px 0px 0px;
+	margin: 0px;
+}
+
+.modal-body ul li{
+	display: inline-block;
+	float: left;
+	min-height: 42px;	
+	z-index: 2;
+	position: relative;		
+	margin-left: 25px;
+}
+
+.modal-body ul li img{
+	margin-left: -31px;
+	float: left;
+	margin-bottom: 15px;
+	position: absolute;
+	margin-top: -4px;
+}
+
+.link-1{
+	color: #000000 !important;
+}	
+.link-2{
+	padding-top: 15px;
+	color: #000000 !important;
+}
+.link-3{
+	padding-top: 15px;
+	color: #000000 !important;
+}
+.item-lnk{
+	font-weight: 100;
+	display: inline-block;
+	width: 322px;
+}
+
+.instTxtBox{
+	width: 100%;
+    display: inline-block;
+    position: relative;
+}
+
+
+</style>
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="cancel()" bind-html-compile="ResourceContent.close"></button>
+            <h4 class="modal-title">{{ResourceContent.resourceHeading}}</h4>
+
+        </div>
+         <div class="modal-body" ng-hide="showIframe">
+			 <ul class='links'>
+				<div class="col-sm-6">
+					<li ng-repeat="item in ResourceContent.bridge" ng-if="$index<ResourceContent.bridge.length/2">
+						<img src="../course_images/interface/resource_link_icon.png">
+						<span bind-html-compile="item.link"></span>
+					</li>   				
+				</div>
+				<div class="col-sm-6">
+					<li ng-repeat="item in ResourceContent.bridge" ng-if="$index>=ResourceContent.bridge.length/2">
+						<img src="../course_images/interface/resource_link_icon.png">
+						<span bind-html-compile="item.link"></span>
+					</li>				
+				</div>
+            </ul>
+		</div>
+		
+    </div><!-- /.modal-content -->
+</div>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+	<CourseBrandType>0</CourseBrandType>
+	<CourseBrandNameImg>../course_images/interface/logo.png</CourseBrandNameImg>
+	<CourseName>FrameWork Library</CourseName>
+	<UIControllers>
+		<Next>1</Next>
+		<Back>1</Back>
+		<Menu>1</Menu>
+		<Help>1</Help>
+		<PagCounter>1</PagCounter>
+		<Glossary>0</Glossary>
+		<Transcript>0</Transcript>
+		<Resource>1</Resource>
+		<AudioController>0</AudioController>
+		<PlayPauseController>0</PlayPauseController>
+		<CourseProgress>0</CourseProgress>
+		<ExitButton>0</ExitButton>
+	</UIControllers>
+	<courseSettings>
+		<appType>Standalone</appType><!-- Standalone for off-line and  scorm1.2 for scorm version -->
+		<hasCourseIntro>false</hasCourseIntro>
+		<hasLangSelectionPage>false</hasLangSelectionPage>
+		<hasRoleSelectionPage>false</hasRoleSelectionPage>
+		<hasBookMarking>true</hasBookMarking>
+		<pageCountType>pagewise</pageCountType>
+		<visualMenu>false</visualMenu>
+		<skipVisualMenu>false</skipVisualMenu>
+		<menuDepth>2</menuDepth>
+		<forceNavigation>false</forceNavigation>
+		<hasAudio>true</hasAudio>
+		<hasPreAssessment>false</hasPreAssessment>
+		<hasPreAssessmentIntro>true</hasPreAssessmentIntro>
+		<preAssessmentSection>null</preAssessmentSection>
+		<hasPreRandomization>true</hasPreRandomization>
+		<hasPrePooling>true</hasPrePooling>
+		<totalPreQuestions>10</totalPreQuestions>
+		<availablePreQuestions>5</availablePreQuestions>
+		<hasAssessment>false</hasAssessment>
+		<hasAssessmentIntro>true</hasAssessmentIntro>
+		<assessmentSection>20</assessmentSection>
+		<hasRandomization>true</hasRandomization>
+		<hasPooling>true</hasPooling>
+		<custom>1,2,3,4,5,6</custom>
+		<totalQuestions>0</totalQuestions>
+		<availableQuestions>0</availableQuestions>
+		<maxAssesmentAttempt>1000</maxAssesmentAttempt>
+		<masteryScore>80</masteryScore>
+	</courseSettings>
+</root>

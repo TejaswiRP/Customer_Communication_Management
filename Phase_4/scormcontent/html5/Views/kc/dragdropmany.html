@@ -1,0 +1,491 @@
+﻿<style>
+.optionEntiteContent{
+	padding: 0px;
+	/*height: 505px;*/
+	position: relative;
+}
+#question-text{
+	padding-left: 0;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+#question-text li{
+	display: flex;
+}
+
+#question-text li .scenario{
+	padding: 0;
+	text-align: center;
+}
+
+#question-text li{
+   border-bottom: #717171 dashed thin;
+}
+/*.dragHolder{
+	display:none;
+}*/
+
+
+/* Slots for final card positions */
+
+#droppable-container {
+	margin: 20px auto 0 auto;
+}
+
+/* The initial pile of unsorted cards */
+
+#draggable-container {
+	margin: 20px auto;
+}
+
+/* Individual cards and slots */
+.droppable-item {
+	height: 145px;
+	color: #000;
+	width: 194px;
+	background: url(../course_images/pages/m01/t02/p10/bucket.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.cart {
+	display:none;
+	background: none;
+	text-align: center;
+}
+
+
+/*.draggable-item-panel {
+	background: url(../course_images/pages/m02/t03/p01/Drag_bg.png) no-repeat 3px;
+	height: 105;
+	width: 331px !important;
+	color: #060606;
+	text-align: left;
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0px 5px 0px 43px;
+}*/
+.draggable-item {
+	height: 172px;
+	width: 184px;
+	color: #060606;
+	text-align: center;
+	position: absolute;
+}
+.drag-content{
+	cursor: move;
+	background: url(../course_images/pages/m01/t02/p10/folder.png) no-repeat 3px;
+	height: 115px;
+	width: 149px;
+	color: #060606;
+	text-align: center;
+	margin-bottom: 0;
+	/* position: absolute; */
+	top: 0px;
+	left: 0;
+	background-size: contain;
+	padding: 38px 15px 0px 15px;
+	background-position: left 0px top -20px;
+	background-size: 100%;
+}
+/*.drag-content p {
+	height: 64px;
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+}*/
+/*.draggable-item::before {
+	content: "";
+	background: url(../course_images/pages/m02/t03/p01/Dots.png) no-repeat;
+	height: 26px;
+	width: 14px;
+	position: absolute;
+	left: 21px;
+	top: 45px;
+}
+.droppable-item::after {
+	content: "";
+	background: url(../course_images/pages/m02/t03/p01/Arrow.png) no-repeat;
+	height: 26px;
+	width: 14px;
+	position: absolute;
+	right: 9px;
+	top: 45px;
+}*/
+.drophere{
+	position: relative;
+	color: #080808;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	top: 121px;
+	font-size: 19px;
+}
+.dropIns{
+	top: 5px;
+	color: #5d5d5d;
+	width: 100%;
+	position: relative;
+	display: block;
+	text-align: center;
+}
+
+ .feedback-panel {
+	background: #f4eedc;
+	color: #000000;
+	padding: 14px;
+	border-radius: 7px;
+	width: 302px;
+	box-shadow: 2px 2px 8px rgba(66, 66, 66, 0.88);
+	top: 1px;
+	display: inline-block !important;
+	position: absolute;
+	margin-left: 20;
+}
+
+.feedback-close {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	cursor: pointer;
+}
+
+
+/* "You did it!" message */
+#successMessage {
+	position: absolute;
+	left: 580px;
+	top: 250px;
+	width: 0;
+	height: 0;
+	z-index: 100;
+	background: #dfd;
+	border: 2px solid #333;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+	-webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+	box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+	padding: 20px;
+}
+
+.scenario{
+	font-size: 16px;
+	color:#000;
+	font-family: robotoMedium;
+	background-color: #ebf5ed;
+}
+.scenario img	{
+	margin-top: 20px;
+}
+.redBorder::before{
+	content: "\f12a";
+	font-family: FontAwesome;
+	right: -27px;
+	top: 11px;
+	color: #ffffff;
+	font-size: 23px;
+	width: 14px;
+	position: absolute;
+	background-color: ff0000;
+	border-radius: 50%;
+	height: 40px;
+	width: 40px;
+	padding-left: 1px;
+	padding-top: 8px;
+	z-index: 9;
+}
+.greenBorder::before {
+	content: "\f00c";
+	font-family: FontAwesome;
+	right: -27px;
+	top: 11px;
+	color: #ffffff;
+	font-size: 23px;
+	width: 14px;
+	position: absolute;
+	background-color: #00b050;
+	border-radius: 50%;
+	padding-left: 0px;
+	padding-top: 6px;
+	z-index: 9;
+	height: 40px;
+	width: 40px;
+}
+.scenario p{
+	height: auto;
+	vertical-align: middle;
+	width: 100%;
+	margin-top:10px;
+	text-align: center;
+	position: relative;
+}
+   
+.in-correct:before{
+	left:-20px;
+	top: 36px;
+}
+.correct:before{
+	left: -20px;
+	top: 36px;
+}
+.onDrag{
+	padding-left:150px;
+	padding-right:150px;
+}
+.afterDrag {
+	text-align: left !important;
+	background-color: #1f1f20;
+	padding-left: 30px !important;;
+	padding-right: 14px !important;;
+	padding-bottom: 0px !important;;
+}
+.btn-submit, .btn-reset {
+	display: block;
+	padding: 10px 0px;
+	border: 0px;
+	background-color: #00adef;
+	color: #fff;
+	font-weight: bold;
+	border-radius: 5px !important;
+	margin-top: -6px;
+	margin-left: 29px;
+	bottom: 168px;
+	position: absolute;
+	width: 88px;
+	left:465px;
+}
+.btn-reset {
+	bottom: 123px;
+}
+
+
+.btn-show-ans {
+	border-radius: 30px;
+	background-color: rgb(1, 169, 224);
+	border: none;
+	color: #fff;
+	height: 60px;
+	width: 252px;
+	font-size: 20px;
+	position: absolute;
+	letter-spacing: 1px;
+	padding: 0px 22px 0px 22px;
+	margin: 0px auto;
+	font-family: myCustomFont1;
+	bottom: 52px;
+	left: 37%;
+	z-index: 9999;
+}
+.btn:hover, .btn:focus, .btn.focus{
+	color: #fff;
+}
+@media all and (max-width:420px) {
+	
+}
+	
+.left15{
+	margin-left:30px;
+}
+
+
+.optionContent {
+    padding: 0px;
+    position: absolute;
+    width: 194px;
+}
+.fa-angle-down:before {
+    content: "\f107";
+    position: relative;
+    font-size: 22px;
+    left: 100px;
+    color: rgb(1, 135, 179);
+}
+
+.fa-angle-down:before{
+	left:0px;
+}
+.optionContent1{
+    right: 260px;
+    top: 0px;
+}
+.optionContent2{
+	right: 40px;
+	top: 0px;
+}
+.optionContent3{
+	right: 260px;
+	top: 228px;
+
+}
+.optionContent4{
+	right: 40px;
+	top: 228px;
+}
+#dragarea_1{
+	left: 120px;
+    top: 139px;
+}
+#dragarea_2{
+	left: 298px;
+    top: 139px;
+}
+#dragarea_3{
+	left: 120px;
+    top: 241px;
+}
+
+#dragarea_4{
+	left: 298px;
+    top: 241px;
+}
+
+#dragarea_5{
+	left: 120px;
+    top: 344px;
+}
+#dragarea_6{
+    left: 298px;
+    top: 344px;
+}
+
+#dragarea_7{
+    left: 120px;
+    top: 448px;
+}
+
+#dragarea_8{
+   left: 298px;
+    top: 448px
+}
+
+.droppable-item , .Caart{
+		height: 160px;
+		color: #000;
+		width: 226px;
+		position: absolute;
+		top: 192px;
+		left: 62px;
+	}
+	.Caart{
+		padding-top: 0px;
+		width: 194px;
+		left: 88px;
+		top: 86px;
+		overflow: hidden;
+		height: 203px;
+	}
+	.feedBackPanel{
+		display: block !important;
+		height: 264px;
+		width: 349px;
+		background-color: #00b14f;
+		position: absolute;
+		top: 34%;
+		left: 56px;
+		border-radius: 15px;
+		padding: 0px 10px;
+	}
+	.btn-submit[type="button"]:disabled , .btn-reset[type="button"]:disabled {
+		background: #9ca2af;
+	}
+	.feedIcon{
+		width: 87px;
+		height: 109px;
+		background: url(../course_images/pages/m01/t02/p01/board_icon.png);
+		background-repeat: no-repeat;
+		background-size: 100%;
+		margin: 0px auto;
+		top: 10px;
+		position: relative;
+	}
+	.feedBackPanel h1{
+		font-size: 31px;
+		font-weight: bold;
+		text-align: center;
+		margin-top: 2px;
+	}
+	.feedBackPanel p{
+		text-align: center;
+	}
+	.redBg{
+		background-color: #ff0000
+	}
+	
+	.feedBackPanel a{
+		color:#FFF !important;
+	}
+	
+	.z-depth-1, .btn, .btn-floating {
+    box-shadow: none;
+}
+
+.z-depth-1-half, .btn:hover, .btn-floating:hover {
+    box-shadow: none;
+}
+
+.btn-show-answer{
+    position: absolute;
+    top: 500px;
+    left: 158px;
+    background: #00adef;
+    border-radius: 5px;
+    padding: 8px 20px;
+    border: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+	width: 147px;
+}
+.btn-my-answer{
+	position: absolute;
+    top: 540px;
+    left: 158px;
+    background: #00adef;
+    border-radius: 5px;
+    padding: 8px 20px;
+    border: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+	width: 147px;
+}
+button[disabled].btn-show-answer{
+	background: #9ca2af;
+}
+</style>
+<div id="content">
+	<div class="row">
+		<div class="col-sm-5" style="height: 100%;" >
+			
+			<div ng-repeat="item in options" id="dragHolder_{{$index+1}}" class="dragHolder">
+				<div  class="draggable-item drag-area"   id="dragarea_{{$index+1}}" id="card{{item.id}}" data-number={{item.id}} ng-mousedown="$event.stopPropagation();" ontouchmove="event.stopPropagation()" ontouchstart="event.stopPropagation()" ontouchend="event.stopPropagation()">
+					<p id="draggable_{{$index+1}}" class="drag-content">{{item.dragText}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-5" >
+			<div class="optionEntiteContent" >
+				<div class="col-xs-12 col-sm-6  col-md-4 optionContent optionContent{{$index+1}}" ng-class="{'clear':$index==2}"  ng-repeat="item in question">
+					<div class="droppable-item" id="target_{{item.id}}"   data-number={{item.id}}> <p class="drophere">{{item.dropText}} </p>
+					<!-- <span class="dropIns">Drop Area</span> -->
+					</div>
+					<div  id="cart_{{item.id}}" class="Caart" ><span class="cart"></span> </div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-2" style="height: 100%;" >
+			<button ng-click="onSubmitClick()" class="btn-submit waves-effect waves-light" type="button" ng-bind-html="buttonText"  disabled></button>
+			<button ng-click="onResetClick()" class="btn-reset waves-effect waves-light" type="button" ng-bind-html="buttonResetText" disabled></button> 
+		</div>
+		
+	</div>
+	<div ng-show="feedbackToggle" class="feedBackPanel animated ZoomIn _1" ng-class="{'redBg':failed}" bind-html-compile="feedback" ></div>
+	<button ng-click="onShowAnsClick()" class="btn-show-answer waves-effect waves-light animated ZoomIn _2" type="button" ng-show="failed" ng-disabled="myAnswer">{{showAnsText}}</button>
+	<button ng-click="onMyAnsClick()" class="btn-my-answer" ng-class="{'waves-effect waves-light':myAnswer}" type="button"  ng-show="myAnswer">{{myAnsText}}</button>
+</div>

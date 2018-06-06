@@ -1,0 +1,13 @@
+<div class="page_bg">
+    <div style="padding:15px;"><img ng-src="{{CourseConfig.LogoPath}}"></div>
+    <div class="visual-menu">
+        <div class="col-xs-12">
+            <div ng-repeat="menuItem in CourseMenu.module" class="col-md-3">
+                <div class="visual-menu-module-item" ng-init="selectedModule=$index"><span ng-class="getModuleStatus($index)"></span>{{menuItem.name}}</div>
+                <div ng-repeat="menuItem in menuItem.topics">
+                    <div class="visual-menu-item" ng-click="loadScreen($parent.$index,$index,0)"><span ng-class="getTopicStatus(selectedModule,$index)"></span>{{menuItem.name}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

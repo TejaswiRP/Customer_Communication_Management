@@ -1,0 +1,26 @@
+<script type="text/ng-template"  id="menu_page_renderer.html">
+    <label ng-click="displayList($event,0,$index)" class="tree-toggler nav-header {{viewedTopic(0,$index)}}" ng-init="selectedTopic=$index" data-expand="{{menuItem.expand}}" ng-show="$index==currentTopic">
+        <span class="status-indicator" ng-class="getTopicStatus(0,$index)"></span>{{menuItem.name}}<i style="pointer-events: none;" class="nav-toggle-icon fa fa-arrow-down"></i></label>
+    <ul class="nav nav-list tree" ng-show="$index==currentTopic">
+        <li ng-repeat="menuItem in menuItem.pages">
+            <label id='0_{{selectedTopic}}_{{$index}}' ng-hide="{{menuItem.branchingScreen}}" class="page-list {{pageVisited(0,selectedTopic,$index)}} {{viewedPage(0,selectedTopic,$index)}}" ng-click="loadScreen(0,selectedTopic,$index)"><span ng-class="getPageStatus(0,selectedTopic,$index)"></span>{{menuItem.name}}</label>
+        </li>
+    </ul>
+</script>
+
+<div class="menu" data-menu-list="menu" data-slide-toggle-duration="200" >
+    <!-- <div class="menu-heading">
+        <span>MENU</span><span class="menu-close-btn glyphicon glyphicon-remove" ng-click="closeMenu()"></span>
+    </div> -->
+    <div class="menu-page-list">
+        <ul class="module-list nav nav-list">
+            <li ng-repeat="menuItem in CourseMenu.module.topics" ng-include="'menu_page_renderer.html'"></li>
+        </ul>
+    </div>
+    <div class="menu-footer">
+        <span class="not-visited"></span>Not Started<i>&nbsp;&nbsp;&nbsp;</i>
+        <span class="in-progress"></span>In Progress<i>&nbsp;&nbsp;&nbsp;</i>
+        <span class="completed"></span>Completed
+    </div>
+
+</div>

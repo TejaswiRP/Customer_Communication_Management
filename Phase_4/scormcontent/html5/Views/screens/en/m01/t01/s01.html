@@ -1,0 +1,143 @@
+<style>
+.page_bg_2{
+    background: url('../course_images/pages/m01/t01/p01/bg_img_PC.jpg') center center;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 1;
+    position:relative;
+	border: solid 1px #ececec;
+}
+
+.video_intro {
+    padding-left: 105px;
+    position: relative;
+}
+.main-container{
+	overflow: hidden;
+}
+#introVideo{
+    box-shadow: 7px 5px 6px 0px rgba(0, 0, 0, 0.5);
+    
+}
+.logo-placement{
+	position: absolute;
+    top: 3%;
+    left: 40%;
+}
+
+.panel-custom{
+    background-color: transparent !important;
+    border-radius: transparent !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    text-align: center;
+    top: 15%;
+}
+.hr-custom{
+    border-bottom: 1px solid;
+    border-style: dashed;
+}
+.btn-custom{
+    border-radius: 20px;
+    background-color: white;
+    width: 20%;
+}
+
+.close-video{
+    height: 25px;
+    width: 25px;
+    background-color: rgba(255, 255, 255, 0.32);
+    border-radius: 50%;
+    position: absolute;
+    text-align: center;
+    color: white !important;
+    padding: 3px;
+    right: -3%;
+    top: -3%;
+    cursor: pointer;
+}
+.close-video::after{
+    content: '\f00d';
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media (max-width: 768px) and (orientation:portrait){
+    /*tab potrait*/
+    .page_bg_2{
+         background: url('../course_images/pages/m01/t01/p01/bg_img_tab_portrait.jpg') center center;
+    }
+    .video_intro {
+        padding-left: 0px;
+    }
+}
+@media (max-width: 375px) and (orientation:portrait){
+    /*phone potrait*/
+    .page_bg_2{
+         background: url('../course_images/pages/m01/t01/p01/bg_img_ph_portrait.jpg') center center;
+    }
+    .logo-placement{
+        top: 1%;
+        left: 27%;
+    }
+    .video_intro {
+        padding-left: 0px;
+    }
+    .btn-custom{
+        width: 40%;
+    }
+}
+@media (max-width: 667px) and (orientation:landscape){
+    /*phone landscape*/
+    .page_bg_2{
+         background: url('../course_images/pages/m01/t01/p01/bg_img_ph_landscape.jpg') center center;
+    }
+    .logo-placement{
+        top: 0%;
+        left: 36%;
+    }
+    .video_intro {
+        padding-left: 0px;
+    }
+}
+</style>
+<div class='main-container animated fadeIn _1' intro-control>
+	<div class="page_bg_2" ng-show="page2">  
+        <span class="logo-placement">
+            <img src="../course_images/pages/m01/page_common/logo.png">
+        </span>
+		<div class="body_text_5">
+            <div class="page-content" ng-init="showVideo = false;">
+                <div class="panel panel-custom">
+                    <div class="panel-body">
+                      <p>Welcome to this module on</p>
+                      <h3>CUSTOMER COMMUNICATION MANAGEMENT</h3>
+                      <p>
+                          This module includes three consecutive videos on 'Customer Communication Management' <br> and it will take you 10 minutes to complete. Connect headphones or speakers for audio.
+                      </p>
+                      <br>
+                      <hr class="hr-custom">
+                      <br>
+                      <span class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <button class="btn btn-custom" ng-click="gotoNextPage()">BEGIN</button>
+                          <a href="#" ng-click="showVideo = true;"><img src="../course_images/pages/m01/t01/p01/video_icon.png">&nbsp;Introduction</a>
+                      </span>
+                    </div>
+                </div>
+                <div class="video_intro" ng-show="showVideo == true">
+                    <div class="close-video" ng-click="closeVidePopUp()"></div>
+                    <video id="introVideo" height="450" controls class="video-mp4" poster="" controlsList="nodownload" ng-init="watchVideo();">
+                        <source src="../video/Intro.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+		</div> 
+	</div>
+</div>

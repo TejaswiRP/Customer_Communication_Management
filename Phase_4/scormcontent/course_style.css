@@ -1,0 +1,35 @@
+.header {
+    background: url("test.jpg");
+    height: 69px;
+    width: 100%;
+}
+
+.footer {
+    background: url("footer.jpg");
+    height: 54px;
+    width: 100%;
+}
+
+@font-face {
+	font-family: 'Arial-Bold';
+	src: url('fonts/Arial-Bold.eot');
+	src: local('☺'), url('fonts/Arial-Bold.woff') format('woff'), url('fonts/Arial-Bold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+.page-heading {
+    font-size: 24px;
+    font-weight: 400;
+    color: #017f95;
+	font-family:arial;
+}
+
+.instruction-text {
+    color: #017f95;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: bold;
+	margin-top: 8px;
+}

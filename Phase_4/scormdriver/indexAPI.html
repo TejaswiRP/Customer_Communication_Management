@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>General Ethics</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge; IE=11; IE=10; IE=9" />
+		<meta name="viewport" id="viewport" content="initial-scale=1.0,user-scalable=yes"/>
+        <!-- <script language="Javascript" src="../scormcontent/scripts/detect.js" type="text/javascript"></script> -->
+		<script language="JavaScript1.2" src="scormdriver.js"></script>
+		<script language="Javascript">
+			/*****************
+				htmlSkinType:- 1 to 10 check the flash/assets/application/swf/en/skins to see different styles of skins
+			*/
+			var htmlSkinType = 1;
+			strContentLocation = '../scormcontent/index.html';
+			function LoadContent(){
+				window.scormdriver_content.document.location.href = strContentLocation;
+			}
+			
+			var myVar;
+	
+			//alert(navigator.onLine)
+			function myFunction()
+			{
+				myVar = setInterval(
+					function(){
+						if(navigator.onLine==false){	 
+							alert("Connection to LMS is lost, please Exit and Relaunch the course.")
+							myStopFunction()
+						}
+					},2000);
+			}
+			function myStopFunction(){
+				clearTimeout(myVar);
+			}
+			myFunction();
+		</script>
+	</head>
+	<frameset rows="100%,0%,0%,0%" onload="Start()" onbeforeunload="Unload()" onunload="Unload()" border="0">
+		<frame name="scormdriver_content" src="blank.html">
+		<frame name="AICCComm" src="AICCComm.html">
+		<frame name="rusticisoftware_aicc_results" src="blank.html">
+		<frame name="NothingFrame" src="blank.html">
+	</frameset>
+	<noframes>
+		Your browser must be able to view frames for this content to display.
+	</noframes>
+</html>

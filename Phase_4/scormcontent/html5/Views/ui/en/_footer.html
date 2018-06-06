@@ -1,0 +1,203 @@
+<style>
+
+/* Footer styles starts*/
+.course-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #005aaa;
+    z-index: 1030;
+    float: left;
+    height: 40px;
+}
+
+.go-next-instruction{
+	position: absolute;
+	bottom: 52px;
+	color: #fff;
+	background: rgb(0, 173, 239);
+	padding: 6px 15px 5px 15px;
+    border-radius: 5px;
+    right: 6px;
+	display:none;
+}
+.triangle{
+	width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 18px solid rgb(0, 173, 239);
+    position: absolute;
+}
+.highlightNext{
+    position: absolute;
+    bottom: -12px;
+    right: 10px;
+	animation:highLight 1s ease-in infinite;
+}
+
+.menu-btn img, .resource-btn img, .help-btn img, .audio-btn img{
+	padding-right: 8px;
+}
+
+.audio-btn img{
+	padding-right: 5px;
+}
+.menu-btn, .resource-btn, .help-btn , .audio-btn{
+    cursor: pointer;
+    float: left;
+    margin-top: 12px;
+    padding-right: 10px;
+    padding-left: 10px;
+    webkit-user-select: none !important;
+}
+
+.page-control-right {
+    color: #fff;
+    border: none;
+    line-height: 1.6;
+    -webkit-tap-highlight-color: transparent;
+    height: 100%;
+    position: relative;
+    float: right;
+	width: 161px;
+}
+
+.page-control-right .glyphicon-menu-left {
+        margin-right: 5px;
+}
+
+.page-control-right .glyphicon-menu-right {
+	margin-left: 5px;
+}
+.page-nav-btn {
+    cursor: pointer;
+    position: relative;
+	-webkit-tap-highlight-color: transparent;
+}
+.page-control-center .glyphicon {
+    margin-right: 5px;
+}
+.page-control-center{
+	float: left;
+    color: #fff;
+}
+.page-nav-btn .next{
+    width: 30px;
+    height: 100%;
+    padding-top: 13px;
+}
+.mask-left{
+    width: 40px;
+    height: 100%;
+    float: left;
+    position: absolute;
+    z-index: 99;
+    opacity: 0.5;
+}
+.mask-right{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    z-index: 222;
+    opacity: 0.5;
+}
+.prev .back_img{
+	float: right;
+}
+.prev{
+    float: left;
+    width: 40px;
+    height: 100%;
+    padding-top: 13px;
+    padding-right: 2px;
+}
+.next .next_img{
+	float: right;
+}
+.next{
+    width: 25px;
+    height: 100%;
+    padding-top: 13px;
+    float: left;
+    display: block;
+    padding-right: 11px;
+}
+.page-numbering{
+	padding-top: 9px;
+    display: block;
+    float: left;
+    font-size: 14px;
+    padding-right: 23px;
+    padding-left: 20px;
+}
+.ui-control-1{
+	float: right;
+    color: #fff;
+}
+.course-footer span.divider{
+    float: left;
+    width: 1px;
+    background: url(../course_images/interface/divider.png);
+    position: relative;
+    height: 100%;
+    background-repeat: no-repeat;
+}
+.course_progress pull-left{
+	width: 27%;
+} 
+.course_progress{
+	height: 100%;
+}
+.course-progress-btn {
+	position: relative;
+    color: #fff;
+    left: 30px;
+    top: 12px;
+    float: left;
+}
+.progress-bar{
+    width: 240px;
+    background: #fff;
+    height: 2px;
+    position: relative;
+    left: 38px;
+    top: 20px;
+    float: left;
+    border-left: 28px solid #5daaee;
+    transition: border 2s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+</style>
+<div class="course-footer">
+	<!-- ng-class="{'animated fadeInDown':isPageCompleted,'_8':CourseContent.static=='true','_1':CourseContent.static=='false'}" -->
+	<div class="go-next-instruction" id="gInstruct">{{footer.instruction}} <div class="triangle highlightNext"></div></div>
+	<div class="course_progress pull-left ">
+		<div class="course-progress-btn">Module Progress</div>
+		<div class="progress-bar" id="progressBar" ng-style="progressBar()"></div>
+	</div>
+	<div class="page-control-right">
+		<span class="mask-left" ng-show="isPrevButtonDisabled">&nbsp;</span>
+		<span class="page-nav-btn prev" ng-click="isOnline?gotoPreviousPage():return;" ng-class="{btnDisabled:isPrevButtonDisabled}"><img src="../course_images/interface/back_btn.png" class="back_img"/></span>
+		<span class="divider"></span>
+		<span class="page-numbering">{{currentPageNumber >= 10?(currentPageNumber):("0"+(currentPageNumber))}}/{{totalPages >= 10?totalPages:"0"+totalPages}}</span>
+		<span class="divider"></span>
+		<span class="mask-right" ng-show="isNextButtonDisabled">&nbsp;</span>
+		<span class="page-nav-btn next" ng-click="isOnline?gotoNextPage():return;" ng-class="{btnDisabled:isNextButtonDisabled,'done':isPageCompleted}"><img class="next_img" src="../course_images/interface/next_btn.png"/></span>
+	</div>
+	<div class="ui-control-1">
+		<span class="pull-right">
+			<span class="audio-btn" ng-class="{disablePlay:disableAudio}" ng-click="toggleSound()"><img src="{{isSoundon?'../course_images/interface/audio.png':'../course_images/interface/audio_off.png'}}"/>
+			<span>{{isSoundon?'Audio On':'Audio Off'}}</span>
+			</span> 
+			<span class="divider"></span>
+			<span class="menu-btn" ng-click="isOnline?(CourseConfig.VisualMenu?loadVisualMenu():menu=!menu):return;" ng-class="{'btnDisabled':disableMenu}"><img src='../course_images/interface/menu_btn.png'> {{footer.uiButtons.menu_button}}</span>
+			<span class="divider"></span>
+			<span class="help-btn" ng-click="isOnline?loadHelp():return;"><img src='../course_images/interface/help_btn.png'> {{footer.uiButtons.help_button}}</span>
+			<span class="divider"></span>
+			<span class="resource-btn" ng-click="isOnline?loadResources():return;"><img src='../course_images/interface/resource_btn.png'/> {{footer.uiButtons.Resources_button}}</span>
+			<span class="divider"></span>
+		</span>
+	</div>
+</div>
