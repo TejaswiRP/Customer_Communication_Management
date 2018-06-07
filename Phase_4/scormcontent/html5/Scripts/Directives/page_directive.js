@@ -3553,8 +3553,8 @@ FrameworkApp.directive('introControl', function () {
         controller: function ($scope, $rootScope,$timeout,$timeout) {	
 			$scope.page2 = true;
 			var vdo = document.getElementById("introVideo");
-				vdo.load();
-				vdo.play();
+				// vdo.load();
+				// vdo.play();
 				vdo.addEventListener('ended', function(){
 					/* $timeout(function(){
 						$scope.startcourseFromIntro();
@@ -3582,8 +3582,8 @@ FrameworkApp.directive('vdocontrol', function () {
 				}
 				var a = document.getElementById('introVideo');
 				setTimeout(function(){
-					a.load();
-					a.play();		
+					// a.load();
+					// a.play();		
 					a.addEventListener("ended",function(){
 						$scope.closeEnable = true;
 						$rootScope.markVisitedPage();				

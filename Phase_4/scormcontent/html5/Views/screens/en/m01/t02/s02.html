@@ -1,0 +1,198 @@
+<style>
+.page_bg_2{
+     background: url('../course_images/pages/m01/t02/p02/bg_img_PC.jpg') center center;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 1;
+    position:relative;
+    border: solid 1px #ececec;
+}
+
+
+.main-container{
+	overflow: hidden;
+}
+
+.panel-custom{
+    background-color: transparent !important;
+    border-radius: transparent !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    /*position: absolute;*/
+    /*left: 10%;*/
+    /*width: 80%;*/
+    /*text-align: center;*/
+}
+.hr-custom{
+    border-bottom: 1px solid;
+    border-style: dashed;
+}
+.div-custom{
+    height: 100px;
+    background: #70adad;
+    border-radius: 10px;
+    margin: 2%;
+}
+.main-div{
+    left: 6%;
+}
+.main-div2{
+    left: 27%;
+}
+.span-custom{
+    position: absolute;
+    top: 15%;
+    left: 33%;
+}
+.span-custom h3{
+    color: white !important;
+    font-weight: bold;
+}
+.backToMenu{
+    height: 25px;
+    width: 25px;
+    background-color: #edf0f3;
+    border-radius: 50%;
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    padding-left: 2px;
+    top: 18%;
+    right: 33%;
+}
+.backToMenu::after{
+    content: '\f053';
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    color: rgba(0,0,0,0.2);
+    transform: translate(0%,-50%);
+    
+}
+.backToHome{
+    height: 25px;
+    width: 25px;
+    background-color: #edf0f3;
+    border-radius: 50%;
+    text-align: center;
+    padding: 5px;
+}
+.backToHome::after{
+    content: '\f015';
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    color: rgba(0,0,0,0.2);
+    transform: translate(0%,-50%);
+    
+}
+
+@media (max-width: 768px) and (orientation:portrait){
+    /*tab potrait*/
+    .page_bg_2{
+          background: url('../course_images/pages/m01/t02/p02/bg_img_tab_portrait.jpg') center center;
+    }
+    
+    .panel-custom{
+        height: 100%;
+    }
+    .backToMenu {
+        top: 12%;
+        right: 45%;
+    }
+    
+}
+@media (max-width: 375px) and (orientation:portrait){
+    /*phone potrait*/
+    .page_bg_2{
+         background: url('../course_images/pages/m01/t02/p02/bg_img_ph_portrait.jpg') center center;
+    }
+    .panel-custom{
+        height: 100%;
+        top: -2%;
+    }
+    .main-div{
+        left: 4%;
+    }
+    .main-div2{
+        left: 4%;
+    }
+    .backToMenu {
+        top: 12%;
+        right: 96%;
+    }
+}
+@media (max-width: 667px) and (orientation:landscape){
+    /*phone landscape*/
+    .page_bg_2{
+         background: url('../course_images/pages/m01/t02/p02/bg_img_ph_landscape.jpg') center center;
+         overflow-y: scroll;
+    }
+    .main-div{
+        left: 1%;
+    }
+    .main-div2{
+        left: 1%;
+    }
+    .backToMenu {
+        top: 15%;
+        right: 50%;
+    }
+}
+</style>
+<div class='main-container animated fadeIn _1'>
+	<div class="page_bg_2">  
+		<div class="panel panel-custom">
+            <div class="panel-body">
+                <div class="col-xs-12 col-sm-12">
+                    <h3 class="col-xs-6 col-sm-6">BETTER BE A COMMUNICATOR</h3>
+                     <span class="col-xs-6 col-sm-6"><i class="pull-right backToHome" style="cursor: pointer;" ng-click="loadScreen(0,0,2)"></i></span>
+                </div>
+              <p>
+                  Active Listening is the most effective way to understand customers' needs. It makes 'Customer Connect' a lot easier.
+              </p>
+              <br>
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                  <span class="col-xs-6 col-sm-6">
+                      <h4>Videos</h4>
+                  </span>
+                  <span class="col-xs-6 col-sm-6">
+                      <span class="pull-right" style="cursor: pointer;" ng-click="loadScreen(0,1,0)"><i class="backToMenu"></i> <h4>BACK TO MENU</h4></span>
+                  </span>
+               </div>
+              <hr class="hr-custom">
+              <br><br><br>
+              <div class="col-xs-12 col-sm-12 col-md-12 row main-div">
+                <div class="col-xs-12 col-sm-5 col-md-5 div-custom">
+                    <img src="../course_images/pages/m01/t02/p02/video_icon.png" style="margin: 5%;">
+                    <div class="panel">
+                        <div class="panel-header">
+                            Body
+                        </div>
+                        <div class="panel-body">
+                            Body
+                        </div>
+                        <div class="panel-footer">
+                            Body
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 div-custom">
+                    <img src="../course_images/pages/m01/t02/p02/video_icon.png" style="margin: 5%;">
+                </div>
+              </div>
+              <br>
+              <div class="col-xs-12 col-sm-12 col-md-12 row main-div2">
+                  <div class="col-xs-12 col-sm-5 col-md-5 div-custom">
+                      <img src="../course_images/pages/m01/t02/p02/video_icon.png" style="margin: 5%;">
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

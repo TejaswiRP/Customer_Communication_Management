@@ -100,8 +100,17 @@
     /*phone landscape*/
     .page_bg_2{
          background: url('../course_images/pages/m01/t02/p01/bg_img_ph_landscape.jpg') center center;
+         overflow-y: scroll;
     }
-    
+    .main-div {
+        position: relative;
+        left: 20%;
+        top: 62%;
+    }
+    .hr-custom2 {
+        top: 67%;
+        width: 60%;
+    }
 }
 </style>
 <div class='main-container animated fadeIn _1'>
@@ -126,7 +135,7 @@
               <div class="row">
                     <div class="col-xs-10 col-sm-10 col-md-6 col-lg-6 div-custom">
                         <img class="img-responsive" src="../course_images/pages/m01/t02/p01/btn_01.png" style="cursor: pointer;" ng-click="loadScreen(0,1,1)">
-                        <span class="span-custom">
+                        <span class="span-custom" ng-click="loadScreen(0,1,1)">
                             <h3>Videos</h3>
                         </span>
                     </div>
