@@ -3581,7 +3581,7 @@ FrameworkApp.directive('vdocontrol', function () {
 					$scope.closeEnable = true;
 				}
 				var a = document.getElementById('introVideo');
-				setTimeout(function(){
+				/*setTimeout(function(){
 					// a.load();
 					// a.play();		
 					a.addEventListener("ended",function(){
@@ -3589,7 +3589,7 @@ FrameworkApp.directive('vdocontrol', function () {
 						$rootScope.markVisitedPage();				
 						$rootScope.$apply();				
 					});
-				},1000);
+				},1000);*/
 				pauseAudio();
 				$rootScope.disableAudio = true;
 			}
