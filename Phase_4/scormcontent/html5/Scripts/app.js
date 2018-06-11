@@ -300,12 +300,13 @@ function init() {
         }, function (response) {			
         });
 
-
     $rootScope.$on("$locationChangeStart", function (event, next, current) {
         $rootScope.CourseContent = "";
+
        if( $rootScope.currentTopic == $rootScope.CourseConfig.AssessmentSection-1 || $rootScope.currentTopic == $rootScope.CourseConfig.PreAssessmentSection-1)
 			{
-				var tURL = '../course_content/' + $rootScope.selectedLang + '/m' + $rootScope.pad($rootScope.currentModule + 1) + '/t' + $rootScope.pad($rootScope.currentTopic + 1) + '/p' + $rootScope.pad($rootScope.assesmentQuestionIndex[$rootScope.currentPage]) + '.xml';
+		      alert(12)
+        		var tURL = '../course_content/' + $rootScope.selectedLang + '/m' + $rootScope.pad($rootScope.currentModule + 1) + '/t' + $rootScope.pad($rootScope.currentTopic + 1) + '/p' + $rootScope.pad($rootScope.assesmentQuestionIndex[$rootScope.currentPage]) + '.xml';
 			}
         else{
 			 var tURL = '../course_content/' + $rootScope.selectedLang + '/m' + $rootScope.pad($rootScope.currentModule + 1) + '/t' + $rootScope.pad($rootScope.currentTopic + 1) + '/p' + $rootScope.pad($rootScope.currentPage + 1) + '.xml';
@@ -505,6 +506,15 @@ function init() {
     $rootScope.pad = function (n) {
         return (n < 10) ? ("0" + n) : n;
     }
+    function loadXML(){
+             var tURL = '../course_content/' + $rootScope.selectedLang + '/m' + $rootScope.pad($rootScope.currentModule + 1) + '/t' + $rootScope.pad($rootScope.currentTopic + 1) + '/p' + $rootScope.pad($rootScope.currentPage + 1) + '.xml';
+        $http.get(tURL).
+            then(function (response) {
+                 $rootScope.isPageCompleted = false;
+                 $rootScope.CourseContent = $.xml2json(response.data).root.contents;
+    });
+}
+loadXML();
 	
 	$rootScope.getdateString = function(){
 		var currentTime = new Date();
@@ -600,7 +610,7 @@ function init() {
 	
 	
     $rootScope.viewedPage = function (m, t, p) {
-        var currentPath = $location.path().split("/")[3];
+        /*var currentPath = $location.path().split("/")[3];
         var cModule = currentPath.split("_")[0] - 1;
         var cTopic = currentPath.split("_")[1] - 1;
         var cPage = currentPath.split("_")[2] - 1;
@@ -609,7 +619,7 @@ function init() {
         }
         if(m == cModule && t == cTopic && p == cPage){
             return "current-page"
-        }
+        }*/
     }
 
     //Bootstrapp modal instaciate
@@ -624,14 +634,14 @@ function init() {
     };
 
     $rootScope.viewedTopic = function (m, t) {
-        var currentPath = $location.path().split("/")[3];
+     /*   var currentPath = $location.path().split("/")[3];
         var cModule = currentPath.split("_")[0] - 1;
         var cTopic = currentPath.split("_")[1] - 1;
         var cPage = currentPath.split("_")[2] - 1;
         if(m == cModule && t == cTopic){
             return "current-topic"
         }
-
+*/
     }
 
     //Event triggered on click of RESOURCE button
