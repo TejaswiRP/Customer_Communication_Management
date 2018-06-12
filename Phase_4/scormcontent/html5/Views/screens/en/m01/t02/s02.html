@@ -156,6 +156,15 @@
     font-weight: normal;
     font-style: normal;
 }
+.backDrop-custom{
+    background-color: black; 
+    opacity: 0.5; 
+    height: 100%; 
+    width: 100%; 
+    position: absolute; 
+    top: 0%; 
+    left: 0%;
+}
 
 
 @media (max-width: 768px) and (orientation:portrait){
@@ -299,13 +308,20 @@
     .video_intro {
         padding-left: 0px;
         top: 3%;
+        position: fixed;
     }
     .introVideo{
         width: 96%;
         height: 96%;
     }
+    .backDrop-custom{
+        position: fixed;
+    }
     .close-video{
+        position: fixed;
         right: 1%;
+        top: 0%;
+        z-index: 111;
     }
 }
 </style>
@@ -384,6 +400,7 @@
                     </div>
                   </div>
               </div>
+              <div ng-show="showVideo1 == true || showVideo2 == true || showVideo3 == true" class="backDrop-custom"></div>
               <div class="video_intro" ng-show="showVideo1 == true">
                     <div class="close-video" ng-click="closeVidePopUp1()"></div>
                     <video id="introVideo1" height="450" controls class="introVideo video-mp4" poster="" controlsList="nodownload">
