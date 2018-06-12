@@ -579,6 +579,18 @@ FrameworkApp.controller('Config', ['$scope', '$http', '$rootScope', '$modal', '$
     	$scope.showVideo = false;
     	document.getElementById('introVideo').pause();
     }
+    $scope.closeVidePopUp1 = function(){
+    	$scope.showVideo1 = false;
+    	document.getElementById('introVideo1').pause();
+    }
+    $scope.closeVidePopUp2 = function(){
+    	$scope.showVideo2 = false;
+    	document.getElementById('introVideo2').pause();
+    }
+    $scope.closeVidePopUp3 = function(){
+    	$scope.showVideo3 = false;
+    	document.getElementById('introVideo3').pause();
+    }
 
 
     $scope.changeRole = function(role){

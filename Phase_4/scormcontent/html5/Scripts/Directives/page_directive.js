@@ -3553,14 +3553,17 @@ FrameworkApp.directive('introControl', function () {
         controller: function ($scope, $rootScope,$timeout,$timeout) {	
 			$scope.page2 = true;
 			var vdo = document.getElementById("introVideo");
+			/*var vdo1 = document.getElementById("introVideo1");
+			var vdo2 = document.getElementById("introVideo2");
+			var vdo3 = document.getElementById("introVideo3");*/
 				// vdo.load();
 				// vdo.play();
-				vdo.addEventListener('ended', function(){
-					/* $timeout(function(){
+				/*vdo.addEventListener('ended', function(){
+					 $timeout(function(){
 						$scope.startcourseFromIntro();
 						$scope.$apply();							
-					}); */
-				});
+					}); 
+				});*/
 
         }
     }
@@ -3581,6 +3584,9 @@ FrameworkApp.directive('vdocontrol', function () {
 					$scope.closeEnable = true;
 				}
 				var a = document.getElementById('introVideo');
+				/*var a1 = document.getElementById("introVideo1");
+				var a2 = document.getElementById("introVideo2");
+				var a3 = document.getElementById("introVideo3");*/
 				/*setTimeout(function(){
 					// a.load();
 					// a.play();		

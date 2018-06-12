@@ -15,7 +15,15 @@
 .main-container{
 	overflow: hidden;
 }
-
+.video_intro {
+    padding-left: 73px;
+    position: absolute;
+    top: 23%;
+}
+.introVideo{
+    box-shadow: 7px 5px 6px 0px rgba(0, 0, 0, 0.5);
+    
+}
 .panel-custom{
     background-color: transparent !important;
     border-radius: transparent !important;
@@ -129,6 +137,26 @@
     cursor: pointer; 
     height: 85px;
 }
+.close-video{
+    height: 25px;
+    width: 25px;
+    background-color: rgba(255, 255, 255, 0.32);
+    border-radius: 50%;
+    position: absolute;
+    text-align: center;
+    color: white !important;
+    padding: 3px;
+    right: -3%;
+    top: -3%;
+    cursor: pointer;
+}
+.close-video::after{
+    content: '\f00d';
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 @media (max-width: 768px) and (orientation:portrait){
     /*tab potrait*/
@@ -164,6 +192,16 @@
     }
     .para-custom-1 {
         font-size: 14px;
+    }
+    .video_intro {
+        padding: 0px;
+    }
+    .introVideo{
+        width: 96%;
+    }
+    .close-video{
+        right: 2%;
+        top: 0%;
     }
     
 }
@@ -201,6 +239,40 @@
         margin: 5%;
         margin-top: 6%;
     }
+     .close-video {
+        height: 50px;
+        width: 50px;
+        background-color: rgba(255, 255, 255, 0.32);
+        border-radius: 50%;
+        position: absolute;
+        text-align: center;
+        color: white !important;
+        padding: 3px;
+        right: 43%;
+        top: 75%;
+        cursor: pointer;
+        text-align: center;
+    }
+    .close-video::after {
+        content: '\f00d';
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 37px;
+        text-align: center;
+    }
+    .video_intro {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,1);
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+    }
+    .introVideo{
+        width : 100%;
+    }
 }
 @media (max-width: 667px) and (orientation:landscape){
     /*phone landscape*/
@@ -224,11 +296,22 @@
     .video-icon-custom {
         margin: 3%;
     }
+    .video_intro {
+        padding-left: 0px;
+        top: 3%;
+    }
+    .introVideo{
+        width: 96%;
+        height: 96%;
+    }
+    .close-video{
+        right: 1%;
+    }
 }
 </style>
 <div class='main-container animated fadeIn _1'>
 	<div class="page_bg_2">  
-		<div class="panel panel-custom">
+		<div class="panel panel-custom" ng-init="showVideo1 = false; showVideo2 = false; showVideo3 = false;">
             <div class="panel-body">
                 <div class="col-xs-12 col-sm-12">
                     <h3 class="col-xs-6 col-sm-6">BETTER BE A COMMUNICATOR</h3>
@@ -250,7 +333,7 @@
               <br><br><br>
               <div class="col-xs-12 col-sm-12 col-md-12 row main-div">
                 <div class="col-xs-12 col-sm-12 col-md-5 div-custom">
-                    <img class="video-icon-custom" src="../course_images/pages/m01/t02/p02/video_icon.png">
+                    <img class="video-icon-custom" src="../course_images/pages/m01/t02/p02/video_icon.png" ng-click="showVideo1 = true">
                     <div class="panel panel-custom-2">
                         <div class="panel-header">
                             <h4>Listening Skills</h4>
@@ -266,7 +349,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-5 div-custom">
-                    <img class="video-icon-custom" src="../course_images/pages/m01/t02/p02/video_icon.png">
+                    <img class="video-icon-custom" src="../course_images/pages/m01/t02/p02/video_icon.png" ng-click="showVideo2 = true">
                     <div class="panel panel-custom-2">
                         <div class="panel-header">
                             <h4>Effective Communication</h4>
@@ -285,7 +368,7 @@
               <br>
               <div class="col-xs-12 col-sm-12 col-md-12 row main-div2">
                   <div class="col-xs-12 col-sm-12 col-md-5 div-custom">
-                      <img class="video-icon-custom" src="../course_images/pages/m01/t02/p02/video_icon.png">
+                      <img class="video-icon-custom" src="../course_images/pages/m01/t02/p02/video_icon.png" ng-click="showVideo3 = true">
                       <div class="panel panel-custom-2">
                         <div class="panel-header">
                             <h4>Questioning Skills</h4>
@@ -301,6 +384,24 @@
                     </div>
                   </div>
               </div>
+              <div class="video_intro" ng-show="showVideo1 == true">
+                    <div class="close-video" ng-click="closeVidePopUp1()"></div>
+                    <video id="introVideo1" height="450" controls class="introVideo video-mp4" poster="" controlsList="nodownload">
+                        <source src="../video/Intro.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video_intro" ng-show="showVideo2 == true">
+                    <div class="close-video" ng-click="closeVidePopUp2()"></div>
+                    <video id="introVideo2" height="450" controls class="introVideo video-mp4" poster="" controlsList="nodownload">
+                        <source src="../video/Intro.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video_intro" ng-show="showVideo3 == true">
+                    <div class="close-video" ng-click="closeVidePopUp3()"></div>
+                    <video id="introVideo3" height="450" controls class="introVideo video-mp4" poster="" controlsList="nodownload">
+                        <source src="../video/Intro.mp4" type="video/mp4">
+                    </video>
+                </div>
             </div>
         </div>
     </div>
